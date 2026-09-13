@@ -1,0 +1,7 @@
+modelo_1,modelo_2,DM,p,veredicto
+XGB expansiva,Ingenuo (precio ayer),-3.6961363519019046,0.00022974206133463682,gana XGB expansiva
+XGB deslizante,Ingenuo (precio ayer),1.054500661854794,0.2918863723062439,sin diferencia significativa
+RF referencia,Ingenuo (precio ayer),-1.8220935572980559,0.0687134616184657,sin diferencia significativa
+XGB expansiva,RF referencia,-3.6052467990283144,0.000325894332448895,gana XGB expansiva
+XGB deslizante,RF referencia,3.4171725479746855,0.0006560000699988855,gana RF referencia
+XGB expansiva,XGB deslizante,-7.568931165334901,7.949196856316121e-14,gana XGB expansiva

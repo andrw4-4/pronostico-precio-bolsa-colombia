@@ -1,0 +1,22 @@
+codigo,titulo,estado
+A1,lag0 sobre series medidas (no pronosticadas),PASS
+A2,Bloque DESPACHO excluido,PASS
+A3,Correlacion con el target > 0.97,PASS
+A4,ONI con rezago de publicacion,PASS
+B1,"Seleccion, validacion y prueba no se traslapan",PASS
+B2,Gap seleccion->validacion cubre la ventana mas larga,WARN
+B3,Proporcion desarrollo/prueba razonable,PASS
+B4,Etapas 02/03 evaluan solo sobre validacion,PASS
+B5,modelo_final.json elegido sin tocar la prueba,PASS
+C1,Medias moviles del target usan shift(1),PASS
+C2,Los lags del target desplazan correctamente,PASS
+C3,margen_reserva usa demanda REZAGADA,PASS
+D1,out_dir es ruta absoluta,PASS
+D2,Salidas de todas las etapas presentes,PASS
+D3,La seleccion refleja el panel actual,PASS
+D4,Prefijos de bloque sin ambiguedad,PASS
+E1,Target presente y con rango plausible,PASS
+E2,Sin columnas constantes,PASS
+E3,Indice de fechas limpio,PASS
+E4,Sin series que sean tendencia pura,WARN
+E5,% de volumen por embalse ponderado por capacidad,PASS

@@ -1,0 +1,28 @@
+# Datos crudos y derivados (pesados, no se publican)
+cache_api/
+data/
+Datos que  usaré/
+datos_simem/
+salidas/*.parquet
+
+# PDFs de terceros (tesis y papers de otros autores, no redistribuibles)
+Tesis guia/
+Energia/
+
+# Documentos personales
+Propuesta.docx
+a.arismendi rpg.docx
+
+# Copias de seguridad internas (redundantes con el historial de git)
+respaldo_*/
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# SO / editor
+.DS_Store
+Thumbs.db

@@ -1,0 +1,57 @@
+{
+  "inicio": "2026-09-13T08:22:11",
+  "python": "3.13.14",
+  "pasos": [
+    {
+      "paso": "00",
+      "archivo": "00_consolidar_panel.py",
+      "segundos": 51.7,
+      "codigo_salida": 0,
+      "fin": "2026-09-13T08:23:02"
+    },
+    {
+      "paso": "01",
+      "archivo": "01_seleccion_variables.py",
+      "segundos": 78.6,
+      "codigo_salida": 0,
+      "fin": "2026-09-13T08:24:21"
+    },
+    {
+      "paso": "02",
+      "archivo": "02_evaluacion_bloques.py",
+      "segundos": 147.5,
+      "codigo_salida": 0,
+      "fin": "2026-09-13T08:26:49"
+    },
+    {
+      "paso": "03",
+      "archivo": "03_bloques_candidatos.py",
+      "segundos": 163.2,
+      "codigo_salida": 0,
+      "fin": "2026-09-13T08:29:32"
+    },
+    {
+      "paso": "06",
+      "archivo": "06_auditoria.py",
+      "segundos": 2.8,
+      "codigo_salida": 0,
+      "fin": "2026-09-13T08:29:35"
+    },
+    {
+      "paso": "04",
+      "archivo": "04_xgboost.ipynb",
+      "segundos": 401.6,
+      "codigo_salida": 0,
+      "fin": "2026-09-13T08:36:16"
+    },
+    {
+      "paso": "05",
+      "archivo": "05_xgboost_diferencia.ipynb",
+      "segundos": 324.4,
+      "codigo_salida": 0,
+      "fin": "2026-09-13T08:41:41"
+    }
+  ],
+  "fin": "2026-09-13T08:41:41",
+  "minutos_total": 19.5
+}

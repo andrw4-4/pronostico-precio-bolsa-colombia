@@ -1,0 +1,63 @@
+{
+  "generado": "2026-09-13T08:29:31",
+  "modelo": "AR+HIDRO+OFERTA",
+  "criterio": "menor MAPE en validacion entre los modelos que mejoran la base AR con DM<0 y p_FDR<0.05",
+  "selection_cutoff": "2019-12-31",
+  "ventana_validacion": [
+    "2020-01-01",
+    "2022-12-31"
+  ],
+  "test_start": "2023-01-01",
+  "test_end": "2025-12-31",
+  "bloques": {
+    "AR": [
+      "log_precio_lag1",
+      "log_precio_ma30",
+      "log_precio_sd7"
+    ],
+    "HIDRO": [
+      "aportes_pct_sistema_lag1",
+      "aportes_por_rio_lag2",
+      "aportes_media_hist_lag30",
+      "volumen_util_pct_lag1",
+      "inv_volumen_util_pct_lag1",
+      "volumen_util_pct_emb_d7",
+      "oni_lag1"
+    ],
+    "OFERTA": [
+      "disp_declarada_lag0",
+      "margen_reserva_lag0",
+      "margen_reserva_lag7",
+      "disp_declarada_d7",
+      "gen_programada_lag7"
+    ]
+  },
+  "features": [
+    "log_precio_lag1",
+    "log_precio_ma30",
+    "log_precio_sd7",
+    "aportes_pct_sistema_lag1",
+    "aportes_por_rio_lag2",
+    "aportes_media_hist_lag30",
+    "volumen_util_pct_lag1",
+    "inv_volumen_util_pct_lag1",
+    "volumen_util_pct_emb_d7",
+    "oni_lag1",
+    "disp_declarada_lag0",
+    "margen_reserva_lag0",
+    "margen_reserva_lag7",
+    "disp_declarada_d7",
+    "gen_programada_lag7"
+  ],
+  "metricas_validacion": {
+    "n": 1096.0,
+    "MAPE_niv": 7.922051663994817,
+    "RMSE_log": 0.1140255560493972,
+    "DA_pct": 57.57299270072993,
+    "DM": -2.9297467521302543,
+    "p_DM": 0.003462730706435879,
+    "p_FDR": 0.008079704981683719,
+    "DM_ingenuo": -0.2791360204114205,
+    "p_ingenuo": 0.7801931512464029
+  }
+}

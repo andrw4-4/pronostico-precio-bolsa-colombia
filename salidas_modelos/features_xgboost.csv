@@ -1,0 +1,3 @@
+,0
+modelo_etapa3,AR+HIDRO+OFERTA
+features,log_precio_lag1;log_precio_ma30;log_precio_sd7;aportes_pct_sistema_lag1;aportes_por_rio_lag2;aportes_media_hist_lag30;volumen_util_pct_lag1;inv_volumen_util_pct_lag1;volumen_util_pct_emb_d7;oni_lag1;disp_declarada_lag0;margen_reserva_lag0;margen_reserva_lag7;disp_declarada_d7;gen_programada_lag7
