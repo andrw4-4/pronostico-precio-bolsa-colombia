@@ -69,12 +69,16 @@ BASE_DIR = Path(__file__).resolve().parent
 
 CONFIG = {
     # Ruta al panel diario ya construido (csv o parquet)
-    "panel_path": r"C:\Users\andre\OneDrive\cosas de la universidad\Uniandes\VIII\Tesis\data\panel_d.parquet",
+    "panel_path": str(BASE_DIR / "data" / "panel_d.parquet"),
     "date_col": "fecha",
+
+    # Variables de clima diarias (sale de 00b_clima_diario.py). Si el archivo
+    # no existe, el panel se carga sin ellas.
+    "clima_path": str(BASE_DIR / "data" / "clima_diario.parquet"),
     "target_col": "precio_ponderado",
 
     # El target se modela en log. Si ya viene en log, pon False.
-    "log_target": True,
+    "log_target": False,
 
     # PERIODOS DEL PIPELINE (compartidos por 02, 03, 06 y los notebooks).
     # CORTE DE SELECCION. Nada despues de esta fecha entra a este script.
@@ -163,6 +167,11 @@ CONFIG = {
                         "compras_contrato"],
         "COSTO":       ["trm", "igas", "precio_gas", "henry_hub"],
         "CALENDARIO":  ["es_", "dow_", "doy_"],
+        # sale de 00b_clima_diario.py. Prefijos especificos a proposito:
+        # "temp_" solo atraparia tambien temp_panel de XM.
+        "CLIMA":       ["tormenta_", "soi", "mjo_", "precip_cuencas",
+                        "evap_cuencas", "temp_caribe", "temp_andina",
+                        "humedad_caribe", "viento_guajira", "radiacion_cesar"],
 
         # DESPACHO: casi-identidad con el precio de bolsa.
         # Se separa a proposito para poder excluirlo (ver excluir_despacho).
@@ -212,6 +221,13 @@ def cargar_panel(cfg):
             f"Indice actual: '{df.index.name}'."
         )
 
+    clima_path = Path(cfg.get("clima_path", ""))
+    if clima_path.is_file():
+        clima = pd.read_parquet(clima_path)
+        clima.index = pd.to_datetime(clima.index)
+        df = df.join(clima, how="left")
+        print(f"[carga]   + {clima.shape[1]} variables de clima ({clima_path.name})")
+
     df = df.sort_index()
     df = df.asfreq("D")  # expone huecos de calendario como NaN explicitos
     return df
@@ -226,8 +242,10 @@ def construir_features(df, cfg):
     Regla de oro: toda estadistica movil se calcula con shift(1) ANTES del
     rolling. Nunca centrada. Asi el valor en t solo usa informacion <= t-1.
     """
+    
     y_raw = df[cfg["target_col"]]
-    y = np.log(y_raw.clip(lower=1e-6)) if cfg["log_target"] else y_raw
+    logp = np.log(y_raw.clip(lower=1e-6))
+    y = logp.diff()  
     y.name = "y"
 
     exog = df.drop(columns=[cfg["target_col"]])
@@ -336,19 +354,11 @@ def estacionarizar(X, adf_res):
 # 4. AGRUPAMIENTO POR CORRELACION
 # ==============================================================================
 
-def agrupar_correlacionadas(X, threshold=0.90):
-    """
-    Los lags del precio, las reservas y los aportes van a estar altisimamente
-    correlacionados. Eso no rompe los arboles, pero SI distorsiona SHAP: el
-    credito se reparte arbitrariamente entre features redundantes.
+def agrupar_correlacionadas(X, threshold=0.90, min_obs=200):
+    # correlacion por parejas: cada par usa solo los dias donde ambas
+    # tienen dato. Sin dropna global y sin imputar.
+    rho = X.corr(method="spearman", min_periods=min_obs).fillna(0).values
 
-    Agrupa con clustering jerarquico sobre distancia = 1 - |rho_Spearman|.
-    """
-    Xc = X.dropna()
-    if Xc.shape[0] < 100:
-        Xc = X.fillna(X.median())
-
-    rho = Xc.corr(method="spearman").fillna(0).values
     dist = 1.0 - np.abs(rho)
     np.fill_diagonal(dist, 0.0)
     dist = (dist + dist.T) / 2
@@ -357,8 +367,7 @@ def agrupar_correlacionadas(X, threshold=0.90):
     labels = fcluster(Z, t=1.0 - threshold, criterion="distance")
 
     grupos = pd.Series(labels, index=X.columns, name="grupo_corr")
-    n_g = grupos.nunique()
-    print(f"[corr]    {len(X.columns)} features -> {n_g} grupos "
+    print(f"[corr]    {len(X.columns)} features -> {grupos.nunique()} grupos "
           f"(|rho| > {threshold})")
     return grupos
 
@@ -551,6 +560,9 @@ def asignar_bloque(col, blocks):
 
 
 def consolidar(X, adf_res, grupos, mi, granger_res, emb, cfg):
+    """
+    Cuatro senales, un voto cada una: Granger, MI, Lasso y permutacion en RF.
+    """
     t = pd.DataFrame(index=X.columns)
     t["bloque"] = [asignar_bloque(c, cfg["blocks"]) for c in X.columns]
     t["grupo_corr"] = grupos
@@ -566,9 +578,13 @@ def consolidar(X, adf_res, grupos, mi, granger_res, emb, cfg):
     t["voto_granger"] = t.get("granger_signif", False).fillna(False).astype(int)
     t["voto_mi"] = (t.get("r_mi", 0) > 0.70).astype(int)
     t["voto_lasso"] = (t.get("lasso_abs", 0) > 0).astype(int)
-    t["voto_perm"] = (t.get("r_perm", 0) > 0.70).astype(int)
-    t["votos"] = t[["voto_granger", "voto_mi", "voto_lasso",
-                    "voto_perm"]].sum(axis=1)
+    # la permutacion tiene que ser positiva: si barajar la feature no
+    # empeora el error (o lo mejora), no aporta, aunque este en el top 30%
+    t["voto_perm"] = ((t.get("r_perm", 0) > 0.70)
+                      & (t.get("perm_imp", 0) > 0)).astype(int)
+
+    t["votos"] = t[["voto_granger", "voto_mi",
+                    "voto_lasso", "voto_perm"]].sum(axis=1)
 
     # score continuo para desempatar dentro de cada grupo de correlacion
     t["score"] = t[["r_mi", "r_lasso", "r_perm"]].mean(axis=1).fillna(0)
@@ -661,9 +677,10 @@ def main():
     grupos = agrupar_correlacionadas(X, cfg["corr_threshold"])
     mi = info_mutua(X, y)
     granger_res = granger_fdr(Xs, y_s, cfg["granger_maxlag"], cfg["fdr_alpha"])
-    emb = embedded(X, y)
+    # metodos embedded (Lasso + permutacion en RF) desactivados por ahora
 
     print("-" * 72)
+    emb = embedded(X, y)
     tabla = consolidar(X, adf_res, grupos, mi, granger_res, emb, cfg)
 
     # Diagnostico: si algo cae en OTRO es que falta un prefijo en
@@ -702,3 +719,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
