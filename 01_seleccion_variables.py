@@ -550,28 +550,28 @@ def asignar_bloque(col, blocks):
     return "OTRO"
 
 
-def consolidar(X, adf_res, grupos, mi, granger_res, emb, cfg):
+def consolidar(X, adf_res, grupos, mi, granger_res, cfg):
+    """
+    Votos y score solo con Granger + MI. Los metodos embedded (Lasso +
+    permutacion en RF) estan desactivados por ahora (ver main): no se
+    convocan, esta funcion no los espera ni los necesita.
+    """
     t = pd.DataFrame(index=X.columns)
     t["bloque"] = [asignar_bloque(c, cfg["blocks"]) for c in X.columns]
     t["grupo_corr"] = grupos
-    t = t.join(adf_res).join(mi).join(granger_res).join(emb)
+    t = t.join(adf_res).join(mi).join(granger_res)
 
-    # rankings normalizados (1 = mejor)
-    for col, new in [("mi", "r_mi"), ("lasso_abs", "r_lasso"),
-                     ("perm_imp", "r_perm")]:
-        if col in t.columns:
-            t[new] = t[col].rank(pct=True, ascending=True)
+    # ranking normalizado (1 = mejor)
+    if "mi" in t.columns:
+        t["r_mi"] = t["mi"].rank(pct=True, ascending=True)
 
     # votos: cada senal aporta uno
     t["voto_granger"] = t.get("granger_signif", False).fillna(False).astype(int)
     t["voto_mi"] = (t.get("r_mi", 0) > 0.70).astype(int)
-    t["voto_lasso"] = (t.get("lasso_abs", 0) > 0).astype(int)
-    t["voto_perm"] = (t.get("r_perm", 0) > 0.70).astype(int)
-    t["votos"] = t[["voto_granger", "voto_mi", "voto_lasso",
-                    "voto_perm"]].sum(axis=1)
+    t["votos"] = t[["voto_granger", "voto_mi"]].sum(axis=1)
 
     # score continuo para desempatar dentro de cada grupo de correlacion
-    t["score"] = t[["r_mi", "r_lasso", "r_perm"]].mean(axis=1).fillna(0)
+    t["score"] = t["r_mi"].fillna(0)
 
     t = t.sort_values(["votos", "score"], ascending=False)
     return t
@@ -661,10 +661,10 @@ def main():
     grupos = agrupar_correlacionadas(X, cfg["corr_threshold"])
     mi = info_mutua(X, y)
     granger_res = granger_fdr(Xs, y_s, cfg["granger_maxlag"], cfg["fdr_alpha"])
-    emb = embedded(X, y)
+    # metodos embedded (Lasso + permutacion en RF) desactivados por ahora
 
     print("-" * 72)
-    tabla = consolidar(X, adf_res, grupos, mi, granger_res, emb, cfg)
+    tabla = consolidar(X, adf_res, grupos, mi, granger_res, cfg)
 
     # Diagnostico: si algo cae en OTRO es que falta un prefijo en
     # CONFIG["blocks"] -- vale revisarlo, porque OTRO se excluye por defecto
