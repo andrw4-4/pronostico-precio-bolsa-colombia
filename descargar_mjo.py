@@ -1,38 +1,37 @@
 """
-Descarga el indice MJO (RMM de Wheeler-Hendon) del Bureau of Meteorology de
-Australia y lo guarda en data/mjo_bom.csv. Es diario.
+Descarga el indice MJO en tiempo real ROMI (Real-time OLR MJO Index, NOAA PSL)
+y lo guarda en data/mjo_romi.csv. Es diario, 1991 -> presente.
 
-www.bom.gov.au no resuelve desde algunas redes; reg.bom.gov.au sirve el mismo
-archivo.
+Por que ROMI y no las alternativas:
+  - RMM del Bureau of Meteorology: dejo de actualizarse el 2024-02-24 y deja
+    sin dato el 62% del periodo de prueba.
+  - OMI (la version no real-time): filtra con una ventana CENTRADA, asi que el
+    valor del dia t usa radiacion de semanas posteriores. Es fuga.
+  - ROMI solo usa datos pasados: es lo que un pronosticador tendria ese dia.
+
+pc1 y pc2 son las dos componentes principales del OMI. No son las mismas que
+rmm1/rmm2 (otro metodo), pero cumplen el mismo papel: juntas ubican el pulso
+convectivo sobre el tropico.
 """
 
 import io
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 import requests
 
-URL = "https://reg.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt"
-SALIDA = Path(__file__).resolve().parent / "data" / "mjo_bom.csv"
+URL = "https://psl.noaa.gov/mjo/mjoindex/romi.cpcolr.1x.txt"
+SALIDA = Path(__file__).resolve().parent / "data" / "mjo_romi.csv"
 
 
 def main():
-    texto = requests.get(URL, timeout=60,
-                         headers={"User-Agent": "Mozilla/5.0"}).text
-
-    df = pd.read_csv(io.StringIO(texto), sep=r"\s+", skiprows=2, header=None,
-                     names=["y", "m", "d", "rmm1", "rmm2", "fase",
-                            "amplitud", "metodo"])
+    texto = requests.get(URL, timeout=60).text
+    df = pd.read_csv(io.StringIO(texto), sep=r"\s+", header=None,
+                     names=["y", "m", "d", "hora", "pc1", "pc2", "amplitud"])
     df["Date"] = pd.to_datetime(dict(year=df["y"], month=df["m"], day=df["d"]))
 
-    cols = ["rmm1", "rmm2", "fase", "amplitud"]
-    df[cols] = df[cols].apply(pd.to_numeric, errors="coerce")
-    # faltantes marcados como 1.E36 o 999
-    df[cols] = df[cols].where(df[cols].abs() < 999, np.nan)
-
-    mjo = df[["Date"] + cols].dropna().reset_index(drop=True)
-    mjo["fase"] = mjo["fase"].astype(int)
+    mjo = (df[["Date", "pc1", "pc2", "amplitud"]]
+           .dropna().sort_values("Date").reset_index(drop=True))
 
     mjo.to_csv(SALIDA, index=False)
     print(mjo.tail(5).to_string(index=False))

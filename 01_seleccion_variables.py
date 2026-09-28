@@ -77,8 +77,16 @@ CONFIG = {
     "clima_path": str(BASE_DIR / "data" / "clima_diario.parquet"),
     "target_col": "precio_ponderado",
 
-    # El target se modela en log. Si ya viene en log, pon False.
-    "log_target": False,
+    # El objetivo es el RETORNO LOGARITMICO, log(P_t) - log(P_t-1), que arma
+    # construir_features(). Cambia la referencia en 02/03: el pronostico
+    # ingenuo pasa a ser "cambio cero" y el acierto direccional se mide
+    # contra 0 (sube o baja el PRECIO), no contra el retorno de ayer.
+    "target_retorno": True,
+
+    # Lo usa metricas() para llevar el error a niveles con exp(). Con retornos
+    # log, exp(r_pred) / exp(r) = P_pred / P, asi que el MAPE queda en % del
+    # PRECIO. En False dividiria por el retorno (~0) y el MAPE explotaria.
+    "log_target": True,
 
     # PERIODOS DEL PIPELINE (compartidos por 02, 03, 06 y los notebooks).
     # CORTE DE SELECCION. Nada despues de esta fecha entra a este script.

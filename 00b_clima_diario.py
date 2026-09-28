@@ -5,7 +5,7 @@ data/clima_diario.parquet, que 01_seleccion_variables.py pega al panel.
 Fuentes (cada una es opcional: si falta su archivo, se omite):
   HURDAT      data/clima/hurdat_huracanes.csv  tormentas en el Caribe
   SOI         data/soi_noaa.csv                descargar_soi.py
-  MJO         data/mjo_bom.csv                 descargar_mjo.py
+  MJO         data/mjo_romi.csv                descargar_mjo.py
   Open-Meteo  data/openmeteo_diario.csv        descargar_openmeteo.py
 
 ERA5 y MERRA2 de data/clima/ no entran: cubren solo 2020.
@@ -63,12 +63,13 @@ def soi():
 
 
 def mjo():
-    ruta = DATA / "mjo_bom.csv"
+    ruta = DATA / "mjo_romi.csv"
     if not ruta.exists():
         return None
     m = pd.read_csv(ruta, parse_dates=["Date"]).set_index("Date")
-    # la fase (1-8) es circular: rmm1/rmm2 ya codifican la posicion
-    out = m[["rmm1", "rmm2", "amplitud"]].add_prefix("mjo_").reindex(DIAS)
+    # pc1/pc2 ubican el pulso en el circulo de fases; la fase como numero no
+    # sirve porque es circular (la 8 esta pegada a la 1)
+    out = m[["pc1", "pc2", "amplitud"]].add_prefix("mjo_").reindex(DIAS)
     print(f"  MJO         hasta {m.index.max().date()}")
     return out
 

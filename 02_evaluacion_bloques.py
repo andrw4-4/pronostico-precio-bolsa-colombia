@@ -126,8 +126,7 @@ def diebold_mariano(e1, e2, h=1, power=2):
     Un DM < 0 significa que el modelo 1 tiene MENOR perdida (es mejor).
 
     La correccion HLN (Harvey, Leybourne & Newbold, 1997) ajusta el estadistico
-    y usa distribucion t en lugar de normal. Sin ella, DM sobre-rechaza en
-    muestras finitas -- que es justo el caso aqui (~1000 dias).
+    y usa distribucion t en lugar de normal. 
     """
     e1, e2 = np.asarray(e1, float), np.asarray(e2, float)
     ok = np.isfinite(e1) & np.isfinite(e2)
@@ -209,15 +208,29 @@ def walk_forward(X, y, cols, eval_idx, cfg=EVAL, seed=42, etiqueta=""):
     return err, preds
 
 
-def pronostico_ingenuo(y, eval_idx, horizon=1):
+def pronostico_ingenuo(y, eval_idx, horizon=1, retorno=False):
     """
-    Pronostico ingenuo: el valor de hoy es el ultimo observado,
-    y_hat(t) = y(t - horizon). Es la referencia minima obligatoria para una
-    serie casi de caminata aleatoria.
+    Pronostico ingenuo: el precio de hoy es el ultimo observado. Es la
+    referencia minima obligatoria para una serie casi de caminata aleatoria.
+
+    En nivel eso es y_hat(t) = y(t - horizon). Si y es el retorno, "el precio
+    no cambia" es retorno 0 -- y(t - horizon) seria "el retorno de hoy igual
+    al de ayer", que es otro modelo.
     """
-    pred = y.shift(horizon).reindex(eval_idx).rename("pred")
+    if retorno:
+        pred = pd.Series(0.0, index=eval_idx, name="pred")
+    else:
+        pred = y.shift(horizon).reindex(eval_idx).rename("pred")
     err = (y.reindex(eval_idx) - pred).rename("error")
     return err, pred
+
+
+def referencia_direccion(y, horizon=1, retorno=False):
+    """Contra que se mide si el precio sube o baja: el nivel de ayer, o 0 si
+    y es el retorno (el signo del retorno ya es la direccion del precio)."""
+    if retorno:
+        return pd.Series(0.0, index=y.index)
+    return y.shift(horizon)
 
 
 def metricas(y_true, y_pred, log_space=True, y_prev=None):
@@ -320,10 +333,11 @@ def main():
           f"sube 'refit_every' a 60 si quieres una pasada rapida.")
     print("-" * 72)
 
-    y_prev = y.shift(e2["horizon"])
+    retorno = cfg.get("target_retorno", False)
+    y_prev = referencia_direccion(y, e2["horizon"], retorno)
 
     # ---- pronostico ingenuo -------------------------------------------------
-    err_ing, pred_ing = pronostico_ingenuo(y, eval_idx, e2["horizon"])
+    err_ing, pred_ing = pronostico_ingenuo(y, eval_idx, e2["horizon"], retorno)
     m_ing = metricas(y.loc[eval_idx], pred_ing, cfg["log_target"], y_prev)
     print(f"{NOMBRE_INGENUO}: MAPE {m_ing['MAPE_niv']:.2f}%  "
           f"RMSE_log {m_ing['RMSE_log']:.4f}")
