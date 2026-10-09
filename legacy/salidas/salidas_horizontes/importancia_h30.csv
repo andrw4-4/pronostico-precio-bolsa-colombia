@@ -1,0 +1,16 @@
+,0
+vol_pct_guavio_lag1,0.02376882
+gen_hidraulica_lag2,0.015546527
+precio_cargo_conf_lag30,0.01470491
+precio_min_dia_lag1,0.013733495
+precio_max_dia_lag1,0.0131564
+precio_min_dia_lag2,0.012667879
+nino34_tend4s_lag7,0.01254975
+cee_choque30,0.012397368
+vol_pct_agregado_bogota_lag30,0.011922345
+nino34_tend4s_lag3,0.011071084
+nino3_anom_lag1,0.010223257
+aportes_media_hist_choque30,0.00972024
+nino12_anom_lag30,0.009587487
+vol_pct_agregado_bogota_lag1,0.009521598
+frac_termica_lag3,0.008971603

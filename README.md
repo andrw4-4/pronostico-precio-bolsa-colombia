@@ -1,51 +1,37 @@
 # Pronóstico del precio de bolsa de energía en Colombia
 
-Pipeline de datos y modelos para pronosticar el precio de bolsa horario/diario
-del mercado eléctrico colombiano (XM/SIMEM), con XGBoost como modelo principal
-y una auditoría automática de fuga de información.
+Tesis de pregrado, Universidad de los Andes. Pronóstico del precio de bolsa diario
+del mercado eléctrico colombiano con datos públicos de XM, NOAA y ERA5.
 
-## Estructura del pipeline
+Hay dos modelos:
 
-Los scripts se corren en orden; cada uno depende de las salidas del anterior.
+- Modelo 1, a un día: un número, el precio de mañana en COP/kWh.
+- Modelo 2, a siete días: una distribución (mediana, intervalo del 80% y
+  probabilidad de pasar de 300, 500 u 800 COP/kWh).
 
-| Paso | Script | Qué hace |
-|---|---|---|
-| 00 | `00_consolidar_panel.py` | Consolida las series de `cache_api/` (no incluido en este repo) en un panel diario |
-| 01 | `01_seleccion_variables.py` | Selecciona variables con datos hasta 2019 (ADF, Granger, información mutua, Lasso, permutación) |
-| 02 | `02_evaluacion_bloques.py` | Evalúa bloques temáticos con walk-forward y Diebold-Mariano sobre 2020-2022 |
-| 03 | `03_bloques_candidatos.py` | Combina bloques, corrige por multiplicidad (FDR) y fija el modelo final |
-| 06 | `06_auditoria.py` | Verifica mecánicamente que no haya fuga temporal ni inconsistencias entre etapas |
-| 04 | `04_xgboost.ipynb` | XGBoost sobre el precio en nivel, prueba 2023-2025 |
-| 05 | `05_xgboost_diferencia.ipynb` | XGBoost sobre la diferencia del log-precio, misma prueba |
-
-`correr_pipeline.py` ejecuta todo en este orden con un solo comando:
+## Cómo se corre
 
 ```bash
-python correr_pipeline.py
+pip install pandas numpy scikit-learn xgboost statsmodels scipy matplotlib openpyxl pydataxm
+python 1_descargar.py        # baja los datos a datos/
+python 2_construir_panel.py  # arma panel_diario.csv
 ```
 
-## Períodos (sin traslape)
+Después se abre `3_modelos.ipynb`. El notebook solo necesita `features.py` y
+`panel_diario.csv`, así que también corre en Colab sin los pasos 1 y 2.
 
-- **Selección de variables:** 2015-01-01 a 2019-12-31
-- **Validación (elección de bloques):** 2020-01-01 a 2022-12-31
-- **Prueba (métricas finales):** 2023-01-01 a 2025-12-31
+La primera descarga tarda varias horas; después solo pide los días nuevos.
+El listado de plantas (`datos/Listado_Recursos_Generacion.xlsx`) se baja a mano de
+PARATEC, en la página de XM.
 
-## Datos
+## Archivos
 
-Este repositorio **no incluye los datos crudos** (`cache_api/`, `data/`,
-`Datos que usaré/`), por tamaño y porque provienen de fuentes externas:
-
-- Series de XM vía [SIMEM](https://www.simem.co/) / `pydataxm`
-- Índice ONI de El Niño: [NOAA CPC](https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php)
-- TRM: [Banco de la República](https://www.banrep.gov.co/)
-
-Para reproducir el panel, descarga esas series con la estructura de columnas
-que espera `00_consolidar_panel.py` (ver los comentarios del script) y colócalas
-en `cache_api/` y `data/`.
-
-## Auditoría de fuga
-
-`06_auditoria.py` corre chequeos mecánicos agrupados en temporalidad, split,
-construcción de features, coherencia entre etapas y calidad de datos. Un
-veredicto sin FAIL no prueba que el modelo sea bueno, solo que el proceso de
-selección y evaluación es válido.
+| Archivo | Qué hace |
+|---|---|
+| `1_descargar.py` | baja las series de XM, El Niño de NOAA, la lluvia de ERA5 y la TRM |
+| `2_construir_panel.py` | lleva todo a un valor por día y calcula las variables derivadas |
+| `features.py` | ingeniería de características: rezagos, medias, choques y limpieza |
+| `3_modelos.ipynb` | los dos modelos, su evaluación y el pronóstico del día |
+| `panel_diario.csv` | el panel que produce el paso 2 |
+| `DOCUMENTACION.md` | explicación completa: fuentes, decisiones, resultados y referencias |
+| `legacy/` | versiones anteriores y experimentos que no funcionaron |

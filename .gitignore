@@ -1,13 +1,18 @@
-# Datos crudos y derivados (pesados, no se publican)
-cache_api/
-data/
-Datos que  usaré/
-datos_simem/
-salidas/*.parquet
+# Datos descargados (pesados; se regeneran con 1_descargar.py)
+datos/
 
-# PDFs de terceros (tesis y papers de otros autores, no redistribuibles)
+# Datos y cachés del pipeline anterior, archivados en legacy/
+cache_*/
+data/
+datos_simem/
+*.parquet
+legacy/paneles/
+
+# Material de terceros (tesis, papers y repos de otros autores)
 Tesis guia/
 Energia/
+Repos guia/
+Datos que  usaré/
 
 # Documentos personales
 Propuesta.docx
@@ -16,13 +21,12 @@ a.arismendi rpg.docx
 # Copias de seguridad internas (redundantes con el historial de git)
 respaldo_*/
 
-# Python
+# Python y Jupyter
 __pycache__/
 *.pyc
-
-# Jupyter
 .ipynb_checkpoints/
 
-# SO / editor
+# Sistema operativo y otros programas
 .DS_Store
 Thumbs.db
+*.log
