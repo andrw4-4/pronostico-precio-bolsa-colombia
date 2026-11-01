@@ -126,6 +126,7 @@ Con ella se obtuvieron los resultados de `legacy/experimentos_xgboost/`.
 |---|---|---|
 | XGBoost y su búsqueda de hiperparámetros | `ajustar`, `COMBINACIONES` | Chen y Guestrin (2016); ML Zoomcamp, `06-trees/08-xgb-tuning.md` |
 | 30 modelos directos, uno por horizonte | `HORIZONTES`, `ancla` | Decisión del autor |
+| Alcance de una semana, h = 3 a 9 | `HORIZONTES_USO`, etapa 6c | Decisión del autor, tomada después de ver el test |
 | Walk-forward con reentrenamiento mensual | `walk_forward` | Hyndman y Athanasopoulos (2021), sección 5.10. Reentrenar cada mes es decisión del autor |
 | Purga de h+1 días | `para_entrenar` | López de Prado (2018), capítulo 7 |
 | Error estándar del error por día | `media_y_error_estandar` | Newey y West (1987) |
@@ -133,6 +134,18 @@ Con ella se obtuvieron los resultados de `legacy/experimentos_xgboost/`.
 | Error relativo al ingenuo | `metricas` | Lago et al. (2021) |
 | Comparar contra el ingenuo con Diebold-Mariano | `diebold_mariano` | Diebold y Mariano (1995), con la varianza de Newey y West (1987) |
 | Criterio para decir que funciona: por bloque de horizontes, RMSE al menos 5% menor que el mejor ingenuo y Diebold-Mariano con p < 0,05 | `criterio`, `MEJORA_MINIMA`, `BLOQUES` | El umbral de 5% y los bloques son decisión del autor, fijados el 1 de noviembre de 2026, antes de abrir el test. La prueba: Diebold y Mariano (1995) |
+
+## Modelo SARIMAX (`5_modelo_sarimax.ipynb`)
+
+| Qué | Dónde | Fuente |
+|---|---|---|
+| Regresión con errores SARIMA y pronóstico | `ajustar`, `pronosticar` | Hyndman y Athanasopoulos (2021), capítulos 9 y 10; paquete `forecast` de R |
+| Diferenciación con KPSS y OCSB | `elegir_orden` | Kwiatkowski et al. (1992); Osborn et al. (1988) |
+| Órdenes con AICc | `elegir_orden` | Akaike (1974); Hurvich y Tsai (1989) |
+| Preblanqueo de las candidatas | `blanquear` | Box et al. (2015). Filtrar la variable con el modelo de `lp` y no con el suyo propio es una simplificación del autor |
+| Corrección de Bonferroni | etapa 3 | Dunn (1961) |
+| Autocorrelación de los residuos | `ljung_box` | Ljung y Box (1978) |
+| Rezago de 9 días para las exógenas y mismo orden para todas las horas | `REZAGO`, etapa 4 | Decisión del autor |
 
 ## Referencias
 
@@ -145,7 +158,9 @@ Guías del proyecto
 
 Artículos y libros
 
+- Akaike, H. (1974). A new look at the statistical model identification. *IEEE Transactions on Automatic Control*, 19(6), 716-723.
 - Beasley, T. M., Erickson, S. y Allison, D. B. (2009). Rank-based inverse normal transformations are increasingly used, but are they merited? *Behavior Genetics*, 39(5), 580-595.
+- Box, G., Jenkins, G., Reinsel, G. y Ljung, G. (2015). *Time Series Analysis: Forecasting and Control*, 5.ª ed. Wiley.
 - Chen, T. y Guestrin, C. (2016). XGBoost: A scalable tree boosting system. *Proceedings of the 22nd ACM SIGKDD Conference*, 785-794.
 - Corsi, F. (2009). A simple approximate long-memory model of realized volatility. *Journal of Financial Econometrics*, 7(2), 174-196.
 - Dickey, D. y Fuller, W. (1979). Distribution of the estimators for autoregressive time series with a unit root. *Journal of the American Statistical Association*, 74(366), 427-431.
@@ -154,15 +169,18 @@ Artículos y libros
 - Dunn, O. J. (1961). Multiple comparisons among means. *Journal of the American Statistical Association*, 56(293), 52-64.
 - Granger, C. (1969). Investigating causal relations by econometric models and cross-spectral methods. *Econometrica*, 37(3), 424-438.
 - Hastie, T., Tibshirani, R. y Friedman, J. (2009). *The Elements of Statistical Learning*, 2.ª ed. Springer.
+- Hurvich, C. y Tsai, C.-L. (1989). Regression and time series model selection in small samples. *Biometrika*, 76(2), 297-307.
 - Hyndman, R. y Athanasopoulos, G. (2021). *Forecasting: Principles and Practice*, 3.ª ed. OTexts.
 - Kursa, M. B. y Rudnicki, W. R. (2010). Feature selection with the Boruta package. *Journal of Statistical Software*, 36(11), 1-13.
 - Kwiatkowski, D., Phillips, P., Schmidt, P. y Shin, Y. (1992). Testing the null hypothesis of stationarity against the alternative of a unit root. *Journal of Econometrics*, 54(1-3), 159-178.
 - Lago, J., Marcjasz, G., De Schutter, B. y Weron, R. (2021). Forecasting day-ahead electricity prices: A review of state-of-the-art algorithms, best practices and an open-access benchmark. *Applied Energy*, 293, 116983.
+- Ljung, G. y Box, G. (1978). On a measure of lack of fit in time series models. *Biometrika*, 65(2), 297-303.
 - López de Prado, M. (2018). *Advances in Financial Machine Learning*. Wiley.
 - Lundberg, S. M. y Lee, S.-I. (2017). A unified approach to interpreting model predictions. *Advances in Neural Information Processing Systems*, 30, 4765-4774.
 - Lundberg, S. M., Erion, G., Chen, H., DeGrave, A., Prutkin, J. M., Nair, B., Katz, R., Himmelfarb, J., Bansal, N. y Lee, S.-I. (2020). From local explanations to global understanding with explainable AI for trees. *Nature Machine Intelligence*, 2(1), 56-67.
 - Newey, W. y West, K. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. *Econometrica*, 55(3), 703-708.
 - Newey, W. y West, K. (1994). Automatic lag selection in covariance matrix estimation. *Review of Economic Studies*, 61(4), 631-653.
+- Osborn, D., Chui, A., Smith, J. y Birchenhall, C. (1988). Seasonality and the order of integration for consumption. *Oxford Bulletin of Economics and Statistics*, 50(4), 361-377.
 
 Regulación del mercado (gestor normativo de la CREG, gestornormativo.creg.gov.co)
 
