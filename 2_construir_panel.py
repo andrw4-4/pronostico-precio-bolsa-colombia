@@ -1,8 +1,8 @@
 """
-Paso 2 de 3: construir el panel diario.
+Paso 2: construir el panel diario.
 
 Toma lo que bajó 1_descargar.py y arma una sola tabla con una fila por día y
-una columna por variable: panel_diario.csv.
+una columna por variable: paneles/panel_diario.csv.
 
 Aquí todavía no hay rezagos ni nada pensado para el modelo; eso lo hace
 features.py. Este paso solo pone todas las fuentes en la misma escala (un
@@ -20,6 +20,7 @@ Partes:
     7. El Niño semanal
     8. Lluvia sobre las cuencas
     9. Curva de mérito
+   10. Boletines del IDEAM (si se corrió 1b_ideam.py)
 
 Uso:
     python 2_construir_panel.py
@@ -34,7 +35,7 @@ import pandas as pd
 BASE = Path(__file__).resolve().parent
 CARPETA = BASE / "datos"
 CARPETA_XM = CARPETA / "xm"
-SALIDA = BASE / "panel_diario.csv"
+SALIDA = BASE / "paneles" / "panel_diario.csv"
 
 HORAS = [f"Values_Hour{h:02d}" for h in range(1, 25)]
 
@@ -88,6 +89,16 @@ REGLA_HORARIA = {   # serie: (entre plantas, entre horas)
     "precio_oferta_desp":     ("mean", "mean"),
     "precio_prom_contrato":   ("mean", "mean"),
     "precio_cont_no_regu":    ("mean", "mean"),
+    "gen_ideal":              ("sum", "sum"),
+    "co2_por_combustible":    ("sum", "sum"),
+    "gen_prog_redespacho":    ("sum", "sum"),
+    "demanda_real":           ("sum", "sum"),
+    "demanda_real_reg":       ("sum", "sum"),
+    "demanda_real_no_reg":    ("sum", "sum"),
+    "compras_tie":            ("sum", "sum"),
+    "ventas_tie":             ("sum", "sum"),
+    "tie_merito":             ("sum", "sum"),
+    "tie_fuera_merito":       ("sum", "sum"),
 }
 
 REGLA_ENTIDAD = {   # serie por río, embalse o planta: cómo se junta el sistema
@@ -97,26 +108,78 @@ REGLA_ENTIDAD = {   # serie por río, embalse o planta: cómo se junta el sistem
     "capacidad_efectiva":    "sum",
     "aportes_pct_rio":       "mean",   # es un porcentaje, sumarlo no tiene sentido
     "precio_cargo_conf":     "mean",
+    "descargas_embalse":     "sum",
+    "turbinado_embalse":     "sum",
+    "vertido_embalse":       "sum",
+    "aportes_caudal":        "sum",
+    "aportes_caudal_medio":  "sum",
+    "demanda_no_atendida":   "sum",
+    "dem_no_atendida_nop":   "sum",
+    "oblig_energia_firme":   "sum",
 }
 
 # Estas dos son horarias pero no entran al panel tal cual: el precio de bolsa
 # se arma en la parte 2 y la demanda se usa en el perfil del día (parte 6).
-NO_VAN_DIRECTO = {"precio_bolsa", "demanda_comercial"}
+#
+# El recurso marginal es una marca por hora de la planta que fijó el precio:
+# sumarla al día no tiene sentido y solo se usa en el panel horario (2b).
+#
+# Las ventas en la bolsa con Ecuador son iguales a las compras en todas las
+# horas desde 2015 (a nivel de sistema, lo que se compra es lo que se vende):
+# se deja solo compras_tie.
+NO_VAN_DIRECTO = {"precio_bolsa", "demanda_comercial", "recurso_marginal", "ventas_tie"}
+
+# Series que nunca valen 0 en todo el sistema. Si un día llegan todas en 0 es
+# porque XM aún no lo ha publicado: la obligación de energía en firme sale en
+# 0 desde el 5 de octubre de 2026, aunque el día anterior era de 243 GWh.
+SIN_CEROS = {"oblig_energia_firme"}
+
+# Las seis series de demanda. XM publica la de los últimos días a medias
+# mientras llegan las mediciones de todos los agentes: el 5 y el 6 de octubre
+# de 2026 la demanda comercial quedó en 22% de lo normal, con la generación del
+# sistema normal. Ver dias_demanda_incompleta().
+DEMANDAS = ["demanda_comercial", "demanda_regulada", "demanda_no_regulada",
+            "demanda_real", "demanda_real_reg", "demanda_real_no_reg"]
+
+
+def dias_demanda_incompleta():
+    """
+    Días cuya demanda comercial total es menos de la mitad de la mediana de los
+    28 días anteriores. Ni la pandemia (abril de 2020) bajó la demanda tanto: la
+    regla solo marca días publicados a medias.
+    """
+    d = leer_xm("demanda_comercial")
+    total = pd.Series(horas_numericas(d).sum(axis=1, min_count=1).values,
+                      index=pd.to_datetime(d["Date"])).groupby(level=0).last()
+    mediana = total.rolling(28, min_periods=7).median().shift(1)
+    return total.index[total < 0.5 * mediana]
 
 
 def a_diario(nombre, df):
+    # min_count=1: un día con filas pero sin ningún valor queda vacío, no en 0.
+    # XM publica así los días que todavía no ha liquidado (por ejemplo, las
+    # restricciones del 7 al 9 de octubre de 2026).
     if "Values_Hour01" in df.columns:
         entre_plantas, entre_horas = REGLA_HORARIA[nombre]
-        por_hora = horas_numericas(df).groupby(df["Date"]).agg(entre_plantas)
-        return getattr(por_hora, entre_horas)(axis=1)
+        agrupado = horas_numericas(df).groupby(df["Date"])
+        por_hora = agrupado.sum(min_count=1) if entre_plantas == "sum" else agrupado.mean()
+        if entre_horas == "sum":
+            return por_hora.sum(axis=1, min_count=1)
+        return por_hora.mean(axis=1)
 
     valor = pd.to_numeric(df["Value"], errors="coerce")
 
     if nombre == "volumen_util_pct_emb":
         return promedio_ponderado_embalses(df, valor)
 
+    if nombre in SIN_CEROS:
+        # un día con todos los valores en 0 es un día que XM todavía no publica
+        todo_cero = (valor.fillna(0) == 0).groupby(df["Date"]).transform("all")
+        valor = valor.mask(todo_cero)
+
     if "Name" in df.columns or "Code" in df.columns:
-        return valor.groupby(df["Date"]).agg(REGLA_ENTIDAD[nombre])
+        agrupado = valor.groupby(df["Date"])
+        return agrupado.sum(min_count=1) if REGLA_ENTIDAD[nombre] == "sum" else agrupado.mean()
 
     serie = pd.Series(valor.values, index=df["Date"]).sort_index()
     # Los cargos regulados (CEE, CERE, MC) y las proyecciones de la UPME son
@@ -406,7 +469,11 @@ def leer_semanal():
 def nino_semanal(indice):
     # la semana se publica el lunes siguiente: se corre 7 días
     semanal = leer_semanal().shift(7, freq="D")
-    d = semanal.reindex(semanal.index.union(indice)).ffill().reindex(indice)
+    # día a día desde el inicio del archivo de NOAA (1990), no desde el panel:
+    # así las tendencias de 4 y 12 semanas ya tienen con qué compararse el
+    # 1 de enero de 2015
+    dias = pd.date_range(semanal.index.min(), max(semanal.index.max(), indice.max()), freq="D")
+    d = semanal.reindex(semanal.index.union(dias)).ffill().reindex(dias)
     d.columns = ["nino12_anom", "nino3_anom", "nino34_anom", "nino4_anom"]
 
     s = d.copy()
@@ -415,6 +482,7 @@ def nino_semanal(indice):
         s[f"{corto}_tend4s"] = d[col] - d[col].shift(28)
         s[f"{corto}_tend12s"] = d[col] - d[col].shift(84)
     s["nino_gradiente_costa"] = d["nino12_anom"] - d["nino34_anom"]
+    s = s.reindex(indice)
 
     # RONI: el ONI descontando el calentamiento general del trópico
     roni = leer_indice_noaa("RONI.ascii.txt", columna_valor=2)
@@ -553,6 +621,34 @@ def curva_de_merito(panel):
 
 
 # ===========================================================================
+# 10. Boletines del IDEAM
+# ===========================================================================
+#
+# Los dos CSV los arma 1b_ideam.py leyendo los PDF del IDEAM. Aquí solo se
+# acomodan al índice diario del panel.
+#
+# La predicción climática sale una vez al mes; su valor rige desde el día en
+# que se publica hasta que sale la siguiente, así que se arrastra hacia
+# adelante. La fecha del archivo ya es la de publicación, de modo que no hace
+# falta rezago extra: el día que aparece en el panel es el día en que
+# cualquiera podía leerla.
+#
+# Las alertas son diarias y no se arrastran: un día sin boletín queda vacío y
+# features.py lo rellena con el último valor conocido, igual que el resto.
+
+def boletines_ideam(indice, archivo, arrastrar):
+    ruta = CARPETA / archivo
+    if not ruta.exists():
+        print(f"   falta {archivo}; se corre con: python 1b_ideam.py")
+        return pd.DataFrame(index=indice)
+    d = (pd.read_csv(ruta, parse_dates=["fecha"])
+           .drop(columns=["origen", "leido"], errors="ignore")
+           .dropna(subset=["fecha"]).set_index("fecha").sort_index())
+    d = d[~d.index.duplicated(keep="last")].reindex(indice)
+    return d.ffill() if arrastrar else d
+
+
+# ===========================================================================
 # Todo junto
 # ===========================================================================
 
@@ -570,6 +666,12 @@ def main():
     series["trm"] = trm()
     panel = pd.DataFrame({nombre: s.reindex(indice) for nombre, s in series.items()})
 
+    # la demanda de los días publicados a medias queda vacía (antes del margen de
+    # reserva y de la curva de mérito, que la usan)
+    incompletos = dias_demanda_incompleta()
+    panel.loc[panel.index.isin(incompletos), [c for c in DEMANDAS if c in panel.columns]] = np.nan
+    print(f"   días con la demanda publicada a medias: {[str(d.date()) for d in incompletos]}")
+
     print("3. Margen de reserva")
     panel["margen_reserva"] = margen_reserva(panel)
 
@@ -586,15 +688,21 @@ def main():
     bloques.append(lluvia_cuencas(indice))
     print("9. Curva de mérito")
     bloques.append(curva_de_merito(panel))
+    print("10. Boletines del IDEAM")
+    bloques.append(boletines_ideam(indice, "ideam_prediccion.csv", arrastrar=True))
+    bloques.append(boletines_ideam(indice, "ideam_alertas.csv", arrastrar=False))
 
     for bloque in bloques:
         panel = panel.join(bloque.reindex(indice))
+    # el perfil del día también sale de la demanda hora a hora
+    panel.loc[panel.index.isin(incompletos), ["demanda_pico", "factor_carga"]] = np.nan
 
+    SALIDA.parent.mkdir(exist_ok=True)
     panel.to_csv(SALIDA)
     precio = panel["precio_bolsa"].dropna()
-    print(f"\npanel_diario.csv: {panel.shape[0]} días x {panel.shape[1]} variables")
+    print(f"\npaneles/panel_diario.csv: {panel.shape[0]} días x {panel.shape[1]} variables")
     print(f"precio de bolsa del {precio.index.min().date()} al {precio.index.max().date()}")
-    print("Siguiente paso: abrir 3_modelos.ipynb")
+    print("Siguiente paso: abrir 3_datos_y_caracteristicas.ipynb")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,11 @@
-# Datos descargados (pesados; se regeneran con 1_descargar.py)
-datos/
+# Datos descargados (pesados; se regeneran con 1_descargar.py). Los sondeos sí
+# se guardan: son pequeños y respaldan el atraso de publicación y la cobertura.
+datos/*
+!datos/sondeos/
+
+# Paneles intermedios: pesan, los arma el paso 2b y los notebooks no los leen
+paneles/panel_horario.csv.gz
+paneles/panel_horario_completo.csv.gz
 
 # Datos y cachés del pipeline anterior, archivados en legacy/
 cache_*/
@@ -7,16 +13,13 @@ data/
 datos_simem/
 *.parquet
 legacy/paneles/
+legacy/seleccion_lineal/*.csv.gz
 
-# Material de terceros (tesis, papers y repos de otros autores)
-Tesis guia/
-Energia/
-Repos guia/
-Datos que  usaré/
+# Material de terceros (tesis, papers y repos guía) y documentos personales
+material_de_apoyo/
 
-# Documentos personales
-Propuesta.docx
-a.arismendi rpg.docx
+# Configuración local del editor
+.claude/
 
 # Copias de seguridad internas (redundantes con el historial de git)
 respaldo_*/

@@ -1,0 +1,50 @@
+metrica,entidad,nombre,MetricUnits,2015-06,2019-06,2024-06,2026-09
+CompBolsNaciEner,Sistema,Compras Bolsa Nacional Energía por Sistema,kWh,8,8,8,8
+CompBolsaIntEner,Sistema,Compras Bolsa Internacional Energía por Sistema,kWh,8,0,0,0
+CompBolsaIntMoneda,Sistema,Compras Bolsa Internacional Moneda por Sistema,COP,8,0,0,0
+CompBolsaNacMoneda,Sistema,Compras Bolsa Nacional Moneda por Sistema,COP,8,8,8,8
+CompBolsaTIEMoneda,Sistema,Compras Bolsa TIE Moneda por Sistema,COP,8,7,8,8
+CompContEnerNoReg,Sistema,Compras en Contrato Energía  Mercado No Regulado por,kWh,8,8,8,8
+CompContEnerReg,Sistema,Compras en Contrato Energía Mercado Regulado por Sis,kWh,8,8,8,8
+CompContEnerSICEP,Sistema,Compras en Contrato Energía en SICEP por Sistema,kWh,0,0,16,16
+CompContMoneda,Sistema,Compras en Contrato Moneda por Sistema,COP,8,8,8,8
+ConsCombAprox,RecursoComb,Consumo Combustible Aproximado para el Factor de Emi,MBTU,0,273,306,291
+CostRecNeg,Area,Costo Unitario Reconciliacion Negativa por Area,COP/kWh,40,37,40,40
+CostRecPos,Area,Costo Unitario Reconciliacion Positiva por Area,COP/kWh,40,39,40,40
+DemaOR,Agente,Demanda por OR por Agente,kWh,232,224,216,224
+DesvEner,Recurso,Desviaciones Energía por Recurso,kWh,47,25,45,77
+DesvGenVariableDesp,Recurso,Desviación generación variable despacho,kWh,0,0,0,0
+DesvGenVariableRedesp,Recurso,Desviación generación variable redespacho,kWh,0,0,0,121
+DesvMoneda,Sistema,Desviaciones Moneda por Sistema,COP,8,8,8,8
+EjecGarantRestr,Sistema,Ejecución de Garantías por Sistema,COP,0,0,8,8
+EmisionesCH4,RecursoComb,Emisiones de CH4 por RecursoComb,TonCH4,0,369,475,532
+EmisionesCO2,RecursoComb,Emisiones de CO2 por RecursoComb,TonCO2,171,282,354,388
+EmisionesCO2Eq,Recurso,Emisiones de CO2 Eq por Recurso,gCO2e/kWh,0,307,412,487
+EmisionesN2O,RecursoComb,Emisiones de N2O por RecursoComb,TonN2O,0,369,475,532
+ExcedenteAGPE,Agente,Compras Excedentes AGPE por Agente,kWh,0,64,0,0
+ExpoMoneda,Sistema,Exportaciones Moneda por Sistema,COP,8,7,8,8
+ExportMonedaUSD,Sistema,Exportaciones Moneda USD por Sistema,COP,8,7,8,8
+GeneIdea,Sistema,Generación Ideal por Sistema,kWh,8,8,8,8
+ImpoMoneda,Enlace,Importaciones Moneda,COP,4,8,8,3
+ImportMonedaCOP,Sistema,Importaciones Moneda COP por Sistema,COP,4,8,8,3
+ImportMonedaUSD,Sistema,Importaciones Moneda USD por Sistema,COP,4,8,8,3
+IndRecMargina,Recurso,Indicador Recurso Margina por Recurso,#,47,43,56,63
+MaxPrecOferNal,Sistema,Máximo Precio de Oferta Nacional por Sistema,COP/kWh,8,8,8,8
+PerdidasEnerNoReg,Sistema,Perdidas de Energía No Regulada Sistema,kWh,8,8,8,8
+PerdidasEnerReg,Sistema,Perdidas de Energía Regulada Sistema,kWh,8,8,8,8
+PrecBolsNaciTX1,Sistema,Precio Bolsa Promedio Aritmético TX1 por Sistema,COP/kWh,8,8,8,8
+PrecTransBolsa,Sistema,Precio Transaccion Bolsa,COP/kWh,0,0,0,0
+RecoNegEner,Recurso,Reconciliación Negativa Energía por Recurso,kWh,214,132,262,449
+RecoNegMoneda,Recurso,Reconciliación Negativa Moneda por Recurso,COP,214,132,262,449
+RecoPosEner,Recurso,Reconciliación Positiva Energía por Recurso,kWh,207,182,287,467
+RecoPosMoneda,Recurso,Reconciliación Positiva Moneda por Recurso,COP,207,182,287,467
+RentasCongestRestr,Sistema,Rentas de Congestion para Cubrir Restricciones por S,COP,2,8,7,0
+RespComerAGC,Sistema,Responsabilidad Comercial AGC por Sistema,COP,8,8,8,8
+VentBolsNaciEner,Sistema,Ventas Bolsa Nacional Energía por Sistema,kWh,8,8,8,8
+VentBolsaIntEner,Sistema,Ventas Bolsa Internacional Energía por Sistema,kWh,8,0,0,0
+VentBolsaIntMoneda,Sistema,Ventas Bolsa Internacional Moneda por Sistema,COP,8,0,0,0
+VentBolsaTIEMoneda,Sistema,Ventas Bolsa TIE Moneda por Sistema,COP,8,7,8,8
+VentContEner,Sistema,Ventas en Contrato Energía por Sistema,kWh,8,8,8,8
+VentContEnerSICEP,Sistema,Ventas en Contrato Energía del SICEP por Sistema,kWh,0,0,16,16
+VentaBolsNaciMoneda,Sistema,Ventas Bolsa Nacional Moneda por Sistema,COP,8,8,8,8
+factorEmisionCO2e,Sistema,Emisiones de CO2 Eq/kWh por Sistema,gCO2e/kWh,0,8,8,8

@@ -1,0 +1,80 @@
+MetricId,Entity,MetricName,metrica,ultimo,atraso_dias,la_uso,nombre
+CostMargDesp,Sistema,Costo Marginal Despacho Programado por Sistema,CostMargDesp,2026-10-10,0.0,sí,Costo Marginal Despacho Programado por Sistema
+DispoDeclarada,Recurso,Disponibilidad Declarada por Recurso,DispoDeclarada,2026-10-10,0.0,sí,Disponibilidad Declarada por Recurso
+DispoReal,Recurso,Disponibilidad Real por Recurso,DispoReal,2026-10-10,0.0,sí,Disponibilidad Real por Recurso
+GeneProgDesp,Recurso,Generación Programada por Recurso,GeneProgDesp,2026-10-10,0.0,sí,Generación Programada por Recurso
+GeneProgRedesp,Recurso,Generación Programada Redespacho por Recurso,GeneProgRedesp,2026-10-10,0.0,sí,Generación Programada Redespacho por Recurso
+RestSinAliv,Sistema,Restricciones sin Alivios por Sistema,RestSinAliv,2026-10-10,0.0,sí,Restricciones sin Alivios por Sistema
+ConsCombAprox,RecursoComb,Consumo Combustible Aproximado para el Factor de Emisión por RecursoComb,ConsCombAprox,2026-10-08,2.0,,Consumo Combustible Aproximado para el Factor de
+ConsCombustibleMBTU,Recurso,Consumo Combustible MBTU por Recurso,ConsCombustibleMBTU,2026-10-08,2.0,sí,Consumo Combustible MBTU por Recurso
+CostRecNeg,Area,Costo Unitario Reconciliacion Negativa por Area,CostRecNeg,2026-10-08,2.0,,Costo Unitario Reconciliacion Negativa por Area
+CostRecPos,Area,Costo Unitario Reconciliacion Positiva por Area,CostRecPos,2026-10-08,2.0,,Costo Unitario Reconciliacion Positiva por Area
+DemaCome,Sistema,Demanda Comercial por Sistema,DemaCome,2026-10-08,2.0,sí,Demanda Comercial por Sistema
+DemaComeNoReg,Sistema,Demanda Comercial Mercado No Regulado por Sistema,DemaComeNoReg,2026-10-08,2.0,sí,Demanda Comercial Mercado No Regulado por Sistem
+DemaComeReg,Sistema,Demanda Comercial Mercado Regulado por Sistema,DemaComeReg,2026-10-08,2.0,sí,Demanda Comercial Mercado Regulado por Sistema
+DemaOR,Agente,Demanda por OR por Agente,DemaOR,2026-10-08,2.0,,Demanda por OR por Agente
+DemaReal,Sistema,Demanda Real por Sistema,DemaReal,2026-10-08,2.0,sí,Demanda Real por Sistema
+DemaRealNoReg,Sistema,Demanda Real No Regulada Sistema,DemaRealNoReg,2026-10-08,2.0,sí,Demanda Real No Regulada Sistema
+DemaRealReg,Sistema,Demanda Real Regulada Sistema,DemaRealReg,2026-10-08,2.0,sí,Demanda Real Regulada Sistema
+DesvEner,Recurso,Desviaciones Energía por Recurso,DesvEner,2026-10-08,2.0,,Desviaciones Energía por Recurso
+DesvGenVariableRedesp,Recurso,Desviación generación variable redespacho,DesvGenVariableRedesp,2026-10-08,2.0,,Desviación generación variable redespacho
+DesvMoneda,Sistema,Desviaciones Moneda por Sistema,DesvMoneda,2026-10-08,2.0,,Desviaciones Moneda por Sistema
+DispoCome,Recurso,Disponibilidad Comercial por Recurso,DispoCome,2026-10-08,2.0,sí,Disponibilidad Comercial por Recurso
+EmisionesCH4,RecursoComb,Emisiones de CH4 por RecursoComb,EmisionesCH4,2026-10-08,2.0,,Emisiones de CH4 por RecursoComb
+EmisionesCO2,RecursoComb,Emisiones de CO2 por RecursoComb,EmisionesCO2,2026-10-08,2.0,,Emisiones de CO2 por RecursoComb
+EmisionesCO2Eq,Recurso,Emisiones de CO2 Eq por Recurso,EmisionesCO2Eq,2026-10-08,2.0,,Emisiones de CO2 Eq por Recurso
+EmisionesN2O,RecursoComb,Emisiones de N2O por RecursoComb,EmisionesN2O,2026-10-08,2.0,,Emisiones de N2O por RecursoComb
+ExpoEner,Sistema,Exportaciones Energía por Sistema,ExpoEner,2026-10-08,2.0,sí,Exportaciones Energía por Sistema
+ExpoMoneda,Sistema,Exportaciones Moneda por Sistema,ExpoMoneda,2026-10-08,2.0,,Exportaciones Moneda por Sistema
+ExportMonedaUSD,Sistema,Exportaciones Moneda USD por Sistema,ExportMonedaUSD,2026-10-08,2.0,,Exportaciones Moneda USD por Sistema
+Gene,Sistema,Generación por Sistema,Gene,2026-10-08,2.0,sí,Generación por Sistema
+GeneFueraMerito,Recurso,Generación Fuera de Mérito por Recurso,GeneFueraMerito,2026-10-08,2.0,sí,Generación Fuera de Mérito por Recurso
+GeneIdea,Sistema,Generación Ideal por Sistema,GeneIdea,2026-10-08,2.0,,Generación Ideal por Sistema
+GeneSeguridad,Recurso,Generación de Seguridad por Recurso,GeneSeguridad,2026-10-08,2.0,sí,Generación de Seguridad por Recurso
+ImpoEner,Sistema,Importaciones Energía por Sistema,ImpoEner,2026-10-08,2.0,sí,Importaciones Energía por Sistema
+ImpoMoneda,Enlace,Importaciones Moneda,ImpoMoneda,2026-10-08,2.0,,Importaciones Moneda
+ImportMonedaCOP,Sistema,Importaciones Moneda COP por Sistema,ImportMonedaCOP,2026-10-08,2.0,,Importaciones Moneda COP por Sistema
+ImportMonedaUSD,Sistema,Importaciones Moneda USD por Sistema,ImportMonedaUSD,2026-10-08,2.0,,Importaciones Moneda USD por Sistema
+MaxPrecOferNal,Sistema,Máximo Precio de Oferta Nacional por Sistema,MaxPrecOferNal,2026-10-08,2.0,,Máximo Precio de Oferta Nacional por Sistema
+PrecBolsNaci,Sistema,Precio Bolsa Nacional por Sistema,PrecBolsNaci,2026-10-08,2.0,sí,Precio Bolsa Nacional por Sistema
+PrecBolsNaciTX1,Sistema,Precio Bolsa Promedio Aritmético TX1 por Sistema,PrecBolsNaciTX1,2026-10-08,2.0,,Precio Bolsa Promedio Aritmético TX1 por Sistema
+RecoNegEner,Recurso,Reconciliación Negativa Energía por Recurso,RecoNegEner,2026-10-08,2.0,,Reconciliación Negativa Energía por Recurso
+RecoNegMoneda,Recurso,Reconciliación Negativa Moneda por Recurso,RecoNegMoneda,2026-10-08,2.0,,Reconciliación Negativa Moneda por Recurso
+RecoPosEner,Recurso,Reconciliación Positiva Energía por Recurso,RecoPosEner,2026-10-08,2.0,,Reconciliación Positiva Energía por Recurso
+RecoPosMoneda,Recurso,Reconciliación Positiva Moneda por Recurso,RecoPosMoneda,2026-10-08,2.0,,Reconciliación Positiva Moneda por Recurso
+RespComerAGC,Sistema,Responsabilidad Comercial AGC por Sistema,RespComerAGC,2026-10-08,2.0,,Responsabilidad Comercial AGC por Sistema
+factorEmisionCO2e,Sistema,Emisiones de CO2 Eq/kWh por Sistema,factorEmisionCO2e,2026-10-08,2.0,,Emisiones de CO2 Eq/kWh por Sistema
+CompBolsNaciEner,Sistema,Compras Bolsa Nacional Energía por Sistema,CompBolsNaciEner,2026-10-05,5.0,,Compras Bolsa Nacional Energía por Sistema
+CompBolsaNacMoneda,Sistema,Compras Bolsa Nacional Moneda por Sistema,CompBolsaNacMoneda,2026-10-05,5.0,,Compras Bolsa Nacional Moneda por Sistema
+CompBolsaTIEEner,Sistema,Compras Bolsa TIE Energía por Sistema,CompBolsaTIEEner,2026-10-05,5.0,sí,Compras Bolsa TIE Energía por Sistema
+CompBolsaTIEMoneda,Sistema,Compras Bolsa TIE Moneda por Sistema,CompBolsaTIEMoneda,2026-10-05,5.0,,Compras Bolsa TIE Moneda por Sistema
+CompContEner,Sistema,Compras en Contrato Energía por Sistema,CompContEner,2026-10-05,5.0,sí,Compras en Contrato Energía por Sistema
+CompContEnerNoReg,Sistema,Compras en Contrato Energía  Mercado No Regulado por Sistema,CompContEnerNoReg,2026-10-05,5.0,,Compras en Contrato Energía  Mercado No Regulado
+CompContEnerReg,Sistema,Compras en Contrato Energía Mercado Regulado por Sistema,CompContEnerReg,2026-10-05,5.0,,Compras en Contrato Energía Mercado Regulado por
+CompContEnerSICEP,Sistema,Compras en Contrato Energía en SICEP por Sistema,CompContEnerSICEP,2026-10-05,5.0,,Compras en Contrato Energía en SICEP por Sistema
+CompContMoneda,Sistema,Compras en Contrato Moneda por Sistema,CompContMoneda,2026-10-05,5.0,,Compras en Contrato Moneda por Sistema
+PerdidasEner,Sistema,Perdidas de Energía por Sistema,PerdidasEner,2026-10-05,5.0,sí,Perdidas de Energía por Sistema
+PerdidasEnerNoReg,Sistema,Perdidas de Energía No Regulada Sistema,PerdidasEnerNoReg,2026-10-05,5.0,,Perdidas de Energía No Regulada Sistema
+PerdidasEnerReg,Sistema,Perdidas de Energía Regulada Sistema,PerdidasEnerReg,2026-10-05,5.0,,Perdidas de Energía Regulada Sistema
+PrecPromContNoRegu,Sistema,Precio Promedio Contratos No Regulados por Sistema,PrecPromContNoRegu,2026-10-05,5.0,sí,Precio Promedio Contratos No Regulados por Siste
+PrecPromContRegu,Sistema,Precio Promedio Contratos Regulados por Sistema,PrecPromContRegu,2026-10-05,5.0,sí,Precio Promedio Contratos Regulados por Sistema
+RestAliv,Sistema,Restricciones Aliviadas por Sistema,RestAliv,2026-10-05,5.0,sí,Restricciones Aliviadas por Sistema
+VentBolsNaciEner,Sistema,Ventas Bolsa Nacional Energía por Sistema,VentBolsNaciEner,2026-10-05,5.0,,Ventas Bolsa Nacional Energía por Sistema
+VentBolsaTIEEner,Sistema,Ventas Bolsa TIE Energía por Sistema,VentBolsaTIEEner,2026-10-05,5.0,sí,Ventas Bolsa TIE Energía por Sistema
+VentBolsaTIEMoneda,Sistema,Ventas Bolsa TIE Moneda por Sistema,VentBolsaTIEMoneda,2026-10-05,5.0,,Ventas Bolsa TIE Moneda por Sistema
+VentContEner,Sistema,Ventas en Contrato Energía por Sistema,VentContEner,2026-10-05,5.0,,Ventas en Contrato Energía por Sistema
+VentContEnerSICEP,Sistema,Ventas en Contrato Energía del SICEP por Sistema,VentContEnerSICEP,2026-10-05,5.0,,Ventas en Contrato Energía del SICEP por Sistema
+VentaBolsNaciMoneda,Sistema,Ventas Bolsa Nacional Moneda por Sistema,VentaBolsNaciMoneda,2026-10-05,5.0,,Ventas Bolsa Nacional Moneda por Sistema
+EjecGarantRestr,Sistema,Ejecución de Garantías por Sistema,EjecGarantRestr,2026-09-30,10.0,,Ejecución de Garantías por Sistema
+IndRecMargina,Recurso,Indicador Recurso Margina por Recurso,IndRecMargina,2026-09-30,10.0,,Indicador Recurso Margina por Recurso
+PrecOferDesp,Recurso,Precio de Oferta de Despacho por Recurso,PrecOferDesp,2026-09-30,10.0,sí,Precio de Oferta de Despacho por Recurso
+CompBolsaIntEner,Sistema,Compras Bolsa Internacional Energía por Sistema,CompBolsaIntEner,,,,Compras Bolsa Internacional Energía por Sistema
+CompBolsaIntMoneda,Sistema,Compras Bolsa Internacional Moneda por Sistema,CompBolsaIntMoneda,,,,Compras Bolsa Internacional Moneda por Sistema
+DesvGenVariableDesp,Recurso,Desviación generación variable despacho,DesvGenVariableDesp,,,,Desviación generación variable despacho
+ExcedenteAGPE,Agente,Compras Excedentes AGPE por Agente,ExcedenteAGPE,,,,Compras Excedentes AGPE por Agente
+PrecTransBolsa,Sistema,Precio Transaccion Bolsa,PrecTransBolsa,,,,Precio Transaccion Bolsa
+RentasCongestRestr,Sistema,Rentas de Congestion para Cubrir Restricciones por Sistema,RentasCongestRestr,,,,Rentas de Congestion para Cubrir Restricciones p
+SnTIEFueraMerito,Sistema,Saldo Neto TIE Fuera Merito por Sistema,SnTIEFueraMerito,,,sí,Saldo Neto TIE Fuera Merito por Sistema
+SnTIEMerito,Sistema,Saldo Neto TIE Merito por Sistema,SnTIEMerito,,,sí,Saldo Neto TIE Merito por Sistema
+VentBolsaIntEner,Sistema,Ventas Bolsa Internacional Energía por Sistema,VentBolsaIntEner,,,,Ventas Bolsa Internacional Energía por Sistema
+VentBolsaIntMoneda,Sistema,Ventas Bolsa Internacional Moneda por Sistema,VentBolsaIntMoneda,,,,Ventas Bolsa Internacional Moneda por Sistema

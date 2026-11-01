@@ -1,0 +1,625 @@
+ventana,h,columna,ganancia
+3 años,1,ajuste_cmg_l0h,0.013213
+3 años,1,ajuste_cmg_l3h,0.0088014
+3 años,1,aportes_pct_l0d,0.024576
+3 años,1,aportes_pct_l1d,0.027338
+3 años,1,cmg_despacho_l0h,0.017731
+3 años,1,cmg_despacho_l1h,0.016724
+3 años,1,cmg_despacho_manana,0.064035
+3 años,1,cmg_despacho_l22h,0.014126
+3 años,1,cmg_despacho_l2h,0.0144
+3 años,1,cmg_despacho_ma7d,0.025937
+3 años,1,demanda_ultima,0.020444
+3 años,1,demanda_l2h,0.011135
+3 años,1,demanda_l7d,0.01242
+3 años,1,demanda_ma7d,0.012093
+3 años,1,demanda_l6d,0.026645
+3 años,1,holgura_rel_l1h,0.0086038
+3 años,1,holgura_rel_l5d,0.024691
+3 años,1,holgura_rel_ultima,0.021949
+3 años,1,dlp_l1h,0.019283
+3 años,1,dlp_l2h,0.033062
+3 años,1,lp,0.048774
+3 años,1,dlp_dia,0.055338
+3 años,1,dlp_l23h,0.051954
+3 años,1,dlp_ultima,0.094322
+3 años,1,dlp_l6d,0.061973
+3 años,1,margen_decl_pron_l0h,0.026349
+3 años,1,margen_decl_pron_l1h,0.049945
+3 años,1,margen_decl_pron_manana,0.028887
+3 años,1,hora,0.022394
+3 años,1,dia_semana,0.028681
+3 años,1,mes,0.027181
+3 años,1,es_festivo,0.017569
+3 años,1,dia_semana_h1,0.060845
+3 años,1,es_festivo_h1,0.0085839
+3 años,2,aportes_pct_l0d,0.040925
+3 años,2,aportes_pct_l1d,0.025759
+3 años,2,aportes_pct_ma7d,0.024962
+3 años,2,cmg_despacho_l0h,0.02329
+3 años,2,cmg_despacho_l1h,0.016006
+3 años,2,cmg_despacho_manana,0.042538
+3 años,2,cmg_despacho_l2h,0.012882
+3 años,2,cmg_despacho_ma7d,0.025626
+3 años,2,cmg_despacho_l28d,0.016927
+3 años,2,demanda_ultima,0.021833
+3 años,2,demanda_l2h,0.015833
+3 años,2,demanda_l7d,0.013447
+3 años,2,demanda_ma7d,0.016115
+3 años,2,demanda_l5d,0.0344
+3 años,2,frac_fncer_l22h,0.013456
+3 años,2,frac_fncer_l9h,0.016509
+3 años,2,dlp_l1h,0.013264
+3 años,2,dlp_l2h,0.015447
+3 años,2,lp,0.039763
+3 años,2,dlp_dia,0.053642
+3 años,2,dlp_l20h,0.02153
+3 años,2,dlp_l13h,0.014675
+3 años,2,dlp_ultima,0.041125
+3 años,2,dlp_l14h,0.013985
+3 años,2,dlp_l22h,0.033733
+3 años,2,dlp_l3h,0.02815
+3 años,2,dlp_l5d,0.066599
+3 años,2,margen_ofertado_l0h,0.014922
+3 años,2,margen_ofertado_l4d,0.02335
+3 años,2,hora,0.028223
+3 años,2,dia_semana,0.038079
+3 años,2,mes,0.023665
+3 años,2,es_festivo,0.032974
+3 años,2,dia_semana_h2,0.082218
+3 años,2,es_festivo_h2,0.054146
+3 años,3,aportes_pct_l0d,0.055052
+3 años,3,cmg_despacho_l0h,0.036922
+3 años,3,cmg_despacho_l1h,0.021745
+3 años,3,cmg_despacho_manana,0.049354
+3 años,3,cmg_despacho_l22h,0.023107
+3 años,3,cmg_despacho_l1d,0.026208
+3 años,3,cmg_despacho_l23h,0.023314
+3 años,3,demanda_ultima,0.030284
+3 años,3,demanda_l0h,0.014127
+3 años,3,demanda_l1h,0.013692
+3 años,3,demanda_l23h,0.018264
+3 años,3,dlp_l1h,0.013018
+3 años,3,dlp_l2h,0.022101
+3 años,3,lp,0.06465
+3 años,3,dlp_dia,0.045145
+3 años,3,dlp_l23h,0.027844
+3 años,3,dlp_l1d,0.026454
+3 años,3,dlp_ultima,0.049367
+3 años,3,dlp_l4d,0.076
+3 años,3,margen_ofertado_l3d,0.036125
+3 años,3,hora,0.047103
+3 años,3,dia_semana,0.040396
+3 años,3,mes,0.044564
+3 años,3,es_festivo,0.043804
+3 años,3,dia_semana_h3,0.075312
+3 años,3,es_festivo_h3,0.076049
+3 años,4,aportes_pct_l0d,0.065075
+3 años,4,contrato_frac_l0h,0.038515
+3 años,4,contrato_frac_l2h,0.050485
+3 años,4,contrato_frac_l3h,0.042497
+3 años,4,contrato_frac_l7d,0.070912
+3 años,4,contrato_frac_ultima,0.026034
+3 años,4,dlp_l1h,0.014462
+3 años,4,dlp_l2h,0.039569
+3 años,4,lp,0.092098
+3 años,4,dlp_dia,0.060152
+3 años,4,dlp_l23h,0.02701
+3 años,4,dlp_l1d,0.031515
+3 años,4,dlp_l2d,0.051942
+3 años,4,dlp_l3d,0.092469
+3 años,4,margen_declarado_ultima,0.03149
+3 años,4,margen_declarado_l1d,0.020855
+3 años,4,hora,0.03361
+3 años,4,dia_semana,0.028684
+3 años,4,mes,0.038432
+3 años,4,es_festivo,0.010112
+3 años,4,dia_semana_h4,0.084378
+3 años,4,es_festivo_h4,0.049701
+3 años,5,aportes_pct_l0d,0.088712
+3 años,5,contrato_frac_l6d,0.034365
+3 años,5,dlp_l1h,0.013952
+3 años,5,dlp_l2h,0.039182
+3 años,5,lp,0.11693
+3 años,5,dlp_dia,0.076069
+3 años,5,dlp_l23h,0.039903
+3 años,5,dlp_l1d,0.0587
+3 años,5,dlp_l2d,0.10768
+3 años,5,margen_declarado_ultima,0.043206
+3 años,5,margen_declarado_l21h,0.022799
+3 años,5,hora,0.04665
+3 años,5,dia_semana,0.082101
+3 años,5,mes,0.059033
+3 años,5,es_festivo,0.033219
+3 años,5,dia_semana_h5,0.089724
+3 años,5,es_festivo_h5,0.047778
+3 años,6,aportes_pct_l0d,0.087772
+3 años,6,dlp_l1h,0.038172
+3 años,6,dlp_l2h,0.027242
+3 años,6,lp,0.13011
+3 años,6,dlp_dia,0.098936
+3 años,6,dlp_l23h,0.050183
+3 años,6,dlp_l1d,0.094477
+3 años,6,dlp_l7d,0.060677
+3 años,6,margen_ofertado_l7d,0.065013
+3 años,6,hora,0.045886
+3 años,6,dia_semana,0.078253
+3 años,6,mes,0.069327
+3 años,6,es_festivo,0.039458
+3 años,6,dia_semana_h6,0.045471
+3 años,6,es_festivo_h6,0.069024
+3 años,7,aportes_pct_l0d,0.078614
+3 años,7,dlp_l1h,0.036961
+3 años,7,dlp_l2h,0.031436
+3 años,7,lp,0.13927
+3 años,7,dlp_l20h,0.025728
+3 años,7,dlp_l13h,0.037094
+3 años,7,dlp_l7d,0.06576
+3 años,7,dlp_l3h,0.033892
+3 años,7,dlp_l4h,0.024572
+3 años,7,dlp_l6d,0.044838
+3 años,7,dlp_l15h,0.048642
+3 años,7,dlp_l19h,0.045058
+3 años,7,dlp_l21h,0.044989
+3 años,7,margen_declarado_l14d,0.046828
+3 años,7,oferta_marginal_ma30d,0.059144
+3 años,7,hora,0.031851
+3 años,7,dia_semana,0.036473
+3 años,7,mes,0.076387
+3 años,7,es_festivo,0.026427
+3 años,7,dia_semana_h7,0.02431
+3 años,7,es_festivo_h7,0.041721
+3 años,14,aportes_pct_l0d,0.07896
+3 años,14,cmg_redespacho_ma30d,0.089281
+3 años,14,dlp_l1h,0.013638
+3 años,14,dlp_l2h,0.010759
+3 años,14,lp,0.13696
+3 años,14,dlp_l23h,0.015393
+3 años,14,dlp_l20h,0.025451
+3 años,14,dlp_l13h,0.039735
+3 años,14,dlp_l7d,0.077548
+3 años,14,dlp_l14h,0.035028
+3 años,14,dlp_l22h,0.023679
+3 años,14,dlp_l3d,0.064581
+3 años,14,dlp_l4h,0.017517
+3 años,14,dlp_l10h,0.021328
+3 años,14,dlp_l18h,0.049246
+3 años,14,margen_declarado_l14d,0.047079
+3 años,14,perdidas_rel_ultima,0.047562
+3 años,14,hora,0.029362
+3 años,14,dia_semana,0.017914
+3 años,14,mes,0.073722
+3 años,14,es_festivo,0.039504
+3 años,14,dia_semana_h14,0.015525
+3 años,14,es_festivo_h14,0.030229
+3 años,30,aportes_pct_l0d,0.067465
+3 años,30,contrato_frac_l5d,0.035759
+3 años,30,escalon_siguiente_l3d,0.033281
+3 años,30,dlp_l1h,0.01145
+3 años,30,dlp_l2h,0.023245
+3 años,30,lp,0.17597
+3 años,30,dlp_l20h,0.052322
+3 años,30,dlp_l28d,0.108
+3 años,30,marg_gas_l28d,0.055483
+3 años,30,hora,0.048417
+3 años,30,dia_semana,0.034979
+3 años,30,mes,0.21748
+3 años,30,es_festivo,0.049328
+3 años,30,dia_semana_h30,0.050025
+3 años,30,es_festivo_h30,0.036801
+5 años,1,ajuste_cmg_l0h,0.015304
+5 años,1,ajuste_cmg_l3h,0.012737
+5 años,1,aportes_pct_l0d,0.023068
+5 años,1,aportes_pct_l1d,0.021094
+5 años,1,cmg_despacho_l0h,0.035165
+5 años,1,cmg_despacho_l1h,0.02457
+5 años,1,cmg_despacho_manana,0.066775
+5 años,1,cmg_despacho_l22h,0.019707
+5 años,1,cmg_despacho_l2h,0.019183
+5 años,1,cmg_despacho_ma7d,0.039669
+5 años,1,demanda_ultima,0.016421
+5 años,1,demanda_l2h,0.012743
+5 años,1,demanda_l7d,0.013455
+5 años,1,demanda_ma7d,0.017927
+5 años,1,demanda_l6d,0.028843
+5 años,1,holgura_rel_l1h,0.01196
+5 años,1,holgura_rel_l5d,0.02661
+5 años,1,holgura_rel_ultima,0.018886
+5 años,1,dlp_l1h,0.019951
+5 años,1,dlp_l2h,0.024952
+5 años,1,lp,0.045142
+5 años,1,dlp_dia,0.049094
+5 años,1,dlp_l23h,0.039776
+5 años,1,dlp_ultima,0.080484
+5 años,1,dlp_l6d,0.050482
+5 años,1,margen_decl_pron_l0h,0.023169
+5 años,1,margen_decl_pron_l1h,0.037421
+5 años,1,margen_decl_pron_manana,0.033595
+5 años,1,hora,0.03399
+5 años,1,dia_semana,0.019733
+5 años,1,mes,0.022551
+5 años,1,es_festivo,0.023943
+5 años,1,dia_semana_h1,0.055147
+5 años,1,es_festivo_h1,0.016451
+5 años,2,aportes_pct_l0d,0.038484
+5 años,2,aportes_pct_l1d,0.013559
+5 años,2,aportes_pct_ma7d,0.018954
+5 años,2,cmg_despacho_l0h,0.029642
+5 años,2,cmg_despacho_l1h,0.017695
+5 años,2,cmg_despacho_manana,0.04325
+5 años,2,cmg_despacho_l2h,0.010676
+5 años,2,cmg_despacho_ma7d,0.026024
+5 años,2,cmg_despacho_l28d,0.011633
+5 años,2,demanda_ultima,0.013668
+5 años,2,demanda_l2h,0.0079823
+5 años,2,demanda_l7d,0.0081092
+5 años,2,demanda_ma7d,0.012349
+5 años,2,demanda_l5d,0.038084
+5 años,2,frac_fncer_l22h,0.022832
+5 años,2,frac_fncer_l9h,0.024144
+5 años,2,dlp_l1h,0.015387
+5 años,2,dlp_l2h,0.022589
+5 años,2,lp,0.04122
+5 años,2,dlp_dia,0.063834
+5 años,2,dlp_l20h,0.023779
+5 años,2,dlp_l13h,0.0194
+5 años,2,dlp_ultima,0.074515
+5 años,2,dlp_l14h,0.010909
+5 años,2,dlp_l22h,0.036864
+5 años,2,dlp_l3h,0.054239
+5 años,2,dlp_l5d,0.056181
+5 años,2,margen_ofertado_l0h,0.008141
+5 años,2,margen_ofertado_l4d,0.017718
+5 años,2,hora,0.021159
+5 años,2,dia_semana,0.059611
+5 años,2,mes,0.01212
+5 años,2,es_festivo,0.020952
+5 años,2,dia_semana_h2,0.076418
+5 años,2,es_festivo_h2,0.027879
+5 años,3,aportes_pct_l0d,0.06021
+5 años,3,cmg_despacho_l0h,0.047874
+5 años,3,cmg_despacho_l1h,0.021985
+5 años,3,cmg_despacho_manana,0.046607
+5 años,3,cmg_despacho_l22h,0.024306
+5 años,3,cmg_despacho_l1d,0.028704
+5 años,3,cmg_despacho_l23h,0.020058
+5 años,3,demanda_ultima,0.014013
+5 años,3,demanda_l0h,0.011913
+5 años,3,demanda_l1h,0.006005
+5 años,3,demanda_l23h,0.01637
+5 años,3,dlp_l1h,0.016634
+5 años,3,dlp_l2h,0.043158
+5 años,3,lp,0.065734
+5 años,3,dlp_dia,0.064041
+5 años,3,dlp_l23h,0.033033
+5 años,3,dlp_l1d,0.039206
+5 años,3,dlp_ultima,0.054983
+5 años,3,dlp_l4d,0.075342
+5 años,3,margen_ofertado_l3d,0.030992
+5 años,3,hora,0.034482
+5 años,3,dia_semana,0.058425
+5 años,3,mes,0.025292
+5 años,3,es_festivo,0.02383
+5 años,3,dia_semana_h3,0.091471
+5 años,3,es_festivo_h3,0.045333
+5 años,4,aportes_pct_l0d,0.073946
+5 años,4,contrato_frac_l0h,0.02938
+5 años,4,contrato_frac_l2h,0.059458
+5 años,4,contrato_frac_l3h,0.029758
+5 años,4,contrato_frac_l7d,0.076047
+5 años,4,contrato_frac_ultima,0.025204
+5 años,4,dlp_l1h,0.021047
+5 años,4,dlp_l2h,0.051101
+5 años,4,lp,0.089054
+5 años,4,dlp_dia,0.064497
+5 años,4,dlp_l23h,0.030552
+5 años,4,dlp_l1d,0.037279
+5 años,4,dlp_l2d,0.037196
+5 años,4,dlp_l3d,0.07257
+5 años,4,margen_declarado_ultima,0.025098
+5 años,4,margen_declarado_l1d,0.018452
+5 años,4,hora,0.034283
+5 años,4,dia_semana,0.044365
+5 años,4,mes,0.033479
+5 años,4,es_festivo,0.018396
+5 años,4,dia_semana_h4,0.071398
+5 años,4,es_festivo_h4,0.057441
+5 años,5,aportes_pct_l0d,0.087169
+5 años,5,contrato_frac_l6d,0.033164
+5 años,5,dlp_l1h,0.016542
+5 años,5,dlp_l2h,0.028161
+5 años,5,lp,0.1055
+5 años,5,dlp_dia,0.07165
+5 años,5,dlp_l23h,0.033635
+5 años,5,dlp_l1d,0.039534
+5 años,5,dlp_l2d,0.068529
+5 años,5,margen_declarado_ultima,0.049975
+5 años,5,margen_declarado_l21h,0.025782
+5 años,5,hora,0.058558
+5 años,5,dia_semana,0.071302
+5 años,5,mes,0.071245
+5 años,5,es_festivo,0.062019
+5 años,5,dia_semana_h5,0.060877
+5 años,5,es_festivo_h5,0.11636
+5 años,6,aportes_pct_l0d,0.11494
+5 años,6,dlp_l1h,0.027482
+5 años,6,dlp_l2h,0.030091
+5 años,6,lp,0.14471
+5 años,6,dlp_dia,0.083042
+5 años,6,dlp_l23h,0.04446
+5 años,6,dlp_l1d,0.074439
+5 años,6,dlp_l7d,0.083007
+5 años,6,margen_ofertado_l7d,0.051233
+5 años,6,hora,0.047551
+5 años,6,dia_semana,0.055178
+5 años,6,mes,0.068734
+5 años,6,es_festivo,0.044436
+5 años,6,dia_semana_h6,0.038366
+5 años,6,es_festivo_h6,0.092336
+5 años,7,aportes_pct_l0d,0.092422
+5 años,7,dlp_l1h,0.026923
+5 años,7,dlp_l2h,0.036333
+5 años,7,lp,0.14019
+5 años,7,dlp_l20h,0.024599
+5 años,7,dlp_l13h,0.039648
+5 años,7,dlp_l7d,0.087667
+5 años,7,dlp_l3h,0.03011
+5 años,7,dlp_l4h,0.024688
+5 años,7,dlp_l6d,0.051933
+5 años,7,dlp_l15h,0.055091
+5 años,7,dlp_l19h,0.034295
+5 años,7,dlp_l21h,0.025028
+5 años,7,margen_declarado_l14d,0.030952
+5 años,7,oferta_marginal_ma30d,0.04623
+5 años,7,hora,0.035756
+5 años,7,dia_semana,0.032167
+5 años,7,mes,0.072322
+5 años,7,es_festivo,0.030368
+5 años,7,dia_semana_h7,0.023742
+5 años,7,es_festivo_h7,0.059539
+5 años,14,aportes_pct_l0d,0.074132
+5 años,14,cmg_redespacho_ma30d,0.08328
+5 años,14,dlp_l1h,0.011386
+5 años,14,dlp_l2h,0.012575
+5 años,14,lp,0.13488
+5 años,14,dlp_l23h,0.019071
+5 años,14,dlp_l20h,0.017806
+5 años,14,dlp_l13h,0.030866
+5 años,14,dlp_l7d,0.073245
+5 años,14,dlp_l14h,0.027481
+5 años,14,dlp_l22h,0.015709
+5 años,14,dlp_l3d,0.033201
+5 años,14,dlp_l4h,0.016984
+5 años,14,dlp_l10h,0.030734
+5 años,14,dlp_l18h,0.024071
+5 años,14,margen_declarado_l14d,0.032735
+5 años,14,perdidas_rel_ultima,0.041174
+5 años,14,hora,0.033134
+5 años,14,dia_semana,0.023534
+5 años,14,mes,0.12319
+5 años,14,es_festivo,0.049606
+5 años,14,dia_semana_h14,0.025739
+5 años,14,es_festivo_h14,0.065465
+5 años,30,aportes_pct_l0d,0.060223
+5 años,30,contrato_frac_l5d,0.025656
+5 años,30,escalon_siguiente_l3d,0.026018
+5 años,30,dlp_l1h,0.022635
+5 años,30,dlp_l2h,0.03136
+5 años,30,lp,0.23431
+5 años,30,dlp_l20h,0.062343
+5 años,30,dlp_l28d,0.1171
+5 años,30,marg_gas_l28d,0.012927
+5 años,30,hora,0.048229
+5 años,30,dia_semana,0.029158
+5 años,30,mes,0.15534
+5 años,30,es_festivo,0.054261
+5 años,30,dia_semana_h30,0.062468
+5 años,30,es_festivo_h30,0.057982
+toda la historia,1,ajuste_cmg_l0h,0.016337
+toda la historia,1,ajuste_cmg_l3h,0.011149
+toda la historia,1,aportes_pct_l0d,0.018929
+toda la historia,1,aportes_pct_l1d,0.015713
+toda la historia,1,cmg_despacho_l0h,0.057134
+toda la historia,1,cmg_despacho_l1h,0.038629
+toda la historia,1,cmg_despacho_manana,0.063671
+toda la historia,1,cmg_despacho_l22h,0.021753
+toda la historia,1,cmg_despacho_l2h,0.015279
+toda la historia,1,cmg_despacho_ma7d,0.037985
+toda la historia,1,demanda_ultima,0.015259
+toda la historia,1,demanda_l2h,0.0085453
+toda la historia,1,demanda_l7d,0.011888
+toda la historia,1,demanda_ma7d,0.01575
+toda la historia,1,demanda_l6d,0.019768
+toda la historia,1,holgura_rel_l1h,0.0091034
+toda la historia,1,holgura_rel_l5d,0.027999
+toda la historia,1,holgura_rel_ultima,0.015715
+toda la historia,1,dlp_l1h,0.023826
+toda la historia,1,dlp_l2h,0.025958
+toda la historia,1,lp,0.027823
+toda la historia,1,dlp_dia,0.072606
+toda la historia,1,dlp_l23h,0.052142
+toda la historia,1,dlp_ultima,0.066843
+toda la historia,1,dlp_l6d,0.062581
+toda la historia,1,margen_decl_pron_l0h,0.021401
+toda la historia,1,margen_decl_pron_l1h,0.036036
+toda la historia,1,margen_decl_pron_manana,0.025382
+toda la historia,1,hora,0.027689
+toda la historia,1,dia_semana,0.022614
+toda la historia,1,mes,0.018054
+toda la historia,1,es_festivo,0.015717
+toda la historia,1,dia_semana_h1,0.068242
+toda la historia,1,es_festivo_h1,0.01248
+toda la historia,2,aportes_pct_l0d,0.0311
+toda la historia,2,aportes_pct_l1d,0.017084
+toda la historia,2,aportes_pct_ma7d,0.018596
+toda la historia,2,cmg_despacho_l0h,0.033277
+toda la historia,2,cmg_despacho_l1h,0.019044
+toda la historia,2,cmg_despacho_manana,0.042819
+toda la historia,2,cmg_despacho_l2h,0.014317
+toda la historia,2,cmg_despacho_ma7d,0.029726
+toda la historia,2,cmg_despacho_l28d,0.014605
+toda la historia,2,demanda_ultima,0.016418
+toda la historia,2,demanda_l2h,0.010684
+toda la historia,2,demanda_l7d,0.011611
+toda la historia,2,demanda_ma7d,0.019211
+toda la historia,2,demanda_l5d,0.024949
+toda la historia,2,frac_fncer_l22h,0.014998
+toda la historia,2,frac_fncer_l9h,0.015858
+toda la historia,2,dlp_l1h,0.018806
+toda la historia,2,dlp_l2h,0.016297
+toda la historia,2,lp,0.032804
+toda la historia,2,dlp_dia,0.091978
+toda la historia,2,dlp_l20h,0.018283
+toda la historia,2,dlp_l13h,0.015784
+toda la historia,2,dlp_ultima,0.03944
+toda la historia,2,dlp_l14h,0.013263
+toda la historia,2,dlp_l22h,0.039194
+toda la historia,2,dlp_l3h,0.02664
+toda la historia,2,dlp_l5d,0.047485
+toda la historia,2,margen_ofertado_l0h,0.011784
+toda la historia,2,margen_ofertado_l4d,0.026974
+toda la historia,2,hora,0.036053
+toda la historia,2,dia_semana,0.041298
+toda la historia,2,mes,0.020375
+toda la historia,2,es_festivo,0.048354
+toda la historia,2,dia_semana_h2,0.068147
+toda la historia,2,es_festivo_h2,0.052744
+toda la historia,3,aportes_pct_l0d,0.041744
+toda la historia,3,cmg_despacho_l0h,0.033673
+toda la historia,3,cmg_despacho_l1h,0.026189
+toda la historia,3,cmg_despacho_manana,0.047641
+toda la historia,3,cmg_despacho_l22h,0.023103
+toda la historia,3,cmg_despacho_l1d,0.028828
+toda la historia,3,cmg_despacho_l23h,0.025694
+toda la historia,3,demanda_ultima,0.026467
+toda la historia,3,demanda_l0h,0.017158
+toda la historia,3,demanda_l1h,0.013558
+toda la historia,3,demanda_l23h,0.018042
+toda la historia,3,dlp_l1h,0.013668
+toda la historia,3,dlp_l2h,0.028786
+toda la historia,3,lp,0.045732
+toda la historia,3,dlp_dia,0.067084
+toda la historia,3,dlp_l23h,0.025798
+toda la historia,3,dlp_l1d,0.032718
+toda la historia,3,dlp_ultima,0.047065
+toda la historia,3,dlp_l4d,0.064293
+toda la historia,3,margen_ofertado_l3d,0.036912
+toda la historia,3,hora,0.041541
+toda la historia,3,dia_semana,0.048494
+toda la historia,3,mes,0.032043
+toda la historia,3,es_festivo,0.057808
+toda la historia,3,dia_semana_h3,0.067616
+toda la historia,3,es_festivo_h3,0.088345
+toda la historia,4,aportes_pct_l0d,0.05062
+toda la historia,4,contrato_frac_l0h,0.034789
+toda la historia,4,contrato_frac_l2h,0.026226
+toda la historia,4,contrato_frac_l3h,0.021788
+toda la historia,4,contrato_frac_l7d,0.047674
+toda la historia,4,contrato_frac_ultima,0.032689
+toda la historia,4,dlp_l1h,0.015933
+toda la historia,4,dlp_l2h,0.029037
+toda la historia,4,lp,0.056969
+toda la historia,4,dlp_dia,0.071146
+toda la historia,4,dlp_l23h,0.024981
+toda la historia,4,dlp_l1d,0.028769
+toda la historia,4,dlp_l2d,0.043357
+toda la historia,4,dlp_l3d,0.081361
+toda la historia,4,margen_declarado_ultima,0.035077
+toda la historia,4,margen_declarado_l1d,0.025272
+toda la historia,4,hora,0.053528
+toda la historia,4,dia_semana,0.044276
+toda la historia,4,mes,0.043091
+toda la historia,4,es_festivo,0.054697
+toda la historia,4,dia_semana_h4,0.057594
+toda la historia,4,es_festivo_h4,0.12113
+toda la historia,5,aportes_pct_l0d,0.076086
+toda la historia,5,contrato_frac_l6d,0.029841
+toda la historia,5,dlp_l1h,0.011234
+toda la historia,5,dlp_l2h,0.039184
+toda la historia,5,lp,0.098586
+toda la historia,5,dlp_dia,0.1037
+toda la historia,5,dlp_l23h,0.043917
+toda la historia,5,dlp_l1d,0.069141
+toda la historia,5,dlp_l2d,0.12883
+toda la historia,5,margen_declarado_ultima,0.03217
+toda la historia,5,margen_declarado_l21h,0.025213
+toda la historia,5,hora,0.042742
+toda la historia,5,dia_semana,0.090735
+toda la historia,5,mes,0.041282
+toda la historia,5,es_festivo,0.030695
+toda la historia,5,dia_semana_h5,0.076858
+toda la historia,5,es_festivo_h5,0.059786
+toda la historia,6,aportes_pct_l0d,0.08399
+toda la historia,6,dlp_l1h,0.01598
+toda la historia,6,dlp_l2h,0.029242
+toda la historia,6,lp,0.12253
+toda la historia,6,dlp_dia,0.095671
+toda la historia,6,dlp_l23h,0.072523
+toda la historia,6,dlp_l1d,0.11639
+toda la historia,6,dlp_l7d,0.096602
+toda la historia,6,margen_ofertado_l7d,0.064692
+toda la historia,6,hora,0.041511
+toda la historia,6,dia_semana,0.060839
+toda la historia,6,mes,0.060756
+toda la historia,6,es_festivo,0.028941
+toda la historia,6,dia_semana_h6,0.034121
+toda la historia,6,es_festivo_h6,0.076208
+toda la historia,7,aportes_pct_l0d,0.074402
+toda la historia,7,dlp_l1h,0.020589
+toda la historia,7,dlp_l2h,0.058113
+toda la historia,7,lp,0.10565
+toda la historia,7,dlp_l20h,0.02984
+toda la historia,7,dlp_l13h,0.046099
+toda la historia,7,dlp_l7d,0.11183
+toda la historia,7,dlp_l3h,0.050585
+toda la historia,7,dlp_l4h,0.050991
+toda la historia,7,dlp_l6d,0.055405
+toda la historia,7,dlp_l15h,0.03735
+toda la historia,7,dlp_l19h,0.038151
+toda la historia,7,dlp_l21h,0.0358
+toda la historia,7,margen_declarado_l14d,0.034068
+toda la historia,7,oferta_marginal_ma30d,0.042242
+toda la historia,7,hora,0.028851
+toda la historia,7,dia_semana,0.026289
+toda la historia,7,mes,0.061877
+toda la historia,7,es_festivo,0.024512
+toda la historia,7,dia_semana_h7,0.020692
+toda la historia,7,es_festivo_h7,0.046666
+toda la historia,14,aportes_pct_l0d,0.061792
+toda la historia,14,cmg_redespacho_ma30d,0.064968
+toda la historia,14,dlp_l1h,0.01351
+toda la historia,14,dlp_l2h,0.025523
+toda la historia,14,lp,0.10625
+toda la historia,14,dlp_l23h,0.02861
+toda la historia,14,dlp_l20h,0.018866
+toda la historia,14,dlp_l13h,0.058594
+toda la historia,14,dlp_l7d,0.11057
+toda la historia,14,dlp_l14h,0.045582
+toda la historia,14,dlp_l22h,0.029784
+toda la historia,14,dlp_l3d,0.056231
+toda la historia,14,dlp_l4h,0.023788
+toda la historia,14,dlp_l10h,0.030284
+toda la historia,14,dlp_l18h,0.067426
+toda la historia,14,margen_declarado_l14d,0.033908
+toda la historia,14,perdidas_rel_ultima,0.026418
+toda la historia,14,hora,0.038393
+toda la historia,14,dia_semana,0.010141
+toda la historia,14,mes,0.076866
+toda la historia,14,es_festivo,0.01543
+toda la historia,14,dia_semana_h14,0.018978
+toda la historia,14,es_festivo_h14,0.038086
+toda la historia,30,aportes_pct_l0d,0.053231
+toda la historia,30,contrato_frac_l5d,0.051822
+toda la historia,30,escalon_siguiente_l3d,0.020684
+toda la historia,30,dlp_l1h,0.015753
+toda la historia,30,dlp_l2h,0.041168
+toda la historia,30,lp,0.20369
+toda la historia,30,dlp_l20h,0.072263
+toda la historia,30,dlp_l28d,0.14049
+toda la historia,30,marg_gas_l28d,0.015895
+toda la historia,30,hora,0.04135
+toda la historia,30,dia_semana,0.039278
+toda la historia,30,mes,0.17165
+toda la historia,30,es_festivo,0.04043
+toda la historia,30,dia_semana_h30,0.051974
+toda la historia,30,es_festivo_h30,0.040328

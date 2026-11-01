@@ -7,6 +7,13 @@ el curso de Feature Engineering de Soledad Galli, el repositorio
 Complete-Feature-Selection, el ML Zoomcamp y el curso de Statistical Learning and
 Data Analysis (SLDA). Lo que no está en esas guías se cita a su fuente original.
 
+Este documento cubre el panel diario. El panel horario y la selección de variables
+están en `PANEL_HORARIO.md`, los resultados del modelo XGBoost en
+`../resultados/modelo_xgboost/RESULTADOS.md` y la fuente de cada parte del código
+en `REFERENCIAS.md`. Las secciones 6 y 7 describen los modelos diarios tal como
+quedaron en el commit `a200127`; desde entonces `3_datos_y_caracteristicas.ipynb`
+solo prepara los datos y las características.
+
 Contenido:
 
 1. De qué se trata
@@ -50,36 +57,36 @@ python 1_descargar.py
 python 2_construir_panel.py
 ```
 
-y después se abre `3_modelos.ipynb`.
+y después se abre `3_datos_y_caracteristicas.ipynb`. Los pasos horarios (2b, 2c, 2d y el notebook 4)
+están en el `README.md` de la raíz.
 
 | Paso | Tiempo |
 |---|---|
 | `1_descargar.py`, la primera vez | varias horas (más de diez años por planta y por hora) |
 | `1_descargar.py`, actualizando | unos 5 minutos |
 | `2_construir_panel.py` | unos 20 segundos |
-| `3_modelos.ipynb` | unos 5 minutos |
+| `3_datos_y_caracteristicas.ipynb` | unos 5 minutos |
 
-El notebook solo necesita `features.py` y `panel_diario.csv`. En Colab, la primera
-celda los baja de GitHub o pide subirlos.
+El notebook solo necesita `features.py` y `paneles/panel_diario.csv`. En Colab, la
+primera celda pide subirlos.
 
 Una nota para Windows: con Smart App Control activado, Windows bloquea `pyarrow`
 (la versión 25). El proyecto no lo necesita porque guarda todo en CSV; si aparece el
 error `DLL load failed while importing _compute`, basta con desinstalar `pyarrow`.
 
+La estructura completa de carpetas está en el `README.md` de la raíz. Lo que
+baja el paso 1 queda en `datos/` (no se sube a git):
+
 ```
-tesis/
-├── 1_descargar.py
-├── 2_construir_panel.py
-├── features.py
-├── 3_modelos.ipynb
-├── panel_diario.csv
-├── datos/            lo que baja el paso 1 (no se sube a git)
-│   ├── xm/           una serie por archivo, tal como la entrega la API
-│   ├── noaa/
-│   ├── lluvia_cuencas.csv
-│   ├── trm.csv
-│   └── Listado_Recursos_Generacion.xlsx
-└── legacy/           versiones anteriores y experimentos
+datos/
+├── xm/           una serie por archivo, tal como la entrega la API
+├── simem/        los conjuntos de SIMEM
+├── noaa/
+├── lluvia_cuencas.csv
+├── trm.csv
+├── ideam_prediccion.csv
+├── Listado_Recursos_Generacion.xlsx
+└── sondeos/      consultas a las fuentes (sí se sube a git)
 ```
 
 ---
@@ -139,7 +146,7 @@ Se probaron y se dejaron por fuera, con el detalle en `legacy/`:
 
 ## 4. Paso 2: el panel diario (`2_construir_panel.py`)
 
-El resultado es `panel_diario.csv`: una fila por día y una columna por variable.
+El resultado es `paneles/panel_diario.csv`: una fila por día y una columna por variable.
 Este paso no crea rezagos ni nada pensado para el modelo; solo pone todo en la
 misma escala de tiempo y calcula las variables derivadas.
 
@@ -296,14 +303,14 @@ Con la ventana de selección (2015-2019):
    aportan algo distinto).
 3. Se quitan las combinaciones lineales exactas. Por construcción
    `x_choque7 = x_lag1 − x_ma7`, y con las tres juntas la regresión no puede
-   separar sus efectos. Es el problema de multicolinealidad de las clases 5 a 7
-   de SLDA.
+   separar sus efectos. Este filtro es una decisión propia: los materiales de
+   SLDA no tratan la multicolinealidad.
 
 De 1.334 características quedan 702.
 
 ---
 
-## 6. Los modelos (`3_modelos.ipynb`)
+## 6. Los modelos diarios (commit `a200127`)
 
 ### 6.1 Qué se predice y en qué ventanas
 

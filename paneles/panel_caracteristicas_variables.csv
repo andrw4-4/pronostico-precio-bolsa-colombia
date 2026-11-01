@@ -1,0 +1,137 @@
+variable,grupo,tipo,fuente,regla,faltante_pct,entra,motivo,de_antemano,atraso_extra_dias,columnas_derivadas
+lp,precio,precio,precio_bolsa,log,0.0,True,entra,False,0,43
+demanda,demanda,horaria,demanda_comercial,log,0.0,True,entra,False,0,21
+pron_demanda,demanda,horaria,pron_demanda_cnd,log,0.071,True,entra,True,0,22
+error_pron_demanda,demanda,horaria,"error_pron_demanda, pron_demanda_cnd",error / pronóstico,0.071,True,entra,False,0,21
+dem_no_regulada_frac,demanda,horaria,"demanda_no_regulada, demanda_comercial",fracción de la demanda,0.0,True,entra,False,0,21
+margen_declarado,disponibilidad,horaria,margen_declarado,disponibilidad / demanda,0.0,True,entra,False,0,21
+margen_decl_pron,disponibilidad,horaria,"disp_declarada, pron_demanda_cnd",disponibilidad / demanda pronosticada,0.071,True,entra,True,0,22
+disp_real_vs_decl,disponibilidad,horaria,"disp_real, disp_declarada",real / declarada,0.0,True,entra,False,0,21
+disp_termica_frac,disponibilidad,horaria,"disp_decl_termica, disp_declarada",fracción térmica de la disponibilidad,0.0,True,entra,True,0,22
+frac_termica,generacion,horaria,frac_termica,fracción de la generación,0.0,True,entra,False,0,21
+frac_hidraulica,generacion,horaria,frac_hidraulica,fracción de la generación,0.0,True,entra,False,0,21
+frac_fncer,generacion,horaria,frac_fncer,fracción de la generación,0.0,True,entra,False,0,21
+gen_seguridad_rel,generacion,horaria,"gen_seguridad, gen_total",fracción de la generación,0.0,True,entra,False,0,21
+gen_fuera_merito_rel,generacion,horaria,"gen_fuera_merito, gen_total",fracción de la generación,0.0,True,entra,False,0,21
+gen_restricciones_rel,generacion,horaria,"gen_restricciones, gen_total",fracción de la generación,0.0,True,entra,False,0,21
+redespacho_vs_programa,generacion,horaria,"gen_prog_redespacho, gen_programada, demanda_comercial",(redespacho - programa) / demanda,0.0,True,entra,False,0,21
+gen_ideal_termica_frac,generacion,horaria,"gen_ideal_termica, gen_ideal_total",fracción térmica del despacho ideal,0.0,True,entra,False,0,21
+consumo_por_mwh_termico,generacion,horaria,"consumo_combustible, gen_termica",MBTU por MWh térmico,0.0,True,entra,False,0,21
+co2_por_mwh,generacion,horaria,"co2_total, gen_total",toneladas por MWh,0.0,True,entra,False,0,21
+co2_gas_frac,generacion,horaria,"co2_gas, co2_total",fracción del CO2,0.0,True,entra,False,0,21
+co2_carbon_frac,generacion,horaria,"co2_carbon, co2_total",fracción del CO2,0.0,True,entra,False,0,21
+co2_liquidos_frac,generacion,horaria,"co2_liquidos, co2_total",fracción del CO2,0.0,True,entra,False,0,21
+restricciones_rel,red_y_contratos,horaria,"restricciones, demanda_comercial",sobre la demanda,0.0,True,entra,False,3,21
+restricciones_sin_aliv_rel,red_y_contratos,horaria,"restricciones_sin_aliv, demanda_comercial",sobre la demanda,0.0,True,entra,False,0,21
+perdidas_rel,red_y_contratos,horaria,"perdidas_energia, demanda_comercial",sobre la demanda,0.0,True,entra,False,3,21
+intercambio_neto_rel,red_y_contratos,horaria,"importaciones, exportaciones, demanda_comercial",(importaciones - exportaciones) / demanda,0.0,True,entra,False,0,21
+contrato_frac,red_y_contratos,horaria,"compras_contrato, demanda_comercial",fracción de la demanda,0.0,True,entra,False,3,21
+precio_contrato,red_y_contratos,horaria,precio_prom_contrato,log,0.0,True,entra,False,3,21
+precio_contrato_no_reg,red_y_contratos,horaria,precio_cont_no_regu,log,0.0,True,entra,False,3,21
+cmg_despacho,costo_marginal,horaria,cmg_despacho,log,0.0,True,entra,True,0,22
+cmg_redespacho,costo_marginal,horaria,cmg_redespacho,log,0.0,True,entra,False,0,21
+ajuste_cmg,costo_marginal,horaria,"cmg_redespacho, cmg_despacho",log(redespacho) - log(despacho),0.0,True,entra,False,0,21
+oferta_marginal,curva_de_merito,horaria,oferta_marginal,log,0.0,True,entra,False,8,21
+margen_ofertado,curva_de_merito,horaria,margen_ofertado,capacidad ofertada / demanda,0.0,True,entra,False,8,21
+cap_bajo_200_rel,curva_de_merito,horaria,"cap_bajo_200, demanda_comercial",sobre la demanda,0.0,True,entra,False,8,21
+cap_bajo_500_rel,curva_de_merito,horaria,"cap_bajo_500, demanda_comercial",sobre la demanda,0.0,True,entra,False,8,21
+holgura_rel,curva_de_merito,horaria,"holgura_mw, demanda_comercial",sobre la demanda,0.0,True,entra,False,8,21
+escalon_siguiente,curva_de_merito,horaria,escalon_siguiente,log(1 + x),0.0,True,entra,False,8,21
+marg_termica,planta_marginal,horaria,marg_termica,1 si fijó el precio,0.0,True,entra,False,8,21
+marg_gas,planta_marginal,horaria,marg_gas,1 si fijó el precio,0.0,True,entra,False,8,21
+marg_carbon,planta_marginal,horaria,marg_carbon,1 si fijó el precio,0.0,True,entra,False,8,21
+marg_liquidos,planta_marginal,horaria,marg_liquidos,1 si fijó el precio,0.0,True,entra,False,8,21
+error_cmg_despacho,interaccion,horaria,"precio_bolsa, cmg_despacho",lp - log(costo marginal programado): el error del operador,0.0,True,entra,False,0,21
+brecha_escasez,interaccion,horaria,"precio_bolsa, precio_escasez",lp - log(precio de escasez): distancia al techo,0.0,True,entra,False,0,21
+presion_hidro_horaria,interaccion,horaria,"demanda_comercial, aportes_por_rio",demanda de la hora / aportes del día por hora,0.0,True,entra,False,0,21
+aportes_pct_sistema,aportes,diaria,aportes_pct_sistema,"porcentaje, tal cual",0.0,True,entra,False,0,10
+aportes_pct_rio,aportes,diaria,aportes_pct_rio,"porcentaje, tal cual",0.0,True,entra,False,0,10
+aportes_caudal_pct,aportes,diaria,"aportes_caudal, aportes_caudal_medio",caudal / caudal medio histórico de XM,0.0,True,entra,False,0,10
+aportes_media_hist,aportes,diaria,aportes_media_hist,"media histórica de XM, en GWh (referencia estacional)",0.0,True,entra,False,0,10
+hhi_aportes_rios,aportes,diaria,hhi_aportes_rios,tal cual,0.0,True,entra,False,0,10
+aportes_top3_pct,aportes,diaria,aportes_top3_pct,tal cual,0.0,True,entra,False,0,10
+n_rios_aportando,aportes,diaria,n_rios_aportando,tal cual,0.0,True,entra,False,0,10
+volumen_util_pct,embalses,diaria,volumen_util_pct,tal cual,0.0,True,entra,False,0,10
+volumen_util_pct_emb,embalses,diaria,volumen_util_pct_emb,tal cual,0.0,True,entra,False,0,10
+vol_pct_penol,embalses,diaria,vol_pct_penol,tal cual,0.0,True,entra,False,0,10
+vol_pct_agregado_bogota,embalses,diaria,vol_pct_agregado_bogota,tal cual,0.0,True,entra,False,0,10
+vol_pct_guavio,embalses,diaria,vol_pct_guavio,tal cual,0.0,True,entra,False,0,10
+vol_pct_esmeralda,embalses,diaria,vol_pct_esmeralda,tal cual,0.0,True,entra,False,0,10
+vol_pct_el_quimbo,embalses,diaria,vol_pct_el_quimbo,tal cual,5.781,False,más de 1% de faltantes,False,0,0
+hhi_volumen_embalses,embalses,diaria,hhi_volumen_embalses,tal cual,0.0,True,entra,False,0,10
+dias_autonomia,embalses,diaria,"volumen_por_embalse, demanda_comercial",volumen útil (GWh) sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,0,10
+capacidad_util_dias,embalses,diaria,"capacidad_por_embalse, demanda_comercial",capacidad útil (GWh) sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,0,10
+vertimientos_rel,embalses,diaria,"vertimientos, demanda_comercial","vertimientos (GWh, 0 si no hubo) sobre la media de 7 días de la demanda diaria",0.0,True,entra,False,0,10
+lluvia_sistema,lluvia,diaria,lluvia_sistema,tal cual,0.0,True,entra,False,0,10
+lluvia_sistema_acum3,lluvia,diaria,lluvia_sistema_acum3,tal cual,0.0,True,entra,False,0,10
+lluvia_sistema_acum7,lluvia,diaria,lluvia_sistema_acum7,tal cual,0.0,True,entra,False,0,10
+lluvia_sistema_acum15,lluvia,diaria,lluvia_sistema_acum15,tal cual,0.0,True,entra,False,0,10
+lluvia_sistema_acum30,lluvia,diaria,lluvia_sistema_acum30,tal cual,0.0,True,entra,False,0,10
+lluvia_sistema_acum60,lluvia,diaria,lluvia_sistema_acum60,tal cual,0.0,True,entra,False,0,10
+lluvia_sistema_acum90,lluvia,diaria,lluvia_sistema_acum90,tal cual,0.0,True,entra,False,0,10
+lluvia_anomalia,lluvia,diaria,lluvia_anomalia,tal cual,0.0,True,entra,False,0,10
+lluvia_anom_acum30,lluvia,diaria,lluvia_anom_acum30,tal cual,0.0,True,entra,False,0,10
+lluvia_razon30,lluvia,diaria,lluvia_razon30,tal cual,0.0,True,entra,False,0,10
+lluvia_anom_acum90,lluvia,diaria,lluvia_anom_acum90,tal cual,0.0,True,entra,False,0,10
+lluvia_razon90,lluvia,diaria,lluvia_razon90,tal cual,0.0,True,entra,False,0,10
+lluvia_penol_acum30,lluvia,diaria,lluvia_penol_acum30,tal cual,0.0,True,entra,False,0,10
+lluvia_penol_anom30,lluvia,diaria,lluvia_penol_anom30,tal cual,0.0,True,entra,False,0,10
+lluvia_bogota_acum30,lluvia,diaria,lluvia_bogota_acum30,tal cual,0.0,True,entra,False,0,10
+lluvia_bogota_anom30,lluvia,diaria,lluvia_bogota_anom30,tal cual,0.0,True,entra,False,0,10
+lluvia_guavio_acum30,lluvia,diaria,lluvia_guavio_acum30,tal cual,0.0,True,entra,False,0,10
+lluvia_guavio_anom30,lluvia,diaria,lluvia_guavio_anom30,tal cual,0.0,True,entra,False,0,10
+lluvia_quimbo_acum30,lluvia,diaria,lluvia_quimbo_acum30,tal cual,0.0,True,entra,False,0,10
+lluvia_quimbo_anom30,lluvia,diaria,lluvia_quimbo_anom30,tal cual,0.0,True,entra,False,0,10
+lluvia_gradiente_ns,lluvia,diaria,lluvia_gradiente_ns,tal cual,0.0,True,entra,False,0,10
+nino12_anom,el_nino,diaria,nino12_anom,tal cual,0.0,True,entra,False,0,10
+nino3_anom,el_nino,diaria,nino3_anom,tal cual,0.0,True,entra,False,0,10
+nino34_anom,el_nino,diaria,nino34_anom,tal cual,0.0,True,entra,False,0,10
+nino4_anom,el_nino,diaria,nino4_anom,tal cual,0.0,True,entra,False,0,10
+nino12_tend4s,el_nino,diaria,nino12_tend4s,tal cual,0.0,True,entra,False,0,10
+nino12_tend12s,el_nino,diaria,nino12_tend12s,tal cual,0.0,True,entra,False,0,10
+nino34_tend4s,el_nino,diaria,nino34_tend4s,tal cual,0.0,True,entra,False,0,10
+nino34_tend12s,el_nino,diaria,nino34_tend12s,tal cual,0.0,True,entra,False,0,10
+nino_gradiente_costa,el_nino,diaria,nino_gradiente_costa,tal cual,0.0,True,entra,False,0,10
+oni,el_nino,diaria,oni,tal cual,0.047,True,entra,False,0,10
+roni,el_nino,diaria,roni,tal cual,0.0,True,entra,False,0,10
+pred_lluvia_andina,ideam,diaria,pred_lluvia_andina,tal cual,0.0,True,entra,False,0,10
+pred_lluvia_caribe,ideam,diaria,pred_lluvia_caribe,tal cual,0.0,True,entra,False,0,10
+pred_lluvia_pacifica,ideam,diaria,pred_lluvia_pacifica,tal cual,3.209,False,más de 1% de faltantes,False,0,0
+pred_lluvia_orinoquia,ideam,diaria,pred_lluvia_orinoquia,tal cual,0.0,True,entra,False,0,10
+pred_lluvia_amazonia,ideam,diaria,pred_lluvia_amazonia,tal cual,0.0,True,entra,False,0,10
+pred_deficit,ideam,diaria,pred_deficit,tal cual,0.0,True,entra,False,0,10
+pred_prob_max,ideam,diaria,pred_prob_max,tal cual,0.0,True,entra,False,0,10
+pred_enos,ideam,diaria,pred_enos,tal cual,0.0,True,entra,False,0,10
+frac_gen_gas,mezcla_por_planta,diaria,"gen_gas, gen_total",fracción de la generación del día (0 si no hubo),0.0,True,entra,False,0,10
+frac_gen_carbon,mezcla_por_planta,diaria,"gen_carbon, gen_total",fracción de la generación del día (0 si no hubo),0.0,True,entra,False,0,10
+frac_gen_liquidos,mezcla_por_planta,diaria,"gen_liquidos, gen_total",fracción de la generación del día (0 si no hubo),0.0,True,entra,False,0,10
+frac_gen_biomasa,mezcla_por_planta,diaria,"gen_biomasa, gen_total",fracción de la generación del día (0 si no hubo),0.0,True,entra,False,0,10
+frac_gen_no_despachado,mezcla_por_planta,diaria,"gen_no_despachado, gen_total",fracción de la generación del día (0 si no hubo),0.0,True,entra,False,0,10
+frac_gen_filo_agua,mezcla_por_planta,diaria,"gen_filo_agua, gen_total",fracción de la generación del día (0 si no hubo),0.0,True,entra,False,0,10
+frac_gas_en_termica,mezcla_por_planta,diaria,frac_gas_en_termica,tal cual,0.0,True,entra,False,0,10
+frac_despacho_central,mezcla_por_planta,diaria,frac_despacho_central,tal cual,0.0,True,entra,False,0,10
+frac_filo_en_hidro,mezcla_por_planta,diaria,frac_filo_en_hidro,tal cual,0.0,True,entra,False,0,10
+hhi_generacion,mezcla_por_planta,diaria,hhi_generacion,tal cual,0.0,True,entra,False,0,10
+gen_top5_pct,mezcla_por_planta,diaria,gen_top5_pct,tal cual,0.0,True,entra,False,0,10
+n_plantas_activas,mezcla_por_planta,diaria,n_plantas_activas,tal cual,0.0,True,entra,False,0,10
+disp_decl_despacho_central_rel,mezcla_por_planta,diaria,"disp_decl_despacho_central, demanda_comercial",disponibilidad (GWh) sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,0,10
+oferta_p25,curva_del_dia,diaria,oferta_p25,log,0.0,True,entra,False,8,10
+oferta_p50,curva_del_dia,diaria,oferta_p50,log,0.0,True,entra,False,8,10
+oferta_p75,curva_del_dia,diaria,oferta_p75,log,0.0,True,entra,False,8,10
+oferta_min,curva_del_dia,diaria,oferta_min,log,0.0,True,entra,False,8,10
+oferta_max,curva_del_dia,diaria,oferta_max,log,0.0,True,entra,False,8,10
+oferta_dispersion,curva_del_dia,diaria,oferta_dispersion,tal cual,0.0,True,entra,False,8,10
+pendiente_curva,curva_del_dia,diaria,pendiente_curva,tal cual,0.0,True,entra,False,8,10
+cap_bajo_100_rel,curva_del_dia,diaria,"cap_bajo_100, demanda_comercial",GWh sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,8,10
+cap_bajo_300_rel,curva_del_dia,diaria,"cap_bajo_300, demanda_comercial",GWh sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,8,10
+cap_bajo_1000_rel,curva_del_dia,diaria,"cap_bajo_1000, demanda_comercial",GWh sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,8,10
+capacidad_efectiva_rel,sistema,diaria,"capacidad_efectiva, demanda_comercial","capacidad (kW x 24 h, en GWh) sobre la media de 7 días de la demanda diaria",0.0,True,entra,False,0,10
+enficc_rel,sistema,diaria,"enficc, demanda_comercial",GWh sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,0,10
+oblig_energia_firme_rel,sistema,diaria,"oblig_energia_firme, demanda_comercial",GWh sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,0,10
+margen_reserva,sistema,diaria,margen_reserva,tal cual,0.0,True,entra,False,0,10
+precio_cargo_conf,sistema,diaria,precio_cargo_conf,log,0.0,True,entra,False,0,10
+precio_escasez,sistema,diaria,precio_escasez,log,0.0,True,entra,False,0,10
+trm,sistema,diaria,trm,log,0.0,True,entra,False,0,10
+demanda_max_potencia_rel,sistema,diaria,"demanda_max_potencia, demanda_comercial",potencia máxima (MW) / demanda media por hora,0.779,True,entra,False,0,10
+demanda_no_atendida_rel,sistema,diaria,"demanda_no_atendida, demanda_comercial",GWh (0 si no hubo) sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,0,10
+dem_no_atendida_nop_rel,sistema,diaria,"dem_no_atendida_nop, demanda_comercial",GWh (0 si no hubo) sobre la media de 7 días de la demanda diaria,0.0,True,entra,False,0,10

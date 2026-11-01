@@ -1,7 +1,7 @@
 # legacy
 
-Aquí está todo lo que se hizo antes de llegar a la versión actual (los cuatro
-archivos de la raíz). No hace falta para correr los modelos, pero respalda la
+Aquí está todo lo que se hizo antes de llegar a la versión actual (los archivos de
+la raíz). No hace falta para correr los modelos, pero respalda la
 sección "Lo que no funcionó" de `DOCUMENTACION.md` y deja la historia del proyecto.
 
 Los scripts usan las rutas que tenían cuando se escribieron, así que para volver
@@ -18,6 +18,7 @@ evaluación por bloques temáticos con Diebold-Mariano y una auditoría de fuga.
 | `00_consolidar_panel.py` | armaba el panel diario desde la caché de la API. Su lógica pasó casi intacta a `2_construir_panel.py` |
 | `01_seleccion_variables.py` a `03_bloques_candidatos.py` | selección de variables y de bloques |
 | `04_xgboost.ipynb`, `05_xgboost_diferencia.ipynb` | primeros XGBoost, en nivel y en diferencias |
+| `05_xgboost_diferencia_copia_13sep.ipynb` | otra versión del mismo notebook que estaba suelta en la raíz (13 de septiembre); se guarda por si tiene resultados que la otra no |
 | `06_auditoria.py` | chequeos automáticos de fuga de información |
 | `01_analisis_exhaustivo_precio_bolsa.ipynb` | análisis exploratorio inicial |
 
@@ -25,7 +26,7 @@ evaluación por bloques temáticos con Diebold-Mariano y una auditoría de fuga.
 
 Las versiones intermedias del notebook único: `08_flujo_completo`, `09_tesis_completo`
 (con todos los métodos del curso SLDA) y `21_modelos_finales`, que es el antecesor
-directo de `3_modelos.ipynb` y da los mismos resultados.
+directo de la versión de `3_modelos.ipynb` del commit `a200127` y da los mismos resultados.
 
 ## experimentos/
 
@@ -47,6 +48,29 @@ Cada prueba que se hizo para mejorar el pronóstico, en el orden en que se hizo.
 | `19_cuantilica.py`, `20_calibrar_h7.py` | pronóstico probabilístico y calibración | es el modelo 2 |
 | `22_capacidad_o_informacion.py` | ¿una red neuronal ayudaría? | no: más capacidad empeora |
 | `DICCIONARIO_VARIABLES.md` | descripción detallada de las 46 variables nuevas | |
+
+## seleccion_lineal/
+
+La primera versión del paso 2d (`2d_seleccion_lineal.py`, que antes se llamaba
+`2c_panel_modelo_horario.py`) y sus tres salidas. Armaba sus propias 65
+variables candidatas y elegía variables y rezagos con pruebas lineales: ADF
+para decidir nivel o desviación, selección hacia adelante con errores de
+Driscoll-Kraay (Granger) y Wald por bloques, con corrección de Bonferroni. Con
+sus salidas se corrió `experimentos_xgboost/4_experimentos_xgboost.ipynb`. La reemplazó la selección actual, que elige entre las
+columnas del paso 2c con XGBoost y una validación fuera de muestra, porque las
+pruebas lineales no ven las interacciones que los árboles sí aprovechan. El panel
+de esta versión (`panel_horario_modelo.csv.gz`) no se sube a git.
+
+## experimentos_xgboost/
+
+`4_experimentos_xgboost.ipynb`, los primeros experimentos con XGBoost por hora: tres
+ventanas de datos, partición 70/20/10 y la selección lineal. Sus resultados están en
+`resultados/`, con su `RESULTADOS.md`. Los reemplazó `4_modelo_xgboost.ipynb` de la
+raíz. Se corre desde la raíz del repo y necesita el panel de `seleccion_lineal/`.
+
+## explorar.py
+
+App de Streamlit para explorar el panel diario. No hace parte del modelo.
 
 ## salidas/
 

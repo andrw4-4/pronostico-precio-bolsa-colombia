@@ -1,5 +1,5 @@
 """
-Paso 1 de 3: descargar los datos.
+Paso 1: descargar los datos.
 
 Baja todas las series que usa el proyecto y las guarda en la carpeta datos/.
 La primera vez se demora varias horas, porque son más de diez años de datos
@@ -10,6 +10,8 @@ De dónde sale cada cosa:
 
     XM (API de SIMEM, librería pydataxm)   precio de bolsa, hidrología, generación,
                                            ofertas, demanda, contratos
+    SIMEM (servicio público de datos)      pronóstico de demanda, costo marginal
+                                           programado, holgura, arranques y paradas
     NOAA (Climate Prediction Center)       temperatura del Pacífico (El Niño)
     Open-Meteo (reanálisis ERA5)           lluvia diaria sobre las cuencas
     datos.gov.co                           TRM
@@ -28,10 +30,12 @@ import json
 import time
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, timedelta
 from pathlib import Path
 
 import pandas as pd
+import requests
 
 CARPETA = Path(__file__).resolve().parent / "datos"
 CARPETA_XM = CARPETA / "xm"
@@ -106,6 +110,84 @@ SERIES_XM = {
     "cee":                    ("CEE", "Sistema"),
     "cere":                   ("CERE", "Sistema"),
     "mc":                     ("MC", "Sistema"),
+
+    # Operación de los embalses: lo que el operador decide hacer con el agua.
+    # Las de arriba dicen cuánta agua hay; estas, cuánta se usa y cómo.
+    "descargas_embalse":      ("DescMasa", "Embalse"),
+    "turbinado_embalse":      ("VolTurbMasa", "Embalse"),
+    "vertido_embalse":        ("VertMasa", "Embalse"),
+
+    # Aportes medidos en caudal, que es como los reporta la hidrología
+    "aportes_caudal":         ("AporCaudal", "Rio"),
+    "aportes_caudal_medio":   ("AporCaudalMediHist", "Rio"),
+
+    # Redespacho: lo que cambia después de publicado el despacho
+    "gen_prog_redespacho":    ("GeneProgRedesp", "Recurso"),
+
+    # Demanda real (la comercial de arriba es otra medición) y el pico de potencia
+    "demanda_real":           ("DemaReal", "Sistema"),
+    "demanda_real_reg":       ("DemaRealReg", "Sistema"),
+    "demanda_real_no_reg":    ("DemaRealNoReg", "Sistema"),
+    "demanda_max_potencia":   ("DemaMaxPot", "Sistema"),
+    "demanda_no_atendida":    ("DemaNoAtenProg", "Area"),
+    "dem_no_atendida_nop":    ("DemaNoAtenNoProg", "Area"),
+
+    # Intercambios con Ecuador, separados de las importaciones totales
+    "compras_tie":            ("CompBolsaTIEEner", "Sistema"),
+    "ventas_tie":             ("VentBolsaTIEEner", "Sistema"),
+    "tie_merito":             ("SnTIEMerito", "Sistema"),
+    "tie_fuera_merito":       ("SnTIEFueraMerito", "Sistema"),
+
+    # Variantes del precio de escasez: se publican antes del despacho
+    "precio_esca_marg":       ("PrecEscaMarg", "Sistema"),
+    "precio_esca_sup":        ("PrecEscaSup", "Sistema"),
+    "precio_esca_inf":        ("PrecEscaInf", "Sistema"),
+    "precio_esca_act":        ("PrecEscaAct", "Sistema"),
+
+    # Compromiso de energía en firme de cada planta
+    "oblig_energia_firme":    ("ObligEnerFirme", "Recurso"),
+
+    # Qué se despacharía sin restricciones de la red, y qué planta quedó al
+    # margen y de qué combustible vino la energía, hora a hora. La generación
+    # ideal por planta también está en SIMEM, pero allí pesa unos 17 GB y
+    # arranca en 2021; esta es la misma variable desde 2015.
+    "gen_ideal":              ("GeneIdea", "Recurso"),
+    "recurso_marginal":       ("IndRecMargina", "Recurso"),
+    "co2_por_combustible":    ("EmisionesCO2", "RecursoComb"),
+}
+
+# ---------------------------------------------------------------------------
+# Series de SIMEM (el portal de datos abiertos de XM): nombre -> (conjunto,
+# desde cuándo).
+#
+# La API de XM no trae estas. Se piden por el servicio público de SIMEM y se
+# guardan tal como llegan, sin juntar plantas ni mercados; eso lo hace el paso 2.
+#
+#   pron_demanda_cnd   pronóstico de demanda del Centro Nacional de Despacho,
+#                      por mercado de comercialización y hora
+#   cmg_despacho       costo marginal del despacho económico (programado)
+#   cmg_redespacho     costo marginal del redespacho (se ajusta durante el día)
+#   holgura_horaria    holgura superior e inferior de cada planta en cada hora
+#   bandera_arranque   1 si la planta arrancó en esa hora
+#   bandera_parada     1 si la planta paró en esa hora
+#   reserva_caliente   proyección semanal de la reserva de corto plazo; solo
+#                      existe desde agosto de 2024
+#
+# La holgura, las banderas y la reserva se bajan, pero por ahora el panel horario
+# no las usa porque empiezan tarde (ver NO_SE_USAN_POR_AHORA en el paso 2b).
+# ---------------------------------------------------------------------------
+# Fuente: es el servicio que usa por dentro pydataxm.pydatasimem; su catálogo
+# es el conjunto e007fb (ver docs/REFERENCIAS.md)
+SIMEM_URL = "https://www.simem.co/backend-files/api/PublicData"
+CARPETA_SIMEM = CARPETA / "simem"
+SERIES_SIMEM = {
+    "pron_demanda_cnd":  ("68300e", INICIO),
+    "cmg_despacho":      ("29f060", INICIO),
+    "cmg_redespacho":    ("03e35f", INICIO),
+    "holgura_horaria":   ("897043", date(2021, 1, 1)),
+    "bandera_arranque":  ("1237df", date(2021, 1, 1)),
+    "bandera_parada":    ("39726d", date(2021, 1, 1)),
+    "reserva_caliente":  ("f62164", date(2024, 8, 1)),
 }
 
 # Archivos de NOAA. wksst9120 trae la temperatura semanal del mar en las cuatro
@@ -210,6 +292,76 @@ def actualizar_xm(api, nombre, metrica, entidad, hoy):
 
 
 # ---------------------------------------------------------------------------
+# SIMEM
+# ---------------------------------------------------------------------------
+
+def pedir_simem(conjunto, desde, hasta, intentos=4):
+    """Un tramo de un conjunto de SIMEM. Devuelve una lista de registros, o None si falla."""
+    for intento in range(intentos):
+        try:
+            r = requests.get(SIMEM_URL, timeout=120,
+                             params={"startdate": desde.isoformat(), "enddate": hasta.isoformat(),
+                                     "datasetId": conjunto})
+            if r.status_code == 200:
+                return r.json()["result"].get("records", [])
+        except Exception:
+            pass
+        time.sleep(3 * (intento + 1))
+    return None
+
+
+def bajar_simem(conjunto, desde, hasta):
+    """Pide el conjunto por tramos de 30 días, varios a la vez."""
+    tramos, inicio = [], desde
+    while inicio <= hasta:
+        fin = min(inicio + timedelta(days=29), hasta)
+        tramos.append((inicio, fin))
+        inicio = fin + timedelta(days=1)
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        resultados = list(pool.map(lambda t: pedir_simem(conjunto, *t), tramos))
+
+    partes = []
+    for (ini, fin), registros in zip(tramos, resultados):
+        if registros is None:
+            print(f"    no se pudo bajar {ini} a {fin}")
+        elif registros:
+            partes.append(pd.DataFrame(registros))
+    return pd.concat(partes, ignore_index=True) if partes else None
+
+
+def actualizar_simem(nombre, conjunto, desde, hoy):
+    """Igual que actualizar_xm: baja lo que falta y repasa el último mes."""
+    CARPETA_SIMEM.mkdir(parents=True, exist_ok=True)
+    ruta = CARPETA_SIMEM / f"{nombre}.csv.gz"
+    viejo = pd.read_csv(ruta, dtype=str) if ruta.exists() else None
+
+    if viejo is None or viejo.empty:
+        inicio = desde
+    else:
+        ultimo = pd.Timestamp(viejo["FechaHora"].max()).date()
+        inicio = ultimo - timedelta(days=REPASO_DIAS)
+
+    nuevo = bajar_simem(conjunto, inicio, hoy)
+    if nuevo is None:
+        return viejo
+    nuevo = nuevo.astype(str)
+
+    if viejo is not None:
+        # se descarta lo viejo desde la fecha que se volvió a pedir
+        corte = pd.Timestamp(inicio)
+        viejo = viejo[pd.to_datetime(viejo["FechaHora"]) < corte]
+        nuevo = nuevo.reindex(columns=viejo.columns)
+        datos = pd.concat([viejo, nuevo], ignore_index=True)
+    else:
+        datos = nuevo
+
+    datos = datos.drop_duplicates().sort_values("FechaHora", kind="stable")
+    datos.to_csv(ruta, index=False, compression={"method": "gzip", "compresslevel": 6})
+    return datos
+
+
+# ---------------------------------------------------------------------------
 # Clima y TRM
 # ---------------------------------------------------------------------------
 
@@ -262,6 +414,17 @@ def bajar_trm():
     print(f"  TRM hasta {trm.index.max().date()}")
 
 
+def conectar_xm(pydataxm, intentos=10):
+    """El servidor de XM se cae a ratos; se reintenta antes de rendirse."""
+    for i in range(intentos):
+        try:
+            return pydataxm.ReadDB()
+        except Exception as e:
+            print(f"  XM no responde ({type(e).__name__}), intento {i + 1} de {intentos}")
+            time.sleep(10)
+    raise RuntimeError("XM no respondió. Se puede reintentar más tarde.")
+
+
 def main():
     CARPETA_XM.mkdir(parents=True, exist_ok=True)
     CARPETA_NOAA.mkdir(parents=True, exist_ok=True)
@@ -272,7 +435,7 @@ def main():
         print("(XM > Generación > Listado de recursos) y se guarda en datos/.\n")
 
     from pydataxm import pydataxm
-    api = pydataxm.ReadDB()
+    api = conectar_xm(pydataxm)
 
     print(f"XM: {len(SERIES_XM)} series hasta {hoy}")
     for nombre, (metrica, entidad) in SERIES_XM.items():
@@ -282,6 +445,16 @@ def main():
             print(f"  {nombre:24s} sin datos")
         else:
             print(f"  {nombre:24s} {len(datos):9,d} filas, hasta {datos['Date'].max()}"
+                  f"  ({time.time() - t:.0f} s)")
+
+    print(f"\nSIMEM: {len(SERIES_SIMEM)} conjuntos")
+    for nombre, (conjunto, desde) in SERIES_SIMEM.items():
+        t = time.time()
+        datos = actualizar_simem(nombre, conjunto, desde, hoy)
+        if datos is None:
+            print(f"  {nombre:20s} sin datos")
+        else:
+            print(f"  {nombre:20s} {len(datos):10,d} filas, hasta {datos['FechaHora'].max()[:10]}"
                   f"  ({time.time() - t:.0f} s)")
 
     print("\nNOAA")
