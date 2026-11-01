@@ -20,6 +20,7 @@ material_de_apoyo/
 
 # Configuración local del editor
 .claude/
+.vscode/
 
 # Copias de seguridad internas (redundantes con el historial de git)
 respaldo_*/

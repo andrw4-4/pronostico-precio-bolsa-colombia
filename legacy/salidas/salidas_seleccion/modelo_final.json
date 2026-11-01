@@ -1,6 +1,6 @@
 {
-  "generado": "2026-09-13T08:29:31",
-  "modelo": "AR+HIDRO+OFERTA",
+  "generado": "2026-09-19T13:17:15",
+  "modelo": "AR+HIDRO+OFERTA+CLIMA",
   "criterio": "menor MAPE en validacion entre los modelos que mejoran la base AR con DM<0 y p_FDR<0.05",
   "selection_cutoff": "2019-12-31",
   "ventana_validacion": [
@@ -30,6 +30,16 @@
       "margen_reserva_lag7",
       "disp_declarada_d7",
       "gen_programada_lag7"
+    ],
+    "CLIMA": [
+      "precip_cuencas_acum30_lag1",
+      "precip_cuencas_d7",
+      "evap_cuencas_lag1",
+      "soi_lag1",
+      "mjo_pc1_lag1",
+      "mjo_pc2_lag1",
+      "temp_caribe_max_lag1",
+      "viento_guajira_100m_lag1"
     ]
   },
   "features": [
@@ -47,17 +57,25 @@
     "margen_reserva_lag0",
     "margen_reserva_lag7",
     "disp_declarada_d7",
-    "gen_programada_lag7"
+    "gen_programada_lag7",
+    "precip_cuencas_acum30_lag1",
+    "precip_cuencas_d7",
+    "evap_cuencas_lag1",
+    "soi_lag1",
+    "mjo_pc1_lag1",
+    "mjo_pc2_lag1",
+    "temp_caribe_max_lag1",
+    "viento_guajira_100m_lag1"
   ],
   "metricas_validacion": {
     "n": 1096.0,
-    "MAPE_niv": 7.922051663994817,
-    "RMSE_log": 0.1140255560493972,
-    "DA_pct": 57.57299270072993,
-    "DM": -2.9297467521302543,
-    "p_DM": 0.003462730706435879,
-    "p_FDR": 0.008079704981683719,
-    "DM_ingenuo": -0.2791360204114205,
-    "p_ingenuo": 0.7801931512464029
+    "MAPE_niv": 7.337731151308366,
+    "RMSE_log": 0.10589653018143921,
+    "DA_pct": 59.67153284671532,
+    "DM": -4.134706806324955,
+    "p_DM": 3.825653969879994e-05,
+    "p_FDR": 0.000155132188245366,
+    "DM_ingenuo": -3.9467310491828402,
+    "p_ingenuo": 8.427516309650329e-05
   }
 }

@@ -1,0 +1,120 @@
+========================================================================
+ETAPA 1 — SELECCION DE VARIABLES
+========================================================================
+[carga]   + 15 variables de clima (clima_diario.parquet)
+[carga]   panel 4018 filas x 73 cols, 2015-01-01 -> 2025-12-31
+[feats]   525 features construidas
+[fuga]    21 features de DESPACHO excluidas (costo_marginal_prog, precio_oferta_desp, ...)
+          El precio de bolsa ES el costo marginal del despacho: incluirlas da MAPE bajo sin aporte cientifico.
+          Pon excluir_despacho=False para usarlas como benchmark superior.
+[corte]   seleccion usa SOLO hasta 2019-12-31 (1826 obs). Validacion 2020-01-01 -> 2022-12-31 y prueba 2023-01-01 -> 2025-12-31 intactas.
+------------------------------------------------------------------------
+[higiene] 504 -> 402 features (102 descartadas)
+           - dem_no_atendida_noprog_d7: NaN 34%
+           - demanda_no_atendida_lag1: NaN 64%
+           - demanda_no_atendida_lag2: NaN 64%
+           - demanda_no_atendida_lag3: NaN 64%
+           - demanda_no_atendida_lag7: NaN 64%
+           - demanda_no_atendida_lag14: NaN 65%
+           - demanda_no_atendida_lag30: NaN 65%
+           - demanda_no_atendida_d7: NaN 85%
+           - emisiones_co2_sistema_lag1: NaN 60%
+           - emisiones_co2_sistema_lag2: NaN 60%
+           - emisiones_co2_sistema_lag3: NaN 60%
+           - emisiones_co2_sistema_lag7: NaN 60%
+           - emisiones_co2_sistema_lag14: NaN 61%
+           - emisiones_co2_sistema_lag30: NaN 62%
+           - emisiones_co2_sistema_d7: NaN 60%
+           ... y 87 mas
+[ADF]     1/402 features estacionarias al 5%
+[corr]    402 features -> 230 grupos (|rho| > 0.9)
+[MI]      402/402 features evaluadas (pairwise, mediana 1819 obs c/u)
+          Top 5: ['oni_lag14', 'cee_lag14', 'aportes_media_hist_lag14', 'capacidad_efectiva_lag3', 'precio_prom_contrato_lag30']
+[Granger] 204/402 significativas tras FDR al 10%  (51%)
+          [!] Tasa de rechazo muy alta. Con series casi-raiz-
+              unitaria y features altamente correlacionadas,
+              Granger sobre-rechaza. NO lo tomes como prueba
+              de utilidad: el arbitro es la etapa 2 (DM).
+------------------------------------------------------------------------
+[embed]   401 features (descartadas 1 con cobertura < 80%), 1825 obs, 6922 celdas imputadas con mediana
+          Lasso conservo 25/401 features; RF permutacion OK
+[filtro]  275 descartadas por < 2 votos o bloque excluido
+
+[salida]  402 evaluadas -> 51 seleccionadas
+          C:\Users\andre\OneDrive\cosas de la universidad\Uniandes\VIII\No one noticed\pronostico-precio-bolsa-colombia\salidas_seleccion\ranking_completo.csv
+          C:\Users\andre\OneDrive\cosas de la universidad\Uniandes\VIII\No one noticed\pronostico-precio-bolsa-colombia\salidas_seleccion\features_seleccionadas.csv
+
+Seleccionadas por bloque:
+
+  AR  (8)
+    4/4 votos  score=0.90  log_precio_lag1
+    3/4 votos  score=0.85  log_precio_ma7
+    3/4 votos  score=0.70  log_precio_ma30
+    2/4 votos  score=0.74  log_precio_sd7
+    2/4 votos  score=0.58  log_precio_lag30
+    2/4 votos  score=0.52  log_precio_lag2
+    2/4 votos  score=0.43  log_precio_lag7
+    2/4 votos  score=0.40  log_precio_sd30
+
+  CLIMA  (8)
+    3/4 votos  score=0.70  precip_cuencas_lag2
+    3/4 votos  score=0.68  radiacion_cesar_lag2
+    3/4 votos  score=0.66  evap_cuencas_lag1
+    3/4 votos  score=0.65  precip_cuencas_lag1
+    3/4 votos  score=0.62  evap_cuencas_lag2
+    2/4 votos  score=0.71  temp_andina_med_d7
+    2/4 votos  score=0.68  evap_cuencas_d7
+    2/4 votos  score=0.68  mjo_amplitud_lag14
+
+  CONTRATOS  (2)
+    3/4 votos  score=0.72  compras_contrato_lag14
+    2/4 votos  score=0.62  precio_cont_no_regu_lag1
+
+  DEMANDA  (8)
+    4/4 votos  score=0.94  demanda_no_regulada_lag1
+    3/4 votos  score=0.74  demanda_upme_bajo_lag14
+    3/4 votos  score=0.71  demanda_no_regulada_lag14
+    3/4 votos  score=0.68  demanda_por_or_lag30
+    2/4 votos  score=0.71  demanda_upme_medio_lag3
+    2/4 votos  score=0.67  demanda_no_regulada_lag30
+    2/4 votos  score=0.66  demanda_no_regulada_lag2
+    2/4 votos  score=0.61  demanda_por_or_d7
+
+  EXPOST  (8)
+    4/4 votos  score=0.88  gen_por_recurso_lag7
+    3/4 votos  score=0.82  gen_por_recurso_lag14
+    3/4 votos  score=0.80  consumo_combustible_lag1
+    3/4 votos  score=0.74  consumo_combustible_lag30
+    3/4 votos  score=0.74  gen_por_recurso_lag1
+    3/4 votos  score=0.71  perdidas_energia_lag14
+    2/4 votos  score=0.72  restricciones_sin_aliv_lag14
+    2/4 votos  score=0.67  perdidas_energia_lag7
+
+  HIDRO  (8)
+    3/4 votos  score=0.86  aportes_pct_sistema_lag2
+    3/4 votos  score=0.75  aportes_por_rio_d7
+    3/4 votos  score=0.75  aportes_por_rio_lag2
+    2/4 votos  score=0.75  aportes_media_hist_lag30
+    2/4 votos  score=0.75  aportes_media_hist_lag7
+    2/4 votos  score=0.67  volumen_util_pct_lag14
+    2/4 votos  score=0.62  capacidad_por_embalse_lag3
+    2/4 votos  score=0.60  aportes_pct_rio_lag7
+
+  OFERTA  (8)
+    4/4 votos  score=0.89  gen_programada_lag1
+    4/4 votos  score=0.87  margen_reserva_lag7
+    3/4 votos  score=0.77  gen_programada_lag7
+    3/4 votos  score=0.73  gen_programada_lag14
+    3/4 votos  score=0.68  disp_comercial_lag7
+    3/4 votos  score=0.68  disp_declarada_d7
+    2/4 votos  score=0.69  margen_reserva_lag3
+    2/4 votos  score=0.68  margen_reserva_lag0
+
+  REGULATORIO  (1)
+    2/4 votos  score=0.66  precio_escasez_lag30
+
+========================================================================
+SIGUIENTE: 02_evaluacion_bloques.py
+Granger y MI son tamizaje. El arbitro real es si el BLOQUE reduce
+el error en walk-forward (Diebold-Mariano). Eso es la etapa 2.
+========================================================================

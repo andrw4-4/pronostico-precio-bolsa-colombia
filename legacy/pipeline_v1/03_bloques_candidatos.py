@@ -136,6 +136,17 @@ BLOQUES = {
         "demanda_por_or_lag14",
         "demanda_upme_medio_lag14",
     ],
+    # sale de 00b_clima_diario.py. Una feature por mecanismo fisico
+    "CLIMA": [
+        "precip_cuencas_acum30_lag1",  # lluvia que va a llenar los embalses
+        "precip_cuencas_d7",           # si la lluvia viene subiendo o bajando
+        "evap_cuencas_lag1",           # perdida de agua en temporada seca
+        "soi_lag1",                    # ENSO; ya viene rezagado por publicacion
+        "mjo_pc1_lag1",                # pulsos de lluvia de 30-60 dias (ROMI)
+        "mjo_pc2_lag1",
+        "temp_caribe_max_lag1",        # demanda por aire acondicionado
+        "viento_guajira_100m_lag1",    # generacion eolica disponible
+    ],
 }
 
 # Modelos a comparar. Cada uno es una lista de bloques; AR siempre va incluido.
@@ -147,8 +158,10 @@ MODELOS = {
     "AR+HIDRO+OFERTA":           ["AR", "HIDRO", "OFERTA"],
     "AR+HIDRO+OFERTA+COMB":      ["AR", "HIDRO", "OFERTA", "COMBUSTIBLE"],
     "AR+HIDRO+OFERTA+DEM":       ["AR", "HIDRO", "OFERTA", "DEMANDA"],
+    "AR+CLIMA":                  ["AR", "CLIMA"],
+    "AR+HIDRO+OFERTA+CLIMA":     ["AR", "HIDRO", "OFERTA", "CLIMA"],
     "COMPLETO":                  ["AR", "HIDRO", "OFERTA", "COMBUSTIBLE",
-                                  "DEMANDA"],
+                                  "DEMANDA", "CLIMA"],
 }
 
 
@@ -277,10 +290,12 @@ def main():
           f"= {len(MODELOS) * n_refits} ajustes")
     print("-" * 72)
 
-    y_prev = y.shift(EVAL3["horizon"])
+    retorno = cfg.get("target_retorno", False)
+    y_prev = _e2.referencia_direccion(y, EVAL3["horizon"], retorno)
 
     # ---- pronostico ingenuo -------------------------------------------------
-    err_ing, pred_ing = _e2.pronostico_ingenuo(y, eval_idx, EVAL3["horizon"])
+    err_ing, pred_ing = _e2.pronostico_ingenuo(y, eval_idx, EVAL3["horizon"],
+                                               retorno)
     m_ing = _e2.metricas(y.loc[eval_idx], pred_ing, cfg["log_target"], y_prev)
     print(f"{NOMBRE_INGENUO}: MAPE {m_ing['MAPE_niv']:.2f}%  "
           f"RMSE_log {m_ing['RMSE_log']:.4f}")

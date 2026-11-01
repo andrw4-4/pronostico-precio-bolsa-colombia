@@ -68,6 +68,15 @@ ventanas de datos, partición 70/20/10 y la selección lineal. Sus resultados es
 `resultados/`, con su `RESULTADOS.md`. Los reemplazó `4_modelo_xgboost.ipynb` de la
 raíz. Se corre desde la raíz del repo y necesita el panel de `seleccion_lineal/`.
 
+## septiembre_main/
+
+Trabajo de septiembre de 2026 que estaba en `main` y no en la rama donde siguió el
+proyecto: las variables de clima (`00b_clima_diario.py`, `descargar_mjo.py`,
+`descargar_openmeteo.py`, `descargar_soi.py`), `leer_todo.py` y los notebooks
+`07_features_panel_todo.ipynb`, `Ver serie.ipynb` y `andrw.ipynb`. Aquí está también la
+versión de `01_seleccion_variables.py` con cuatro señales (Granger, información mutua,
+Lasso y permutación); la de `pipeline_v1/` usa solo Granger e información mutua.
+
 ## explorar.py
 
 App de Streamlit para explorar el panel diario. No hace parte del modelo.
