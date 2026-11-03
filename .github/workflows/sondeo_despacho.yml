@@ -1,0 +1,44 @@
+name: Hora del despacho de mañana
+
+# Cada hora pregunta a XM el último día publicado del despacho programado y
+# guarda la respuesta en la rama sondeo-xm. Temporal: se borra al tener la hora.
+on:
+  schedule:
+    - cron: "5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sondeo-xm
+
+jobs:
+  consultar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pydataxm pandas
+
+      - name: Consultar y guardar en sondeo-xm
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp .github/sondeo_despacho.py /tmp/
+          if git fetch origin sondeo-xm; then
+            git switch -f sondeo-xm
+          else
+            git switch --orphan sondeo-xm
+            git rm -rf --cached . >/dev/null 2>&1 || true
+          fi
+          python /tmp/sondeo_despacho.py hora_despacho_manana.csv
+          git add hora_despacho_manana.csv
+          git commit -m "Consulta $(TZ=America/Bogota date '+%Y-%m-%d %H:%M')"
+          git push origin sondeo-xm
