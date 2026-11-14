@@ -6,6 +6,8 @@ datos/*
 # Paneles intermedios: pesan, los arma el paso 2b y los notebooks no los leen
 paneles/panel_horario.csv.gz
 paneles/panel_horario_completo.csv.gz
+# copia sin comprimir de panel_lstm_modelo.csv.gz
+paneles/panel_lstm_modelo.csv/
 
 # Datos y cachés del pipeline anterior, archivados en legacy/
 cache_*/

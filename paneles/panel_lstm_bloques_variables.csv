@@ -1,0 +1,137 @@
+variable,tipo,grupo,dias_frente_al_precio,bloque,nombre_bloque
+demanda,horaria,demanda,0,0,solo control
+pron_demanda,horaria,demanda,8,0,solo control
+error_pron_demanda,horaria,demanda,8,0,solo control
+dem_no_regulada_frac,horaria,demanda,0,0,solo control
+margen_declarado,horaria,demanda,0,0,solo control
+disp_real_vs_decl,horaria,despacho_de_ayer,-1,0,solo control
+disp_termica_frac,horaria,despacho_de_hoy,-2,0,solo control
+frac_termica,horaria,generacion,0,0,solo control
+frac_hidraulica,horaria,generacion,0,0,solo control
+frac_fncer,horaria,generacion,0,0,solo control
+gen_seguridad_rel,horaria,generacion,0,0,solo control
+gen_fuera_merito_rel,horaria,generacion,0,0,solo control
+gen_restricciones_rel,horaria,generacion,0,0,solo control
+redespacho_vs_programa,horaria,despacho_de_ayer,-1,5,despacho de ayer
+gen_ideal_termica_frac,horaria,generacion,0,0,solo control
+consumo_por_mwh_termico,horaria,generacion,0,0,solo control
+co2_por_mwh,horaria,generacion,0,0,solo control
+co2_gas_frac,horaria,generacion,0,0,solo control
+co2_carbon_frac,horaria,generacion,0,0,solo control
+co2_liquidos_frac,horaria,generacion,0,0,solo control
+restricciones_rel,horaria,red_y_contratos,3,0,solo control
+restricciones_sin_aliv_rel,horaria,red_y_contratos,0,0,solo control
+perdidas_rel,horaria,red_y_contratos,3,0,solo control
+intercambio_neto_rel,horaria,red_y_contratos,0,0,solo control
+contrato_frac,horaria,red_y_contratos,3,0,solo control
+precio_contrato,horaria,red_y_contratos,3,0,solo control
+precio_contrato_no_reg,horaria,red_y_contratos,3,0,solo control
+cmg_despacho,horaria,despacho_de_hoy,-2,3,despacho de hoy
+cmg_redespacho,horaria,despacho_de_ayer,-1,5,despacho de ayer
+ajuste_cmg,horaria,despacho_de_ayer,-1,0,solo control
+oferta_marginal,horaria,ofertas,8,0,solo control
+margen_ofertado,horaria,ofertas,8,0,solo control
+cap_bajo_200_rel,horaria,ofertas,8,0,solo control
+cap_bajo_500_rel,horaria,ofertas,8,0,solo control
+holgura_rel,horaria,ofertas,8,0,solo control
+escalon_siguiente,horaria,ofertas,8,0,solo control
+marg_termica,horaria,ofertas,8,0,solo control
+marg_gas,horaria,ofertas,8,0,solo control
+marg_carbon,horaria,ofertas,8,0,solo control
+marg_liquidos,horaria,ofertas,8,0,solo control
+error_cmg_despacho,horaria,despacho_de_ayer,0,5,despacho de ayer
+brecha_escasez,horaria,interaccion,0,4,estado hidrológico
+presion_hidro_horaria,horaria,interaccion,0,4,estado hidrológico
+aportes_pct_sistema,diaria,aportes,-1,0,solo control
+aportes_pct_rio,diaria,aportes,-1,0,solo control
+aportes_caudal_pct,diaria,aportes,-1,0,solo control
+aportes_media_hist,diaria,aportes,-1,4,estado hidrológico
+hhi_aportes_rios,diaria,aportes,-1,0,solo control
+aportes_top3_pct,diaria,aportes,-1,0,solo control
+n_rios_aportando,diaria,aportes,-1,0,solo control
+volumen_util_pct,diaria,embalses,-1,4,estado hidrológico
+volumen_util_pct_emb,diaria,embalses,-1,0,solo control
+vol_pct_penol,diaria,embalses,-1,0,solo control
+vol_pct_agregado_bogota,diaria,embalses,-1,0,solo control
+vol_pct_guavio,diaria,embalses,-1,0,solo control
+vol_pct_esmeralda,diaria,embalses,-1,0,solo control
+hhi_volumen_embalses,diaria,embalses,-1,0,solo control
+dias_autonomia,diaria,embalses,0,4,estado hidrológico
+capacidad_util_dias,diaria,embalses,0,0,solo control
+vertimientos_rel,diaria,embalses,0,0,solo control
+lluvia_sistema,diaria,lluvia,-2,0,solo control
+lluvia_sistema_acum3,diaria,lluvia,-2,0,solo control
+lluvia_sistema_acum7,diaria,lluvia,-2,0,solo control
+lluvia_sistema_acum15,diaria,lluvia,-2,0,solo control
+lluvia_sistema_acum30,diaria,lluvia,-2,0,solo control
+lluvia_sistema_acum60,diaria,lluvia,-2,0,solo control
+lluvia_sistema_acum90,diaria,lluvia,-2,0,solo control
+lluvia_anomalia,diaria,lluvia,-2,0,solo control
+lluvia_anom_acum30,diaria,lluvia,-2,6,clima que viene
+lluvia_razon30,diaria,lluvia,-2,0,solo control
+lluvia_anom_acum90,diaria,lluvia,-2,0,solo control
+lluvia_razon90,diaria,lluvia,-2,0,solo control
+lluvia_penol_acum30,diaria,lluvia,-2,0,solo control
+lluvia_penol_anom30,diaria,lluvia,-2,0,solo control
+lluvia_bogota_acum30,diaria,lluvia,-2,0,solo control
+lluvia_bogota_anom30,diaria,lluvia,-2,0,solo control
+lluvia_guavio_acum30,diaria,lluvia,-2,0,solo control
+lluvia_guavio_anom30,diaria,lluvia,-2,0,solo control
+lluvia_quimbo_acum30,diaria,lluvia,-2,0,solo control
+lluvia_quimbo_anom30,diaria,lluvia,-2,0,solo control
+lluvia_gradiente_ns,diaria,lluvia,-2,0,solo control
+nino12_anom,diaria,el_nino,-2,0,solo control
+nino3_anom,diaria,el_nino,-2,0,solo control
+nino34_anom,diaria,el_nino,-2,6,clima que viene
+nino4_anom,diaria,el_nino,-2,0,solo control
+nino12_tend4s,diaria,el_nino,-2,0,solo control
+nino12_tend12s,diaria,el_nino,-2,0,solo control
+nino34_tend4s,diaria,el_nino,-2,0,solo control
+nino34_tend12s,diaria,el_nino,-2,0,solo control
+nino_gradiente_costa,diaria,el_nino,-2,0,solo control
+oni,diaria,el_nino,-2,6,clima que viene
+roni,diaria,el_nino,-2,0,solo control
+pred_lluvia_andina,diaria,ideam,-2,0,solo control
+pred_lluvia_caribe,diaria,ideam,-2,0,solo control
+pred_lluvia_orinoquia,diaria,ideam,-2,0,solo control
+pred_lluvia_amazonia,diaria,ideam,-2,0,solo control
+pred_deficit,diaria,ideam,-2,6,clima que viene
+pred_prob_max,diaria,ideam,-2,0,solo control
+pred_enos,diaria,ideam,-2,0,solo control
+frac_gen_gas,diaria,mezcla_por_planta,0,0,solo control
+frac_gen_carbon,diaria,mezcla_por_planta,0,0,solo control
+frac_gen_liquidos,diaria,mezcla_por_planta,0,0,solo control
+frac_gen_biomasa,diaria,mezcla_por_planta,0,0,solo control
+frac_gen_no_despachado,diaria,mezcla_por_planta,0,0,solo control
+frac_gen_filo_agua,diaria,mezcla_por_planta,0,0,solo control
+frac_gas_en_termica,diaria,mezcla_por_planta,0,0,solo control
+frac_despacho_central,diaria,mezcla_por_planta,0,0,solo control
+frac_filo_en_hidro,diaria,mezcla_por_planta,0,0,solo control
+hhi_generacion,diaria,mezcla_por_planta,0,0,solo control
+gen_top5_pct,diaria,mezcla_por_planta,0,0,solo control
+n_plantas_activas,diaria,mezcla_por_planta,0,0,solo control
+disp_decl_despacho_central_rel,diaria,mezcla_por_planta,0,0,solo control
+oferta_p25,diaria,ofertas,8,0,solo control
+oferta_p50,diaria,ofertas,8,0,solo control
+oferta_p75,diaria,ofertas,8,0,solo control
+oferta_min,diaria,ofertas,8,0,solo control
+oferta_max,diaria,ofertas,8,0,solo control
+oferta_dispersion,diaria,ofertas,8,0,solo control
+pendiente_curva,diaria,ofertas,8,0,solo control
+cap_bajo_100_rel,diaria,ofertas,8,0,solo control
+cap_bajo_300_rel,diaria,ofertas,8,0,solo control
+cap_bajo_1000_rel,diaria,ofertas,8,0,solo control
+capacidad_efectiva_rel,diaria,sistema,0,0,solo control
+enficc_rel,diaria,sistema,0,0,solo control
+oblig_energia_firme_rel,diaria,sistema,0,0,solo control
+margen_reserva,diaria,sistema,0,0,solo control
+precio_cargo_conf,diaria,sistema,3,0,solo control
+precio_escasez,diaria,sistema,0,0,solo control
+trm,diaria,sistema,-2,0,solo control
+demanda_max_potencia_rel,diaria,sistema,38,0,solo control
+demanda_no_atendida_rel,diaria,sistema,2,0,solo control
+dem_no_atendida_nop_rel,diaria,sistema,0,0,solo control
+disp_decl_hoy_rel,horaria,despacho_de_hoy,-2,3,despacho de hoy
+cmg_hoy_vs_precio,horaria,despacho_de_hoy,-2,3,despacho de hoy
+gen_programada_rel,horaria,despacho_de_hoy,-2,0,solo control
+frac_termica_prog,horaria,despacho_de_hoy,-2,3,despacho de hoy

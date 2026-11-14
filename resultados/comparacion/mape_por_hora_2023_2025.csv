@@ -1,0 +1,673 @@
+modelo,h,hora,ape
+SARIMAX,3,1,36.82
+SARIMAX,3,2,35.45
+SARIMAX,3,3,34.66
+SARIMAX,3,4,34.99
+SARIMAX,3,5,32.62
+SARIMAX,3,6,30.36
+SARIMAX,3,7,32.48
+SARIMAX,3,8,31.73
+SARIMAX,3,9,30.41
+SARIMAX,3,10,29.68
+SARIMAX,3,11,28.19
+SARIMAX,3,12,27.19
+SARIMAX,3,13,25.66
+SARIMAX,3,14,25.84
+SARIMAX,3,15,27.21
+SARIMAX,3,16,26.98
+SARIMAX,3,17,25.44
+SARIMAX,3,18,24.36
+SARIMAX,3,19,26.95
+SARIMAX,3,20,33.11
+SARIMAX,3,21,28.01
+SARIMAX,3,22,22.53
+SARIMAX,3,23,22.9
+SARIMAX,3,24,25.13
+SARIMAX,4,1,43.7
+SARIMAX,4,2,40.8
+SARIMAX,4,3,39.99
+SARIMAX,4,4,39.54
+SARIMAX,4,5,37.32
+SARIMAX,4,6,35.28
+SARIMAX,4,7,36.83
+SARIMAX,4,8,35.39
+SARIMAX,4,9,34.25
+SARIMAX,4,10,32.99
+SARIMAX,4,11,31.42
+SARIMAX,4,12,30.13
+SARIMAX,4,13,29.37
+SARIMAX,4,14,29.57
+SARIMAX,4,15,30.45
+SARIMAX,4,16,30.03
+SARIMAX,4,17,28.52
+SARIMAX,4,18,27.33
+SARIMAX,4,19,29.82
+SARIMAX,4,20,34.86
+SARIMAX,4,21,30.08
+SARIMAX,4,22,26.44
+SARIMAX,4,23,27.19
+SARIMAX,4,24,29.48
+SARIMAX,5,1,48.49
+SARIMAX,5,2,45.39
+SARIMAX,5,3,44.57
+SARIMAX,5,4,44.63
+SARIMAX,5,5,42.48
+SARIMAX,5,6,39.48
+SARIMAX,5,7,40.97
+SARIMAX,5,8,38.96
+SARIMAX,5,9,37.39
+SARIMAX,5,10,36.44
+SARIMAX,5,11,34.48
+SARIMAX,5,12,33.11
+SARIMAX,5,13,32.35
+SARIMAX,5,14,32.24
+SARIMAX,5,15,32.97
+SARIMAX,5,16,32.38
+SARIMAX,5,17,31.01
+SARIMAX,5,18,29.9
+SARIMAX,5,19,31.74
+SARIMAX,5,20,35.71
+SARIMAX,5,21,31.37
+SARIMAX,5,22,29.49
+SARIMAX,5,23,31.56
+SARIMAX,5,24,34.08
+SARIMAX,6,1,51.79
+SARIMAX,6,2,49.32
+SARIMAX,6,3,47.72
+SARIMAX,6,4,48.43
+SARIMAX,6,5,46.04
+SARIMAX,6,6,43.46
+SARIMAX,6,7,44.8
+SARIMAX,6,8,41.69
+SARIMAX,6,9,40.16
+SARIMAX,6,10,39.14
+SARIMAX,6,11,36.65
+SARIMAX,6,12,35.16
+SARIMAX,6,13,35.0
+SARIMAX,6,14,34.67
+SARIMAX,6,15,35.16
+SARIMAX,6,16,34.5
+SARIMAX,6,17,32.83
+SARIMAX,6,18,32.06
+SARIMAX,6,19,33.03
+SARIMAX,6,20,36.43
+SARIMAX,6,21,32.92
+SARIMAX,6,22,32.25
+SARIMAX,6,23,35.34
+SARIMAX,6,24,38.45
+SARIMAX,7,1,57.05
+SARIMAX,7,2,54.1
+SARIMAX,7,3,51.67
+SARIMAX,7,4,52.46
+SARIMAX,7,5,50.54
+SARIMAX,7,6,46.88
+SARIMAX,7,7,47.47
+SARIMAX,7,8,43.97
+SARIMAX,7,9,43.09
+SARIMAX,7,10,41.57
+SARIMAX,7,11,39.14
+SARIMAX,7,12,37.37
+SARIMAX,7,13,37.21
+SARIMAX,7,14,36.82
+SARIMAX,7,15,37.0
+SARIMAX,7,16,36.26
+SARIMAX,7,17,34.77
+SARIMAX,7,18,34.36
+SARIMAX,7,19,34.37
+SARIMAX,7,20,38.21
+SARIMAX,7,21,35.41
+SARIMAX,7,22,35.03
+SARIMAX,7,23,38.86
+SARIMAX,7,24,41.81
+SARIMAX,8,1,61.25
+SARIMAX,8,2,58.04
+SARIMAX,8,3,55.98
+SARIMAX,8,4,56.18
+SARIMAX,8,5,54.73
+SARIMAX,8,6,50.88
+SARIMAX,8,7,51.46
+SARIMAX,8,8,47.9
+SARIMAX,8,9,47.27
+SARIMAX,8,10,45.72
+SARIMAX,8,11,43.22
+SARIMAX,8,12,41.44
+SARIMAX,8,13,40.65
+SARIMAX,8,14,40.15
+SARIMAX,8,15,40.81
+SARIMAX,8,16,39.98
+SARIMAX,8,17,38.57
+SARIMAX,8,18,37.6
+SARIMAX,8,19,37.61
+SARIMAX,8,20,42.27
+SARIMAX,8,21,38.5
+SARIMAX,8,22,37.58
+SARIMAX,8,23,42.37
+SARIMAX,8,24,45.37
+SARIMAX,9,1,64.22
+SARIMAX,9,2,60.65
+SARIMAX,9,3,58.5
+SARIMAX,9,4,58.69
+SARIMAX,9,5,58.04
+SARIMAX,9,6,53.62
+SARIMAX,9,7,54.11
+SARIMAX,9,8,50.4
+SARIMAX,9,9,49.66
+SARIMAX,9,10,48.33
+SARIMAX,9,11,45.7
+SARIMAX,9,12,43.95
+SARIMAX,9,13,42.74
+SARIMAX,9,14,42.42
+SARIMAX,9,15,43.97
+SARIMAX,9,16,42.49
+SARIMAX,9,17,41.26
+SARIMAX,9,18,40.1
+SARIMAX,9,19,40.28
+SARIMAX,9,20,45.57
+SARIMAX,9,21,41.67
+SARIMAX,9,22,40.07
+SARIMAX,9,23,45.26
+SARIMAX,9,24,48.29
+XGBoost,3,1,35.0
+XGBoost,3,2,32.89
+XGBoost,3,3,32.45
+XGBoost,3,4,33.15
+XGBoost,3,5,30.75
+XGBoost,3,6,26.62
+XGBoost,3,7,27.53
+XGBoost,3,8,26.74
+XGBoost,3,9,26.54
+XGBoost,3,10,25.94
+XGBoost,3,11,24.86
+XGBoost,3,12,23.19
+XGBoost,3,13,22.45
+XGBoost,3,14,21.69
+XGBoost,3,15,21.81
+XGBoost,3,16,21.2
+XGBoost,3,17,20.32
+XGBoost,3,18,19.55
+XGBoost,3,19,21.68
+XGBoost,3,20,26.91
+XGBoost,3,21,22.3
+XGBoost,3,22,19.31
+XGBoost,3,23,21.31
+XGBoost,3,24,23.39
+XGBoost,4,1,40.69
+XGBoost,4,2,37.41
+XGBoost,4,3,37.05
+XGBoost,4,4,37.31
+XGBoost,4,5,34.98
+XGBoost,4,6,30.22
+XGBoost,4,7,30.91
+XGBoost,4,8,30.51
+XGBoost,4,9,30.42
+XGBoost,4,10,29.9
+XGBoost,4,11,28.32
+XGBoost,4,12,26.61
+XGBoost,4,13,26.23
+XGBoost,4,14,25.93
+XGBoost,4,15,25.75
+XGBoost,4,16,24.96
+XGBoost,4,17,23.91
+XGBoost,4,18,23.33
+XGBoost,4,19,25.03
+XGBoost,4,20,30.28
+XGBoost,4,21,25.6
+XGBoost,4,22,23.24
+XGBoost,4,23,25.32
+XGBoost,4,24,27.06
+XGBoost,5,1,46.57
+XGBoost,5,2,42.79
+XGBoost,5,3,42.31
+XGBoost,5,4,43.12
+XGBoost,5,5,39.98
+XGBoost,5,6,34.98
+XGBoost,5,7,35.85
+XGBoost,5,8,34.55
+XGBoost,5,9,34.29
+XGBoost,5,10,33.79
+XGBoost,5,11,32.4
+XGBoost,5,12,30.89
+XGBoost,5,13,30.41
+XGBoost,5,14,29.51
+XGBoost,5,15,28.96
+XGBoost,5,16,27.68
+XGBoost,5,17,26.82
+XGBoost,5,18,25.96
+XGBoost,5,19,27.06
+XGBoost,5,20,30.98
+XGBoost,5,21,27.22
+XGBoost,5,22,26.04
+XGBoost,5,23,29.31
+XGBoost,5,24,31.21
+XGBoost,6,1,51.54
+XGBoost,6,2,48.29
+XGBoost,6,3,48.16
+XGBoost,6,4,49.55
+XGBoost,6,5,46.43
+XGBoost,6,6,41.47
+XGBoost,6,7,42.39
+XGBoost,6,8,40.23
+XGBoost,6,9,39.58
+XGBoost,6,10,38.72
+XGBoost,6,11,36.96
+XGBoost,6,12,34.91
+XGBoost,6,13,34.75
+XGBoost,6,14,33.81
+XGBoost,6,15,33.17
+XGBoost,6,16,31.86
+XGBoost,6,17,30.91
+XGBoost,6,18,30.01
+XGBoost,6,19,30.67
+XGBoost,6,20,33.51
+XGBoost,6,21,30.46
+XGBoost,6,22,30.43
+XGBoost,6,23,34.92
+XGBoost,6,24,37.85
+XGBoost,7,1,54.19
+XGBoost,7,2,50.78
+XGBoost,7,3,49.9
+XGBoost,7,4,51.26
+XGBoost,7,5,48.47
+XGBoost,7,6,44.14
+XGBoost,7,7,44.54
+XGBoost,7,8,42.13
+XGBoost,7,9,41.16
+XGBoost,7,10,40.05
+XGBoost,7,11,38.1
+XGBoost,7,12,36.44
+XGBoost,7,13,36.27
+XGBoost,7,14,35.81
+XGBoost,7,15,35.29
+XGBoost,7,16,34.75
+XGBoost,7,17,33.81
+XGBoost,7,18,33.27
+XGBoost,7,19,32.82
+XGBoost,7,20,35.02
+XGBoost,7,21,33.15
+XGBoost,7,22,33.25
+XGBoost,7,23,37.17
+XGBoost,7,24,39.71
+XGBoost,8,1,57.11
+XGBoost,8,2,53.86
+XGBoost,8,3,53.98
+XGBoost,8,4,54.96
+XGBoost,8,5,52.33
+XGBoost,8,6,47.07
+XGBoost,8,7,47.5
+XGBoost,8,8,44.95
+XGBoost,8,9,43.9
+XGBoost,8,10,42.86
+XGBoost,8,11,41.37
+XGBoost,8,12,39.57
+XGBoost,8,13,38.95
+XGBoost,8,14,38.36
+XGBoost,8,15,38.7
+XGBoost,8,16,38.19
+XGBoost,8,17,36.75
+XGBoost,8,18,35.56
+XGBoost,8,19,35.3
+XGBoost,8,20,38.79
+XGBoost,8,21,36.04
+XGBoost,8,22,35.87
+XGBoost,8,23,39.53
+XGBoost,8,24,42.3
+XGBoost,9,1,57.85
+XGBoost,9,2,54.79
+XGBoost,9,3,54.84
+XGBoost,9,4,55.99
+XGBoost,9,5,53.8
+XGBoost,9,6,48.59
+XGBoost,9,7,48.92
+XGBoost,9,8,46.6
+XGBoost,9,9,45.48
+XGBoost,9,10,44.43
+XGBoost,9,11,42.94
+XGBoost,9,12,41.1
+XGBoost,9,13,40.31
+XGBoost,9,14,40.03
+XGBoost,9,15,41.19
+XGBoost,9,16,40.1
+XGBoost,9,17,38.6
+XGBoost,9,18,37.4
+XGBoost,9,19,37.15
+XGBoost,9,20,41.44
+XGBoost,9,21,37.84
+XGBoost,9,22,37.09
+XGBoost,9,23,40.96
+XGBoost,9,24,43.45
+ingenuo del día,3,1,36.48
+ingenuo del día,3,2,34.63
+ingenuo del día,3,3,33.89
+ingenuo del día,3,4,34.64
+ingenuo del día,3,5,32.28
+ingenuo del día,3,6,29.46
+ingenuo del día,3,7,31.79
+ingenuo del día,3,8,32.03
+ingenuo del día,3,9,31.08
+ingenuo del día,3,10,29.92
+ingenuo del día,3,11,28.77
+ingenuo del día,3,12,27.16
+ingenuo del día,3,13,25.1
+ingenuo del día,3,14,25.33
+ingenuo del día,3,15,27.53
+ingenuo del día,3,16,28.13
+ingenuo del día,3,17,26.77
+ingenuo del día,3,18,24.85
+ingenuo del día,3,19,29.77
+ingenuo del día,3,20,43.1
+ingenuo del día,3,21,30.93
+ingenuo del día,3,22,22.34
+ingenuo del día,3,23,22.79
+ingenuo del día,3,24,24.71
+ingenuo del día,4,1,44.33
+ingenuo del día,4,2,40.31
+ingenuo del día,4,3,39.69
+ingenuo del día,4,4,39.08
+ingenuo del día,4,5,36.9
+ingenuo del día,4,6,34.35
+ingenuo del día,4,7,36.14
+ingenuo del día,4,8,36.16
+ingenuo del día,4,9,35.21
+ingenuo del día,4,10,33.61
+ingenuo del día,4,11,32.25
+ingenuo del día,4,12,30.45
+ingenuo del día,4,13,29.24
+ingenuo del día,4,14,29.66
+ingenuo del día,4,15,31.05
+ingenuo del día,4,16,31.55
+ingenuo del día,4,17,29.98
+ingenuo del día,4,18,28.16
+ingenuo del día,4,19,33.53
+ingenuo del día,4,20,45.68
+ingenuo del día,4,21,34.05
+ingenuo del día,4,22,26.45
+ingenuo del día,4,23,27.1
+ingenuo del día,4,24,29.14
+ingenuo del día,5,1,49.96
+ingenuo del día,5,2,45.63
+ingenuo del día,5,3,45.79
+ingenuo del día,5,4,45.5
+ingenuo del día,5,5,43.21
+ingenuo del día,5,6,38.79
+ingenuo del día,5,7,40.56
+ingenuo del día,5,8,40.22
+ingenuo del día,5,9,38.68
+ingenuo del día,5,10,37.41
+ingenuo del día,5,11,36.15
+ingenuo del día,5,12,34.12
+ingenuo del día,5,13,32.6
+ingenuo del día,5,14,32.32
+ingenuo del día,5,15,33.46
+ingenuo del día,5,16,33.47
+ingenuo del día,5,17,32.61
+ingenuo del día,5,18,30.57
+ingenuo del día,5,19,35.87
+ingenuo del día,5,20,45.04
+ingenuo del día,5,21,34.72
+ingenuo del día,5,22,29.57
+ingenuo del día,5,23,31.54
+ingenuo del día,5,24,33.93
+ingenuo del día,6,1,52.78
+ingenuo del día,6,2,49.04
+ingenuo del día,6,3,48.76
+ingenuo del día,6,4,49.58
+ingenuo del día,6,5,46.35
+ingenuo del día,6,6,43.1
+ingenuo del día,6,7,44.97
+ingenuo del día,6,8,43.06
+ingenuo del día,6,9,41.62
+ingenuo del día,6,10,40.81
+ingenuo del día,6,11,37.8
+ingenuo del día,6,12,35.76
+ingenuo del día,6,13,35.33
+ingenuo del día,6,14,34.76
+ingenuo del día,6,15,35.25
+ingenuo del día,6,16,34.91
+ingenuo del día,6,17,33.61
+ingenuo del día,6,18,32.46
+ingenuo del día,6,19,35.71
+ingenuo del día,6,20,42.36
+ingenuo del día,6,21,34.56
+ingenuo del día,6,22,32.33
+ingenuo del día,6,23,35.35
+ingenuo del día,6,24,38.54
+ingenuo del día,7,1,58.48
+ingenuo del día,7,2,54.69
+ingenuo del día,7,3,53.28
+ingenuo del día,7,4,54.55
+ingenuo del día,7,5,51.13
+ingenuo del día,7,6,46.98
+ingenuo del día,7,7,47.82
+ingenuo del día,7,8,44.77
+ingenuo del día,7,9,43.6
+ingenuo del día,7,10,41.84
+ingenuo del día,7,11,39.03
+ingenuo del día,7,12,36.77
+ingenuo del día,7,13,36.79
+ingenuo del día,7,14,36.5
+ingenuo del día,7,15,35.87
+ingenuo del día,7,16,35.63
+ingenuo del día,7,17,34.83
+ingenuo del día,7,18,34.32
+ingenuo del día,7,19,34.56
+ingenuo del día,7,20,41.11
+ingenuo del día,7,21,35.94
+ingenuo del día,7,22,34.88
+ingenuo del día,7,23,38.87
+ingenuo del día,7,24,42.09
+ingenuo del día,8,1,63.48
+ingenuo del día,8,2,59.48
+ingenuo del día,8,3,59.35
+ingenuo del día,8,4,59.81
+ingenuo del día,8,5,56.34
+ingenuo del día,8,6,52.21
+ingenuo del día,8,7,53.15
+ingenuo del día,8,8,50.12
+ingenuo del día,8,9,48.68
+ingenuo del día,8,10,47.11
+ingenuo del día,8,11,44.69
+ingenuo del día,8,12,42.28
+ingenuo del día,8,13,41.5
+ingenuo del día,8,14,40.54
+ingenuo del día,8,15,40.91
+ingenuo del día,8,16,40.49
+ingenuo del día,8,17,39.5
+ingenuo del día,8,18,37.7
+ingenuo del día,8,19,38.27
+ingenuo del día,8,20,45.86
+ingenuo del día,8,21,39.08
+ingenuo del día,8,22,37.57
+ingenuo del día,8,23,42.5
+ingenuo del día,8,24,45.87
+ingenuo del día,9,1,66.51
+ingenuo del día,9,2,62.19
+ingenuo del día,9,3,62.46
+ingenuo del día,9,4,62.36
+ingenuo del día,9,5,60.03
+ingenuo del día,9,6,55.82
+ingenuo del día,9,7,56.92
+ingenuo del día,9,8,53.61
+ingenuo del día,9,9,51.25
+ingenuo del día,9,10,50.02
+ingenuo del día,9,11,48.5
+ingenuo del día,9,12,46.59
+ingenuo del día,9,13,44.32
+ingenuo del día,9,14,43.78
+ingenuo del día,9,15,45.96
+ingenuo del día,9,16,44.79
+ingenuo del día,9,17,43.71
+ingenuo del día,9,18,41.24
+ingenuo del día,9,19,42.72
+ingenuo del día,9,20,52.08
+ingenuo del día,9,21,43.64
+ingenuo del día,9,22,40.23
+ingenuo del día,9,23,45.48
+ingenuo del día,9,24,48.93
+ingenuo semanal,3,1,58.29
+ingenuo semanal,3,2,54.51
+ingenuo semanal,3,3,53.11
+ingenuo semanal,3,4,54.38
+ingenuo semanal,3,5,51.03
+ingenuo semanal,3,6,46.88
+ingenuo semanal,3,7,47.71
+ingenuo semanal,3,8,44.65
+ingenuo semanal,3,9,43.48
+ingenuo semanal,3,10,41.72
+ingenuo semanal,3,11,38.91
+ingenuo semanal,3,12,36.67
+ingenuo semanal,3,13,36.68
+ingenuo semanal,3,14,36.39
+ingenuo semanal,3,15,35.76
+ingenuo semanal,3,16,35.53
+ingenuo semanal,3,17,34.74
+ingenuo semanal,3,18,34.22
+ingenuo semanal,3,19,34.47
+ingenuo semanal,3,20,40.99
+ingenuo semanal,3,21,35.84
+ingenuo semanal,3,22,34.78
+ingenuo semanal,3,23,38.76
+ingenuo semanal,3,24,41.97
+ingenuo semanal,4,1,58.34
+ingenuo semanal,4,2,54.56
+ingenuo semanal,4,3,53.15
+ingenuo semanal,4,4,54.42
+ingenuo semanal,4,5,51.07
+ingenuo semanal,4,6,46.91
+ingenuo semanal,4,7,47.75
+ingenuo semanal,4,8,44.68
+ingenuo semanal,4,9,43.51
+ingenuo semanal,4,10,41.75
+ingenuo semanal,4,11,38.94
+ingenuo semanal,4,12,36.69
+ingenuo semanal,4,13,36.71
+ingenuo semanal,4,14,36.42
+ingenuo semanal,4,15,35.79
+ingenuo semanal,4,16,35.56
+ingenuo semanal,4,17,34.76
+ingenuo semanal,4,18,34.25
+ingenuo semanal,4,19,34.49
+ingenuo semanal,4,20,41.02
+ingenuo semanal,4,21,35.86
+ingenuo semanal,4,22,34.8
+ingenuo semanal,4,23,38.79
+ingenuo semanal,4,24,42.0
+ingenuo semanal,5,1,58.38
+ingenuo semanal,5,2,54.6
+ingenuo semanal,5,3,53.19
+ingenuo semanal,5,4,54.46
+ingenuo semanal,5,5,51.11
+ingenuo semanal,5,6,46.95
+ingenuo semanal,5,7,47.78
+ingenuo semanal,5,8,44.71
+ingenuo semanal,5,9,43.54
+ingenuo semanal,5,10,41.78
+ingenuo semanal,5,11,38.97
+ingenuo semanal,5,12,36.72
+ingenuo semanal,5,13,36.74
+ingenuo semanal,5,14,36.45
+ingenuo semanal,5,15,35.81
+ingenuo semanal,5,16,35.58
+ingenuo semanal,5,17,34.78
+ingenuo semanal,5,18,34.27
+ingenuo semanal,5,19,34.51
+ingenuo semanal,5,20,41.04
+ingenuo semanal,5,21,35.89
+ingenuo semanal,5,22,34.83
+ingenuo semanal,5,23,38.81
+ingenuo semanal,5,24,42.03
+ingenuo semanal,6,1,58.43
+ingenuo semanal,6,2,54.64
+ingenuo semanal,6,3,53.24
+ingenuo semanal,6,4,54.51
+ingenuo semanal,6,5,51.09
+ingenuo semanal,6,6,46.94
+ingenuo semanal,6,7,47.78
+ingenuo semanal,6,8,44.73
+ingenuo semanal,6,9,43.57
+ingenuo semanal,6,10,41.8
+ingenuo semanal,6,11,39.0
+ingenuo semanal,6,12,36.74
+ingenuo semanal,6,13,36.76
+ingenuo semanal,6,14,36.47
+ingenuo semanal,6,15,35.84
+ingenuo semanal,6,16,35.61
+ingenuo semanal,6,17,34.81
+ingenuo semanal,6,18,34.29
+ingenuo semanal,6,19,34.54
+ingenuo semanal,6,20,41.08
+ingenuo semanal,6,21,35.92
+ingenuo semanal,6,22,34.86
+ingenuo semanal,6,23,38.84
+ingenuo semanal,6,24,42.05
+ingenuo semanal,7,1,58.48
+ingenuo semanal,7,2,54.69
+ingenuo semanal,7,3,53.28
+ingenuo semanal,7,4,54.55
+ingenuo semanal,7,5,51.13
+ingenuo semanal,7,6,46.98
+ingenuo semanal,7,7,47.82
+ingenuo semanal,7,8,44.77
+ingenuo semanal,7,9,43.6
+ingenuo semanal,7,10,41.84
+ingenuo semanal,7,11,39.03
+ingenuo semanal,7,12,36.77
+ingenuo semanal,7,13,36.79
+ingenuo semanal,7,14,36.5
+ingenuo semanal,7,15,35.87
+ingenuo semanal,7,16,35.63
+ingenuo semanal,7,17,34.83
+ingenuo semanal,7,18,34.32
+ingenuo semanal,7,19,34.56
+ingenuo semanal,7,20,41.11
+ingenuo semanal,7,21,35.94
+ingenuo semanal,7,22,34.88
+ingenuo semanal,7,23,38.87
+ingenuo semanal,7,24,42.09
+ingenuo semanal,8,1,77.29
+ingenuo semanal,8,2,73.56
+ingenuo semanal,8,3,76.61
+ingenuo semanal,8,4,78.74
+ingenuo semanal,8,5,74.05
+ingenuo semanal,8,6,64.66
+ingenuo semanal,8,7,64.51
+ingenuo semanal,8,8,60.62
+ingenuo semanal,8,9,57.31
+ingenuo semanal,8,10,56.33
+ingenuo semanal,8,11,54.71
+ingenuo semanal,8,12,52.76
+ingenuo semanal,8,13,51.53
+ingenuo semanal,8,14,50.04
+ingenuo semanal,8,15,51.02
+ingenuo semanal,8,16,49.36
+ingenuo semanal,8,17,48.17
+ingenuo semanal,8,18,47.55
+ingenuo semanal,8,19,48.1
+ingenuo semanal,8,20,53.55
+ingenuo semanal,8,21,49.07
+ingenuo semanal,8,22,48.56
+ingenuo semanal,8,23,54.25
+ingenuo semanal,8,24,58.58
+ingenuo semanal,9,1,77.35
+ingenuo semanal,9,2,73.63
+ingenuo semanal,9,3,76.67
+ingenuo semanal,9,4,78.8
+ingenuo semanal,9,5,74.11
+ingenuo semanal,9,6,64.69
+ingenuo semanal,9,7,64.48
+ingenuo semanal,9,8,60.64
+ingenuo semanal,9,9,57.35
+ingenuo semanal,9,10,56.37
+ingenuo semanal,9,11,54.76
+ingenuo semanal,9,12,52.8
+ingenuo semanal,9,13,51.57
+ingenuo semanal,9,14,50.08
+ingenuo semanal,9,15,51.06
+ingenuo semanal,9,16,49.4
+ingenuo semanal,9,17,48.21
+ingenuo semanal,9,18,47.58
+ingenuo semanal,9,19,48.14
+ingenuo semanal,9,20,53.6
+ingenuo semanal,9,21,49.11
+ingenuo semanal,9,22,48.6
+ingenuo semanal,9,23,54.29
+ingenuo semanal,9,24,58.63

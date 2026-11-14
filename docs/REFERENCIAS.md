@@ -90,6 +90,24 @@ formación del precio de la CREG (ver la fila de la curva horaria abajo).
 | Purga de h+1 días entre entrenamiento y evaluación | `ordenar`, `cuantas` | López de Prado (2018), capítulo 7 |
 | Las columnas de la selección no leen la prueba | `matriz` | Propia: la función que arma las matrices se niega a leer filas posteriores a 2022. No vigila la respuesta: los objetivos de los últimos h días de 2022 caen en enero de 2023 |
 
+## Panel de la LSTM (`2e_panel_lstm.py`)
+
+| Qué | Dónde | Fuente |
+|---|---|---|
+| Cada columna entra con el último dato publicado el día del pronóstico | `ATRASO`, `COMO_EL_PRECIO`, `alinear` | Propia. Los atrasos se midieron en `datos/sondeos/auditoria_cobertura.csv` y `publicacion_metricas_horarias.csv` (9 y 10 de octubre de 2026); se toma el mayor |
+| El redespacho, la disponibilidad real y las restricciones sin alivio entran con el valor de ayer | `ATRASO` | Propia: el sondeo las muestra el mismo día, pero cambian durante el día |
+| Variables que combinan partes del mismo día y las tres nuevas (`cmg_hoy_vs_precio`, `disp_decl_hoy_rel`, `gen_programada_rel`) | `variables` | Propias |
+| Prueba de fuga con la publicación de cada columna | `comprobar_sin_fuga` | Propia, sobre la del paso 2c: se alteran los datos que no se habían publicado el día del pronóstico |
+
+## Datos para la LSTM (`2f_datos_lstm.py`)
+
+| Qué | Dónde | Fuente |
+|---|---|---|
+| Modelo de prueba y columnas de ruido | `PARAMETROS`, `paso_variables` | Los del paso 2d (ver arriba): Chen y Guestrin (2016), Lundberg y Lee (2017), Kursa y Rudnicki (2010) |
+| Un grupo pasa si mejora en los dos años y en los tres horizontes | `paso_grupos` | Propia, como el criterio de estabilidad del paso 2d |
+| Agregar grupos solo si le ganan al conjunto anterior con Diebold-Mariano | `paso_conjuntos` | Diebold y Mariano (1995), con la varianza de Newey y West (1987). Es la regla de simplicidad de `5_modelo_sarimax.ipynb`, elegida después de una primera exploración (ver `PANEL_HORARIO.md`) |
+| Purga de h + 1 días y años de evaluación que no cruzan a 2023 | `filas` | López de Prado (2018), capítulo 7 |
+
 ## Selección lineal anterior (`legacy/seleccion_lineal/2d_seleccion_lineal.py`)
 
 Con ella se obtuvieron los resultados de `legacy/experimentos_xgboost/`.
@@ -147,6 +165,15 @@ Con ella se obtuvieron los resultados de `legacy/experimentos_xgboost/`.
 | Autocorrelación de los residuos | `ljung_box` | Ljung y Box (1978) |
 | Rezago de 9 días para las exógenas y mismo orden para todas las horas | `REZAGO`, etapa 4 | Decisión del autor |
 
+## Resultados con el formato del paper (`7_resultados.ipynb`)
+
+| Qué | Dónde | Fuente |
+|---|---|---|
+| MAE, RMSE, nRMSE, MBE y MAPE por horizonte; MAPE por hora del día; mejor modelo por horizonte y hora; días de ejemplo y su correlación; tablas de hiperparámetros | secciones 2 a 9 | Salazar-Peña et al. (2025), figuras 10 a 37 y tablas 7 a 9 |
+| Skill score contra el ingenuo del día | `con_skill` | Salazar-Peña et al. (2025) usan el Transformer como referencia; aquí la referencia es el ingenuo del día, como en el criterio de la tesis |
+| Intervalo t al 95% sobre el error promedio de cada día | `intervalo` | El intervalo t es el del paper; promediar por día es decisión del autor, porque las 24 horas de un día comparten el estado del sistema |
+| Semanas de ejemplo por coeficiente de variación | sección 7 | Decisión del autor, para elegirlas con una regla fija |
+
 ## Referencias
 
 Guías del proyecto
@@ -181,6 +208,7 @@ Artículos y libros
 - Newey, W. y West, K. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix. *Econometrica*, 55(3), 703-708.
 - Newey, W. y West, K. (1994). Automatic lag selection in covariance matrix estimation. *Review of Economic Studies*, 61(4), 631-653.
 - Osborn, D., Chui, A., Smith, J. y Birchenhall, C. (1988). Seasonality and the order of integration for consumption. *Oxford Bulletin of Economics and Statistics*, 50(4), 361-377.
+- Salazar-Peña, N., Palma-Vergara, A., Montes-Vera, M., Vargas-Torres, M. A., Hernández Vanegas, R., Amador, M., Rojas, B., Salinas, A., Velasco, A., Tabares, A. y González-Mancera, A. (2025). Intra-day Solar and Power Forecast for Optimization of Intraday Market Participation. Preprint, arXiv:2501.09551v3.
 
 Regulación del mercado (gestor normativo de la CREG, gestornormativo.creg.gov.co)
 

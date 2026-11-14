@@ -1,0 +1,80 @@
+{
+  "bloques": [
+    1,
+    2,
+    3
+  ],
+  "variables": [
+    "cmg_despacho",
+    "disp_decl_hoy_rel",
+    "cmg_hoy_vs_precio",
+    "frac_termica_prog"
+  ],
+  "configuracion": {
+    "capas": 2,
+    "unidades": 192,
+    "densa": 128,
+    "dropout": 0.5,
+    "tasa": 0.00280259706180413,
+    "lote": 64,
+    "ventana": 14
+  },
+  "nombre": "rep_b12_3",
+  "semillas": [
+    0,
+    1,
+    2
+  ],
+  "años_validacion": [
+    2020,
+    2021,
+    2022
+  ],
+  "mejoras": {
+    "mejora_semana": 13.019398958113705,
+    "mejora_h3": 23.294437002000013,
+    "mejora_h6": 12.443844431058215,
+    "mejora_h9": 8.989723227624546
+  },
+  "grupos_por_revisar": [],
+  "configuracion_respaldada": {
+    "b12": false,
+    "todas": false
+  },
+  "seleccion_repetida": true,
+  "primera_seleccion": {
+    "bloques": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "variables": [
+      "cmg_despacho",
+      "disp_decl_hoy_rel",
+      "cmg_hoy_vs_precio",
+      "frac_termica_prog",
+      "brecha_escasez",
+      "presion_hidro_horaria",
+      "aportes_media_hist",
+      "volumen_util_pct",
+      "dias_autonomia"
+    ],
+    "configuracion": {
+      "capas": 1,
+      "unidades": 128,
+      "densa": 64,
+      "dropout": 0.2,
+      "tasa": 0.001,
+      "lote": 32,
+      "ventana": 28
+    },
+    "mejoras": {
+      "mejora_semana": 16.70796377248417,
+      "mejora_h3": 23.59651827957725,
+      "mejora_h6": 16.084493887819683,
+      "mejora_h9": 13.923236809127893
+    }
+  },
+  "prueba_rapida": false
+}

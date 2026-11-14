@@ -1,0 +1,9 @@
+semana,modelo,pearson,MAPE
+menos variable (corte 2024-09-15),XGBoost,-0.059,10.389
+menos variable (corte 2024-09-15),SARIMAX,0.107,14.48
+variación mediana (corte 2023-01-21),XGBoost,0.592,29.96
+variación mediana (corte 2023-01-21),SARIMAX,0.184,37.165
+más variable (corte 2025-08-05),XGBoost,0.753,27.646
+más variable (corte 2025-08-05),SARIMAX,0.696,24.788
+semana final (corte 2026-10-06),XGBoost,0.643,15.942
+semana final (corte 2026-10-06),SARIMAX,0.634,17.938
