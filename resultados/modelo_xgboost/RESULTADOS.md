@@ -1,11 +1,56 @@
 # Modelo XGBoost
 
-Los genera `4_modelo_xgboost.ipynb`: 30 modelos directos, uno por cada h = 1 a 30, con
-las columnas de la selección congelada. El test corrió una sola vez, el 1 de noviembre
-de 2026, con la configuración de `configuracion_final.json`. No se repite ni se ajusta
-nada a partir de estos números.
+Los genera `4_modelo_xgboost.ipynb`. El modelo pronostica una semana, hora por hora: 168
+precios, de h = 3 a h = 9, con 7 modelos directos y las columnas de la selección
+congelada. El test corrió una sola vez, el 1 de noviembre de 2026, con la configuración
+de `configuracion_final.json`. No se repite ni se ajusta nada a partir de estos números.
+
+El alcance empezó en 30 días. Este documento conserva esos resultados, porque son la
+evidencia de hasta dónde sirve el modelo.
 
 Tiempos: búsqueda 77 min, walk-forward mensual 24 min, variantes 14 min, test 20 min.
+
+## Alcance final: una semana
+
+Se decidió después de ver el test, porque en 2026 el modelo solo funcionó hasta h = 7
+(ver "Test en 2026"). Los modelos son los mismos: no se reentrenó ni se ajustó nada. Son
+los días h = 3 a 9 porque, por el atraso de dos días del precio, esos son los primeros
+siete que de verdad se pueden pronosticar.
+
+| Periodo | RMSE log | Mejor ingenuo (del día) | Mejora | DM t | DM p |
+|---|---|---|---|---|---|
+| 2023-2025 | 0,443 | 0,502 | 11,6% | -4,82 | < 0,001 |
+| 2026, hasta el 6 de octubre | 0,392 | 0,435 | 10,0% | -3,29 | 0,001 |
+| 2023 | 0,474 | 0,544 | 12,9% | -3,32 | 0,001 |
+| 2024 | 0,470 | 0,508 | 7,6% | -1,65 | 0,100 |
+| 2025 | 0,379 | 0,447 | 15,3% | -4,75 | < 0,001 |
+
+- Este bloque no hacía parte del criterio fijado antes del test: sus números salen algo
+  favorecidos y no reemplazan el veredicto de abajo.
+- h = 8 y h = 9 usan la configuración de h = 7 y no tuvieron validación propia.
+- Ninguno de los 7 modelos usa `cmg_redespacho`, así que el dato de 24.595 de abril de
+  2026 no los afecta.
+
+## Semana final: del 9 al 15 de octubre de 2026
+
+Un solo pronóstico, con datos hasta el 6 de octubre, guardado antes de bajar el precio
+real. Es una demostración: una semana no mide el modelo y no permite Diebold-Mariano.
+
+| Medida | Modelo | Ingenuo del día | Ingenuo semanal |
+|---|---|---|---|
+| RMSE log | 0,201 | 0,234 | 0,271 |
+| MAE log | 0,159 | 0,195 | 0,203 |
+| Mediana del error | 0,133 | 0,171 | 0,159 |
+| MAPE | 15,9% | 18,7% | 23,0% |
+
+- Mejora el RMSE 14,1% frente al ingenuo del día y 25,6% frente al semanal.
+- Fue el mejor de los tres en 5 de 7 días. Perdió el viernes 9 contra el semanal y el
+  miércoles 14 contra el del día.
+- Subestimó los picos del viernes y el sábado (934 contra 1.317 y 895 contra 1.263) y
+  sobrestimó los del martes y el miércoles (1.009 contra 690 y 1.116 contra 766). El del
+  jueves le salió casi exacto (1.116 contra 1.093).
+- Fue una semana más fácil que lo normal: el 79% de los cortes de 2026 tuvo más error. El
+  RMSE de esta semana es 0,201, y la mediana de esos cortes es 0,321.
 
 ## Criterio
 
@@ -135,12 +180,16 @@ como test.
   del ingenuo de esos horizontes da lo mismo a mano.
 - La mejora de los cuatro bloques da idéntica. El t de Diebold-Mariano difiere en la
   tercera cifra decimal por la forma de promediar las autocovarianzas.
-- La etapa 7 no ha corrido. Se activa aparte con `CORRER_FINAL=1`.
+- En la semana final, el pronóstico se guardó antes de bajar el precio real: 168 valores
+  sin vacíos contra 168 precios reales, los 7 días completos.
 
 ## Archivos
 
 - `configuracion_final.json`: la configuración congelada.
 - `etapa2_h*.csv`, `etapa3_h*.csv.gz`, `etapa4_*.csv`: búsqueda, walk-forward y variantes.
+- `alcance_semana.csv`: la tabla del alcance final.
+- `pronostico_final.csv`, `pronostico_final_creado.txt`, `precio_real_final.csv`,
+  `semana_final_resumen.csv`, `semana_final.png`: la semana final.
 - `prueba_h*.csv.gz`: pronósticos del test por horizonte.
 - `prueba_criterio.csv`, `prueba_resumen.csv`, `prueba_por_año.csv`: veredicto y tablas.
 - `prueba2026_mensual.csv.gz`, `prueba2026_fijo.csv.gz`, `prueba2026_criterio.csv`,

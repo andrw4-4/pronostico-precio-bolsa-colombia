@@ -1,0 +1,298 @@
+año,semilla,unidad,variables,aumento
+2020,0,precio,1,0.78884363
+2020,0,precio,1,0.6277919
+2020,0,precio,1,0.83544254
+2020,0,bloque 3: despacho de hoy,6,4.0880084
+2020,0,bloque 3: despacho de hoy,6,4.6091676
+2020,0,bloque 3: despacho de hoy,6,2.780962
+2020,0,bloque 4: estado hidrológico,19,3.6279917
+2020,0,bloque 4: estado hidrológico,19,4.198575
+2020,0,bloque 4: estado hidrológico,19,2.921474
+2020,0,bloque 5: despacho de ayer,5,0.3401637
+2020,0,bloque 5: despacho de ayer,5,0.5625844
+2020,0,bloque 5: despacho de ayer,5,0.96355677
+2020,0,bloque 6: clima que viene,39,0.1671195
+2020,0,bloque 6: clima que viene,39,0.22574663
+2020,0,bloque 6: clima que viene,39,0.29979944
+2020,0,demanda,5,0.63443184
+2020,0,demanda,5,-0.30975342
+2020,0,demanda,5,0.6478667
+2020,0,generacion,12,1.1767626
+2020,0,generacion,12,0.34162998
+2020,0,generacion,12,1.1833429
+2020,0,mezcla_por_planta,13,-0.35859942
+2020,0,mezcla_por_planta,13,-0.2709508
+2020,0,mezcla_por_planta,13,-0.2737224
+2020,0,ofertas,20,1.4733553
+2020,0,ofertas,20,1.8143177
+2020,0,ofertas,20,1.6871333
+2020,0,red_y_contratos,7,0.81073046
+2020,0,red_y_contratos,7,0.9093404
+2020,0,red_y_contratos,7,1.7643332
+2020,0,sistema,10,-0.111824274
+2020,0,sistema,10,-0.03979802
+2020,0,sistema,10,-0.09560585
+2020,1,precio,1,2.0005822
+2020,1,precio,1,1.6017556
+2020,1,precio,1,2.206242
+2020,1,bloque 3: despacho de hoy,6,4.099846
+2020,1,bloque 3: despacho de hoy,6,2.5756955
+2020,1,bloque 3: despacho de hoy,6,2.6574612
+2020,1,bloque 4: estado hidrológico,19,4.5131683
+2020,1,bloque 4: estado hidrológico,19,7.9166293
+2020,1,bloque 4: estado hidrológico,19,4.464805
+2020,1,bloque 5: despacho de ayer,5,1.1248469
+2020,1,bloque 5: despacho de ayer,5,2.2571921
+2020,1,bloque 5: despacho de ayer,5,0.6966233
+2020,1,bloque 6: clima que viene,39,0.9689331
+2020,1,bloque 6: clima que viene,39,0.5137682
+2020,1,bloque 6: clima que viene,39,0.5943179
+2020,1,demanda,5,-0.38678646
+2020,1,demanda,5,-0.15111566
+2020,1,demanda,5,0.052547455
+2020,1,generacion,12,2.4920464
+2020,1,generacion,12,1.100421
+2020,1,generacion,12,0.9067774
+2020,1,mezcla_por_planta,13,-0.07420778
+2020,1,mezcla_por_planta,13,-0.3131032
+2020,1,mezcla_por_planta,13,-0.18225908
+2020,1,ofertas,20,0.11591911
+2020,1,ofertas,20,-0.26530623
+2020,1,ofertas,20,0.38645267
+2020,1,red_y_contratos,7,3.050518
+2020,1,red_y_contratos,7,2.1976948
+2020,1,red_y_contratos,7,1.2600899
+2020,1,sistema,10,0.31450987
+2020,1,sistema,10,0.50216913
+2020,1,sistema,10,0.29782057
+2020,2,precio,1,0.9082198
+2020,2,precio,1,1.1842251
+2020,2,precio,1,1.3354778
+2020,2,bloque 3: despacho de hoy,6,3.2641292
+2020,2,bloque 3: despacho de hoy,6,2.7700305
+2020,2,bloque 3: despacho de hoy,6,3.857553
+2020,2,bloque 4: estado hidrológico,19,5.1770806
+2020,2,bloque 4: estado hidrológico,19,3.7865758
+2020,2,bloque 4: estado hidrológico,19,2.6749372
+2020,2,bloque 5: despacho de ayer,5,-0.3701687
+2020,2,bloque 5: despacho de ayer,5,-0.6588578
+2020,2,bloque 5: despacho de ayer,5,0.26705265
+2020,2,bloque 6: clima que viene,39,0.4480958
+2020,2,bloque 6: clima que viene,39,0.856483
+2020,2,bloque 6: clima que viene,39,0.709033
+2020,2,demanda,5,-0.29863715
+2020,2,demanda,5,-0.25609136
+2020,2,demanda,5,-0.52855015
+2020,2,generacion,12,0.71481466
+2020,2,generacion,12,1.0806799
+2020,2,generacion,12,1.8321037
+2020,2,mezcla_por_planta,13,0.30491352
+2020,2,mezcla_por_planta,13,0.2526641
+2020,2,mezcla_por_planta,13,0.14435053
+2020,2,ofertas,20,0.33797026
+2020,2,ofertas,20,1.0757565
+2020,2,ofertas,20,1.2433648
+2020,2,red_y_contratos,7,0.33160448
+2020,2,red_y_contratos,7,0.03014803
+2020,2,red_y_contratos,7,0.2440691
+2020,2,sistema,10,-0.06741285
+2020,2,sistema,10,-0.12580752
+2020,2,sistema,10,-0.11602044
+2021,0,precio,1,-0.58202744
+2021,0,precio,1,0.27747154
+2021,0,precio,1,-0.33809543
+2021,0,bloque 3: despacho de hoy,6,11.825967
+2021,0,bloque 3: despacho de hoy,6,13.157558
+2021,0,bloque 3: despacho de hoy,6,13.253176
+2021,0,bloque 4: estado hidrológico,19,8.75895
+2021,0,bloque 4: estado hidrológico,19,8.668661
+2021,0,bloque 4: estado hidrológico,19,8.308148
+2021,0,bloque 5: despacho de ayer,5,-1.3455033
+2021,0,bloque 5: despacho de ayer,5,-0.82140565
+2021,0,bloque 5: despacho de ayer,5,0.03567934
+2021,0,bloque 6: clima que viene,39,-0.6631732
+2021,0,bloque 6: clima que viene,39,-0.27599335
+2021,0,bloque 6: clima que viene,39,-0.9444177
+2021,0,demanda,5,0.7385969
+2021,0,demanda,5,-0.14005303
+2021,0,demanda,5,-0.11203289
+2021,0,generacion,12,2.8562903
+2021,0,generacion,12,4.180324
+2021,0,generacion,12,2.6669502
+2021,0,mezcla_por_planta,13,0.09300709
+2021,0,mezcla_por_planta,13,0.08609295
+2021,0,mezcla_por_planta,13,0.18769503
+2021,0,ofertas,20,1.1057854
+2021,0,ofertas,20,2.6114464
+2021,0,ofertas,20,2.0475745
+2021,0,red_y_contratos,7,-1.0236382
+2021,0,red_y_contratos,7,0.9345412
+2021,0,red_y_contratos,7,0.14606714
+2021,0,sistema,10,0.36004782
+2021,0,sistema,10,0.23715496
+2021,0,sistema,10,0.16658306
+2021,1,precio,1,0.7516742
+2021,1,precio,1,0.7574916
+2021,1,precio,1,2.9129028
+2021,1,bloque 3: despacho de hoy,6,9.855043
+2021,1,bloque 3: despacho de hoy,6,8.037949
+2021,1,bloque 3: despacho de hoy,6,12.354803
+2021,1,bloque 4: estado hidrológico,19,7.236767
+2021,1,bloque 4: estado hidrológico,19,7.956648
+2021,1,bloque 4: estado hidrológico,19,5.045593
+2021,1,bloque 5: despacho de ayer,5,0.26892424
+2021,1,bloque 5: despacho de ayer,5,0.43752193
+2021,1,bloque 5: despacho de ayer,5,0.24050474
+2021,1,bloque 6: clima que viene,39,-3.004074
+2021,1,bloque 6: clima que viene,39,-2.2095203
+2021,1,bloque 6: clima que viene,39,-3.1311452
+2021,1,demanda,5,2.4150133
+2021,1,demanda,5,0.76948404
+2021,1,demanda,5,2.0063162
+2021,1,generacion,12,2.5292873
+2021,1,generacion,12,3.224969
+2021,1,generacion,12,2.8533697
+2021,1,mezcla_por_planta,13,-0.002604723
+2021,1,mezcla_por_planta,13,-0.041288137
+2021,1,mezcla_por_planta,13,0.14038086
+2021,1,ofertas,20,2.9909372
+2021,1,ofertas,20,0.95403194
+2021,1,ofertas,20,1.848793
+2021,1,red_y_contratos,7,-0.34760833
+2021,1,red_y_contratos,7,-1.5029192
+2021,1,red_y_contratos,7,-1.9631326
+2021,1,sistema,10,0.10578632
+2021,1,sistema,10,0.23217201
+2021,1,sistema,10,0.23891926
+2021,2,precio,1,-2.4587154
+2021,2,precio,1,-4.2837324
+2021,2,precio,1,-5.10754
+2021,2,bloque 3: despacho de hoy,6,13.092136
+2021,2,bloque 3: despacho de hoy,6,14.316678
+2021,2,bloque 3: despacho de hoy,6,15.267504
+2021,2,bloque 4: estado hidrológico,19,8.003283
+2021,2,bloque 4: estado hidrológico,19,9.907222
+2021,2,bloque 4: estado hidrológico,19,10.40988
+2021,2,bloque 5: despacho de ayer,5,-2.622223
+2021,2,bloque 5: despacho de ayer,5,-4.9714327
+2021,2,bloque 5: despacho de ayer,5,-3.576392
+2021,2,bloque 6: clima que viene,39,-2.641803
+2021,2,bloque 6: clima que viene,39,-2.7573884
+2021,2,bloque 6: clima que viene,39,-2.8142333
+2021,2,demanda,5,-0.9009242
+2021,2,demanda,5,-0.32672882
+2021,2,demanda,5,-1.027745
+2021,2,generacion,12,5.2801013
+2021,2,generacion,12,4.619992
+2021,2,generacion,12,3.851235
+2021,2,mezcla_por_planta,13,-0.595665
+2021,2,mezcla_por_planta,13,-0.39978623
+2021,2,mezcla_por_planta,13,-0.6576061
+2021,2,ofertas,20,4.1351438
+2021,2,ofertas,20,4.9929857
+2021,2,ofertas,20,3.6110997
+2021,2,red_y_contratos,7,3.840208
+2021,2,red_y_contratos,7,3.6769629
+2021,2,red_y_contratos,7,2.4767995
+2021,2,sistema,10,-0.1213491
+2021,2,sistema,10,-0.21897554
+2021,2,sistema,10,0.06582737
+2022,0,precio,1,1.5647292
+2022,0,precio,1,1.5895128
+2022,0,precio,1,1.8680692
+2022,0,bloque 3: despacho de hoy,6,10.698164
+2022,0,bloque 3: despacho de hoy,6,10.111284
+2022,0,bloque 3: despacho de hoy,6,9.64427
+2022,0,bloque 4: estado hidrológico,19,5.2800417
+2022,0,bloque 4: estado hidrológico,19,5.3877473
+2022,0,bloque 4: estado hidrológico,19,5.60199
+2022,0,bloque 5: despacho de ayer,5,1.0302186
+2022,0,bloque 5: despacho de ayer,5,1.3022304
+2022,0,bloque 5: despacho de ayer,5,1.1327028
+2022,0,bloque 6: clima que viene,39,0.996542
+2022,0,bloque 6: clima que viene,39,0.57331324
+2022,0,bloque 6: clima que viene,39,1.0035753
+2022,0,demanda,5,0.115036964
+2022,0,demanda,5,-0.2944231
+2022,0,demanda,5,0.22391081
+2022,0,generacion,12,2.365148
+2022,0,generacion,12,2.1021962
+2022,0,generacion,12,1.7748356
+2022,0,mezcla_por_planta,13,0.036120415
+2022,0,mezcla_por_planta,13,0.004696846
+2022,0,mezcla_por_planta,13,-0.03003478
+2022,0,ofertas,20,0.9469509
+2022,0,ofertas,20,1.0810137
+2022,0,ofertas,20,0.64566135
+2022,0,red_y_contratos,7,0.39339066
+2022,0,red_y_contratos,7,0.32918453
+2022,0,red_y_contratos,7,0.8019209
+2022,0,sistema,10,0.14402866
+2022,0,sistema,10,0.23167133
+2022,0,sistema,10,0.27741194
+2022,1,precio,1,5.7168603
+2022,1,precio,1,5.1252365
+2022,1,precio,1,6.802833
+2022,1,bloque 3: despacho de hoy,6,11.261547
+2022,1,bloque 3: despacho de hoy,6,12.634325
+2022,1,bloque 3: despacho de hoy,6,13.756275
+2022,1,bloque 4: estado hidrológico,19,7.6032877
+2022,1,bloque 4: estado hidrológico,19,6.9933295
+2022,1,bloque 4: estado hidrológico,19,7.192874
+2022,1,bloque 5: despacho de ayer,5,1.9091845
+2022,1,bloque 5: despacho de ayer,5,1.8083811
+2022,1,bloque 5: despacho de ayer,5,2.1458983
+2022,1,bloque 6: clima que viene,39,0.40774345
+2022,1,bloque 6: clima que viene,39,0.14772415
+2022,1,bloque 6: clima que viene,39,0.3258109
+2022,1,demanda,5,1.4099717
+2022,1,demanda,5,0.9429097
+2022,1,demanda,5,0.8213997
+2022,1,generacion,12,1.3407826
+2022,1,generacion,12,1.7208099
+2022,1,generacion,12,1.1655331
+2022,1,mezcla_por_planta,13,0.3067732
+2022,1,mezcla_por_planta,13,0.24659634
+2022,1,mezcla_por_planta,13,0.22913218
+2022,1,ofertas,20,1.5080333
+2022,1,ofertas,20,3.007853
+2022,1,ofertas,20,2.2465467
+2022,1,red_y_contratos,7,0.9678602
+2022,1,red_y_contratos,7,1.7292261
+2022,1,red_y_contratos,7,1.6052008
+2022,1,sistema,10,0.19549131
+2022,1,sistema,10,0.30685663
+2022,1,sistema,10,0.34451485
+2022,2,precio,1,2.4610162
+2022,2,precio,1,3.3350348
+2022,2,precio,1,1.9395113
+2022,2,bloque 3: despacho de hoy,6,13.905727
+2022,2,bloque 3: despacho de hoy,6,13.835931
+2022,2,bloque 3: despacho de hoy,6,12.2033
+2022,2,bloque 4: estado hidrológico,19,4.896438
+2022,2,bloque 4: estado hidrológico,19,4.3453336
+2022,2,bloque 4: estado hidrológico,19,5.194688
+2022,2,bloque 5: despacho de ayer,5,1.6332746
+2022,2,bloque 5: despacho de ayer,5,1.601851
+2022,2,bloque 5: despacho de ayer,5,0.99966526
+2022,2,bloque 6: clima que viene,39,0.7223964
+2022,2,bloque 6: clima que viene,39,1.1609674
+2022,2,bloque 6: clima que viene,39,1.2123942
+2022,2,demanda,5,-0.0028431416
+2022,2,demanda,5,0.45130253
+2022,2,demanda,5,0.14443398
+2022,2,generacion,12,1.5427709
+2022,2,generacion,12,1.1132002
+2022,2,generacion,12,1.2797236
+2022,2,mezcla_por_planta,13,0.2368927
+2022,2,mezcla_por_planta,13,0.094115734
+2022,2,mezcla_por_planta,13,0.1599431
+2022,2,ofertas,20,-0.41363835
+2022,2,ofertas,20,1.6118169
+2022,2,ofertas,20,0.45073032
+2022,2,red_y_contratos,7,0.74642897
+2022,2,red_y_contratos,7,0.22698641
+2022,2,red_y_contratos,7,0.20884275
+2022,2,sistema,10,0.23299456
+2022,2,sistema,10,0.13861656
+2022,2,sistema,10,0.044310093

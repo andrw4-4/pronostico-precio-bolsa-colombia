@@ -61,6 +61,10 @@ XM (se comprobó), lo que es coherente con que sea el resultado del despacho del
 día anterior, pero no se verificó a qué hora. Si no se quiere asumir, se quitan
 de `EX_ANTE_HORARIAS` en `features.py` y entran rezagados 24 horas.
 
+**Corrección (noviembre de 2026).** El pronóstico de demanda no cumple la
+suposición: SIMEM lo publica unos 10 días después del día. Los modelos no se
+afectan (ver "Una corrección al panel 2c" en la sección del panel de la LSTM).
+
 **El precio llega con dos días de atraso.** En la API de XM el último precio
 publicado de hoy (10 de octubre) era el del 8. Las características de este
 proyecto suponen que el precio de ayer ya se conoce; con la API, el rezago real
@@ -547,3 +551,203 @@ leyeron sus resultados. Se usa una sola vez, con el modelo final.
   conviene promediar el error de cada día antes de la prueba.
 - En h = 7 y h = 14 hay que comparar siempre contra el ingenuo: en la validación
   no le ganaron de forma clara.
+
+---
+
+# Panel para la LSTM: `panel_lstm.csv.gz`
+
+Lo arma `2e_panel_lstm.py` y lo resume `2f_datos_lstm.py`. Son las mismas variables
+base del paso 2c con otra regla de información, más fiel a cómo se publican los datos.
+
+## La regla de información
+
+En el 2c, la fila (día t, hora H) se para al cierre del día t, el del último precio
+conocido. Pero el pronóstico se hace el día R = t + D, cuando el precio ya va D días
+atrasado, y hay datos que en R están más al día que el precio: el despacho programado
+de R sale la víspera y los aportes de ayer ya están publicados. El 2c los usaba como si
+fueran del día t, con uno o dos días de atraso que no tenían.
+
+En el panel de la LSTM la fila t trae, de cada columna cruda, el valor del día R − L,
+donde L es su atraso de publicación. El objetivo es la semana que empieza mañana,
+`y_h` con h = D + 1 a D + 7. Con D = 2 son las mismas filas y objetivos de XGBoost y
+SARIMAX (h = 3 a 9). Con `ATRASO_PRECIO=3` se arma la versión de 3 días
+(`_atraso3`), que es la que más se vio en XM (ver "El precio llega con dos días de
+atraso", arriba: en dos de tres consultas fueron tres).
+
+| L (días antes de R) | Columnas crudas |
+|---|---|
+| 0 | costo marginal programado, generación programada, disponibilidad declarada (total, hidráulica, térmica y del despacho central), obligación de energía en firme |
+| 0 | El Niño, lluvia (ERA5), IDEAM y TRM: el paso 2 ya los fecha el día en que se publican |
+| 1 | aportes, embalses, vertimientos, descargas y turbinado |
+| 1 | redespacho, costo marginal del redespacho, disponibilidad real y restricciones sin alivio |
+| D | precio, demanda, generación real, CO2, intercambios, ENFICC y precio de escasez |
+| 2 | capacidad efectiva, margen de reserva, demanda no atendida no programada |
+| 4 | demanda no atendida |
+| 5 | contratos, pérdidas, restricciones, intercambio con Ecuador, cargo por confiabilidad |
+| 10 | ofertas, curva de mérito, planta marginal y pronóstico de demanda del CND |
+| 9 a 40 | mensuales: CEE, CERE, MC, proyecciones de la UPME, demanda máxima de potencia |
+
+Los atrasos salen de `datos/sondeos/auditoria_cobertura.csv` (descarga del 9 de octubre
+de 2026, entre las 15:28 y las 16:46) y `publicacion_metricas_horarias.csv` (10 de
+octubre, 10:14); se toma el mayor de los dos. El redespacho, la disponibilidad real y
+las restricciones sin alivio aparecen el mismo día en el sondeo, pero cambian durante
+el día; se usa el valor de ayer, que ya está completo (decisión del autor). El
+costo marginal programado de mañana no se usa: no se verificó a qué hora sale.
+
+**Una corrección al panel 2c.** El 2c trata el pronóstico de demanda del CND como
+conocido la víspera, pero SIMEM lo publica unos 10 días después (el 10 de octubre iba
+hasta el 30 de septiembre). No afecta los modelos: XGBoost solo usa `margen_decl_pron`
+con 14 días de rezago (h = 7 a 9), cuando ya está publicado, y SARIMAX no eligió ninguna
+variable externa. En el panel de la LSTM entra con 10 días.
+
+**Variables.** Las del 2c, con cuatro ajustes (decisiones del autor):
+
+- Las que mezclarían días distintos al alinear se arman con todas sus partes del mismo
+  día: `error_cmg_despacho` (día t), `ajuste_cmg`, `redespacho_vs_programa` y
+  `disp_real_vs_decl` (ayer).
+- Sale `margen_decl_pron`: dividía la disponibilidad de hoy por un pronóstico que se
+  publica 10 días después.
+- Entran tres: `cmg_hoy_vs_precio` (log del costo marginal programado de R menos `lp`
+  del día t), `disp_decl_hoy_rel` (disponibilidad declarada de R sobre la demanda de la
+  misma hora de R − 7) y `gen_programada_rel` (generación programada de R sobre esa
+  misma demanda).
+- Las variables que combinan fuentes usan cada fuente en su último dato publicado,
+  como hace el 2c con su atraso extra.
+
+Quedan 135 variables base. Con D = 2, 63 se conocen antes que el precio (45 dos días
+antes y 18 uno antes), 42 con el precio y 30 después.
+
+**Prueba de fuga.** Para cada columna cruda se alteran los datos que todavía no se
+habían publicado en R0 = t0 + D, y se arma todo de nuevo: ninguna fila hasta t0
+cambia. También se comprueba que la fila t0 trae el costo marginal programado de R0 y
+los aportes de R0 − 1.
+
+## Qué datos recibe la LSTM (paso 2f)
+
+Se elige con 2015-2022, sin tocar el test. El modelo de prueba es XGBoost con la
+configuración fija del paso 2d, sobre un resumen de cada variable (su valor en la fila
+t, la media de su día y el cambio frente a 7 días antes; en las diarias, frente a 7 y
+30 días). No es la LSTM: mide cuánta información trae cada grupo. Horizontes
+h = D + 1, D + 4 y D + 7.
+
+1. **Grupos, 2015-2019.** Entrena hasta 2017 y mide 2018; hasta 2018 y mide 2019. Un
+   grupo pasa si, agregado al precio y el calendario, baja el error en los dos años y
+   en los tres horizontes.
+2. **Variables, 2015-2019.** Dentro de esos grupos, la etapa 2 del paso 2d: pasa la
+   variable cuyo |SHAP| le gana a la mejor de 10 variables de ruido en los dos años,
+   en al menos un horizonte.
+3. **Cuántos grupos, 2020-2022.** Walk-forward anual. Los grupos se agregan en el orden
+   de su mejora en el paso 1, y uno entra solo si le gana al conjunto anterior con
+   Diebold-Mariano p < 0,05 en algún horizonte y no pierde con p < 0,05 en ninguno. Es
+   la regla de simplicidad de SARIMAX.
+
+**Paso 1, con D = 2.** Pasan el despacho de hoy, los aportes, el despacho de ayer y la
+escasez con la presión hídrica. Los embalses fallan en una de seis combinaciones.
+Ofertas, demanda, generación, mezcla por planta, El Niño, IDEAM, contratos y sistema
+empeoran el error en 2018 en los tres horizontes y solo ayudan en 2019; la lluvia
+empeora en 2018 en h = 6 y 9.
+
+**Paso 3, con D = 2.** Mejora del RMSE frente al ingenuo del día en 2020-2022:
+
+| Conjunto | Variables | h = 3 | h = 6 | h = 9 | Entra |
+|---|---|---|---|---|---|
+| Precio y calendario | 0 | 9,6% | 0,5% | 3,5% | |
+| + despacho de hoy | 3 | 27,7% | 13,1% | 9,5% | sí (t = −6,0; −4,8; −2,6) |
+| + aportes | 9 | 29,0% | 12,8% | 8,5% | no |
+| + despacho de ayer | 6 | 28,5% | 14,2% | 10,8% | no |
+| + escasez y presión hídrica | 5 | 24,8% | 17,5% | 13,1% | sí (t = 1,7; −3,1; −1,8) |
+| Las 5 finales, sin frescura | 5 | 8,4% | 9,0% | 10,8% | referencia |
+| Las 135 variables | 135 | 28,5% | 14,6% | 11,6% | referencia |
+
+Quedan 5 variables, además de `lp` y el calendario: `cmg_hoy_vs_precio`,
+`cmg_despacho`, `disp_decl_hoy_rel`, `brecha_escasez` y `presion_hidro_horaria`.
+
+- **La frescura es lo que más pesa.** Con las mismas 5 variables llevadas al día t,
+  como en el 2c, h = 3 cae de 24,8% a 8,4% (t = 6,5).
+- **El costo de la escasez en h = 3.** Al agregarla, h = 3 baja de 27,7% a 24,8% (no
+  significativo, p ≈ 0,09) y h = 6 sube de 13,1% a 17,5% (significativo).
+- **Las 135 no son mejores.** Le ganan a las 5 en h = 3 (t = −2,7) y pierden, sin
+  significancia, en h = 6 y 9. Para una red con unos 2.900 días de entrenamiento, 5
+  variables son mucho más seguras.
+- **Contra XGBoost.** Con la regla del 2c, XGBoost mejoró 18,4% en h = 3 y 8,3% en
+  h = 7 en estos mismos años (`diagnosticos/RESULTADOS.md`, con reentrenamiento
+  mensual). La ganancia viene de los datos, no del modelo.
+
+**Con el precio a 3 días** (`_atraso3`, h = 4, 7 y 10). En el paso 1 pasan también los
+embalses. En el paso 3 solo entra el despacho de hoy:
+
+| Conjunto | Variables | h = 4 | h = 7 | h = 10 | Entra |
+|---|---|---|---|---|---|
+| Precio y calendario | 0 | 7,3% | −2,1% | 4,2% | |
+| + despacho de hoy | 3 | 32,1% | 15,6% | 12,4% | sí (t = −6,9; −5,5; −3,5) |
+| + despacho de ayer | 6 | 33,0% | 18,4% | 13,8% | no |
+| + aportes | 7 | 33,1% | 15,1% | 11,3% | no |
+| + embalses | 13 | 29,3% | 11,0% | 6,1% | no, pierde en h = 4 (p = 0,048) |
+| + escasez y presión hídrica | 5 | 30,8% | 18,5% | 15,7% | no (p = 0,09 en h = 7) |
+| Las 3 finales, sin frescura | 3 | 8,8% | 1,0% | 5,6% | referencia |
+| Las 135 variables | 135 | 33,6% | 17,0% | 13,7% | referencia, sin diferencia significativa |
+
+Quedan 3 variables: `cmg_hoy_vs_precio`, `cmg_despacho` y `disp_decl_hoy_rel`. Con el
+precio más atrasado, el despacho de hoy aporta todavía más: es información de tres días
+que el precio aún no muestra. En las dos versiones el núcleo es el mismo; con D = 2
+entran además `brecha_escasez` y `presion_hidro_horaria`, que con D = 3 quedan en el
+borde.
+
+## Qué decisiones miraron la validación
+
+Antes de escribir el 2f se hizo una exploración con las mismas reglas de los pasos 1 y
+2, pero se dejaron pasar los embalses aunque fallaban en una de seis combinaciones. En
+2020-2022 esas variables hundieron h = 9 en 2020 (−26,6%). Después de eso se fijó la
+regla del paso 3 y se escribió el 2f, que sigue la regla del paso 1 al pie de la letra.
+La regla de simplicidad es la misma de SARIMAX, pero se eligió después de esa
+exploración. Por eso las mejoras de 2020-2022 son optimistas.
+
+## Térmica programada (paso 2g, exploratorio)
+
+El panel usa el total de la generación programada, pero `gen_programada.csv.gz` viene
+por planta. `2g_termica_programada.py` marca como térmica la planta que aparece en el
+consumo de combustible de XM (48 plantas, con el combustible que más consumió) y calcula,
+para el despacho del día R, qué parte de lo programado es térmica. Ser térmica es un dato
+fijo de la planta, así que clasificarla con toda la historia no trae información del
+futuro. Promedio anual: 0,33 en 2015, 0,13 en 2017, 0,29 en 2024 y 0,12 en 2025, que
+coincide con los años secos y húmedos.
+
+Con la medición del paso 3 sobre las 5 finales (2020-2022, D = 2):
+
+| Conjunto | h = 3 | h = 6 | h = 9 | DM t (h = 3 / 6 / 9) |
+|---|---|---|---|---|
+| Las 5 finales | 24,8% | 17,5% | 13,1% | |
+| + `frac_termica_prog` | 27,0% | 17,9% | 12,9% | −3,46 / −0,92 / 0,23 |
+| + solo combustibles líquidos | 26,7% | 18,1% | 12,6% | −3,17 / −1,36 / 0,72 |
+
+`frac_termica_prog` gana en h = 3 con p = 0,001 y no pierde en ningún horizonte, así que
+pasa la regla del paso 3 y se agrega como columna a `panel_lstm_modelo.csv.gz`. La de
+líquidos casi no varía (0,1% de lo programado) y no se usa. Como 2020-2022 ya se había
+usado para elegir, esto es exploratorio: sirve para la LSTM v2, no para la v1.
+
+## Límites
+
+- El modelo de prueba es XGBoost sobre tres columnas por variable; la LSTM verá
+  secuencias. Lo que no le sirve a un árbol con toda la información del resumen
+  difícilmente le sirve a la red, pero el orden entre conjuntos parecidos puede cambiar.
+- Una sola semilla y un solo periodo de validación.
+- Los atrasos salen de dos sondeos. La hora a la que se publica el despacho de mañana no
+  se verificó, y por eso no se usa.
+- **La comparación con XGBoost y SARIMAX deja de ser con la misma información.** Para
+  que la LSTM se compare en igualdad, los otros dos tendrían que usar esta misma regla.
+
+## Al modelar
+
+`panel_lstm_modelo.csv.gz` (5,2 MB) trae lo que necesita la red: `fecha`, `hora`,
+`bloque`, `precio`, `lp`, el calendario del día t, el de los 7 días objetivo
+(`dia_semana_k1` a `k7`, `es_festivo_k1` a `k7`), los objetivos `y_h3` a `y_h9` y las 5
+variables finales. Trae también las 9 que pasaron el ruido pero no entraron, por si se
+quiere probar un conjunto más grande; cuáles son está en `panel_lstm_seleccion.csv`.
+Después del 2f, el 2g le agrega `frac_termica_prog`; si se vuelve a correr el 2f, hay
+que correr el 2g otra vez.
+
+- Para un origen t, la entrada son las filas de los días t − L + 1 a t (por ejemplo,
+  L = 28), y la salida, las 168 cifras `y_h` de la fila t (7 días × 24 horas).
+- Cada fila ya trae lo que se sabe en R, así que la secuencia no necesita más reglas.
+- Se estandariza solo con los datos de entrenamiento, se parte por fechas y entre
+  entrenamiento y evaluación se dejan h + 1 días.

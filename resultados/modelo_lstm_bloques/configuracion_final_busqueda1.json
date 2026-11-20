@@ -1,0 +1,37 @@
+{
+  "bloques": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "variables": [
+    "cmg_despacho",
+    "disp_decl_hoy_rel",
+    "cmg_hoy_vs_precio",
+    "frac_termica_prog",
+    "brecha_escasez",
+    "presion_hidro_horaria",
+    "aportes_media_hist",
+    "volumen_util_pct",
+    "dias_autonomia"
+  ],
+  "conjunto": "b12_3_4",
+  "capas": 1,
+  "unidades": 192,
+  "densa": 128,
+  "dropout": 0.3,
+  "tasa": 0.002510676487272628,
+  "lote": 64,
+  "ventana": 56,
+  "epocas": 11,
+  "semillas": [
+    0,
+    1,
+    2
+  ],
+  "perdida": "mse",
+  "reentrenar": "mensual",
+  "ensayo_dm_t": 1.241365803180032,
+  "ensayo_dm_p": 0.21447064599363597
+}
