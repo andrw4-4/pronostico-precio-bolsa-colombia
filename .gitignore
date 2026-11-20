@@ -36,3 +36,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.log
+
+# Temporales que crea Word mientras un documento está abierto
+~$*
