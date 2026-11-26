@@ -5,8 +5,46 @@ eléctrico colombiano para la próxima semana, hora por hora, con datos público
 (API y SIMEM), NOAA, ERA5, el IDEAM y la TRM.
 
 Los tres modelos de la tesis están terminados y probados: SARIMAX, XGBoost y una red LSTM
-codificador-decodificador. El informe final está en `informe/Imforme 1.docx` y en PDF, y los
-scripts que lo escriben, en `informe/codigo/`.
+codificador-decodificador. El informe está en `informe/Imforme 1.docx` y en PDF, y los
+scripts que lo escriben, en `informe/codigo/`. El 26 de noviembre de 2026 la asesora devolvió sus
+comentarios al informe, y la revisión que responde a ellos está en la sección siguiente.
+
+## Revisión del 26 de noviembre de 2026
+
+Resumen en `resultados/revision/RESULTADOS.md`; código en los scripts con prefijo 9, el módulo
+`evaluacion.py` y el notebook `6f_lstm_revision.ipynb`. Lo que la tesis había fijado no se cambió:
+el estado anterior quedó con la etiqueta de git `informe-1`, y los modelos nuevos corrieron aparte
+y se reportan como agregados después de abrir la prueba.
+
+- **Una primera LSTM pasó por el test** el 2 de noviembre (12,0% en 2023-2025 y 12,9% en 2026)
+  antes de diseñar la de la tesis. Sus métricas están en `resultados/modelo_lstm_v1/` y el
+  informe lo dice en la sección 3.6 y en las limitaciones.
+- **La ventaja de la LSTM venía de la información**, no de la red. Con las mismas nueve variables
+  alineadas al día en que se publican, LEAR mejora 21,3% y 24,8% y XGBoost 18,5% y 22,4%, frente a
+  14,9% y 19,7% de la LSTM; la LSTM con solo el precio y el calendario mejora 6,1% y 8,8%
+  (`9a_lear.py`, `9b_xgboost_alineado.py`, `9c_comparacion_revision.py`, `dos_por_dos.csv`).
+- **Referencias nuevas:** LEAR (Lago et al., 2021), el promedio de los tres modelos y la
+  combinación del nivel de la LSTM con la forma de XGBoost; Diebold-Mariano entre todos los pares
+  como mapa de calor (`dm_pares_*.png`).
+- **Periodo limpio:** con la descarga del 26 de noviembre, los 45 orígenes del 7 de octubre al 20
+  de noviembre de 2026, que ninguna decisión usó (`9f_paneles_periodo_limpio.py`,
+  `9g_periodo_limpio.py`, `resultados/periodo_limpio/`). Todos los modelos reducen el error y
+  ninguno de forma significativa.
+- **Atraso del precio:** la regulación fija la hora de las ofertas y del despacho (CREG 025 de
+  1995), pero no un plazo para publicar el precio; en tres consultas a la API fue de 3, 2 y 3
+  días. Con tres días de atraso (h = 4 a 10) los tres modelos siguen cumpliendo el criterio.
+- **Otros análisis** (`9_analisis_revision.py`): corrección de Harvey et al. (1997) en la prueba
+  de Diebold-Mariano, mediana del error, episodios de 2023-2024 (El Niño y el déficit de aportes
+  de 2024, que no fue de El Niño), regímenes de aportes, el diseño original de 30 días y una sola
+  regla para contar los orígenes.
+- **SARIMAX con el día de la semana** (`9d_sarimax_dia_semana.R`): gana en validación y mejora
+  7,2% y 6,6% en las pruebas, frente a 6,4% y 5,6% de la versión fijada.
+- **Experimento de decisión** (`docs/EXPERIMENTO_DECISION.md`, `9e_decision.py`): fracción del
+  ahorro posible que captura cada pronóstico al elegir los dos días más baratos de la semana y las
+  cuatro horas más baratas de cada día.
+
+Las secciones que siguen describen el diseño y los resultados de los tres modelos de la tesis
+tal como se fijaron; las cifras de la revisión las matizan, pero no las cambian.
 
 ## El diseño en breve
 
@@ -22,7 +60,7 @@ scripts que lo escriben, en `informe/codigo/`.
   calendario, el despacho programado de hoy y el estado hidrológico, cada dato desde el día en que
   se publica (paso 2h, `6c_lstm_seleccion.ipynb` y `6d_lstm_busqueda_y_test.ipynb`).
 - Todo se decide con datos hasta 2022: selección en 2015-2019 y validación en 2020-2022. El test
-  se hace una sola vez en 2023-2025 y en 2026 hasta el 6 de octubre, reentrenando cada mes, en las
+  se hace en 2023-2025 y en 2026 hasta el 6 de octubre, reentrenando cada mes, en las
   mismas filas para los tres.
 - Un modelo funciona si baja el RMSE en logaritmo al menos 5% frente al mejor de los dos
   ingenuos (repetir el último día o la última semana) y Diebold-Mariano da p < 0,05.
@@ -53,7 +91,8 @@ modelos (Diebold-Mariano, `comparacion_pares.csv`), la LSTM le gana a SARIMAX en
   solo SARIMAX cumple el criterio.
 - En pesos las mejoras son menores: en 2023-2025, 7,1% la LSTM, 5,8% SARIMAX y 3,7% XGBoost, y
   solo la de SARIMAX es significativa. Los tres quedan, en promedio, por debajo del precio real.
-- En la semana del 9 al 15 de octubre de 2026, pronosticada antes de que salieran sus precios,
+- En la semana del 9 al 15 de octubre de 2026, pronosticada con los datos hasta el 6 de octubre
+  (una demostración: las configuraciones se fijaron en noviembre, con esos precios ya publicados),
   XGBoost tuvo el menor error (RMSE en logaritmo de 0,201), seguido de SARIMAX (0,218), el
   ingenuo del día (0,234) y la LSTM (0,252).
 
@@ -248,10 +287,11 @@ minutos con una red mínima, para revisar que no falle nada antes de la corrida 
   despacho de hoy y 5 del estado hidrológico.
 - **LSTM:** terminada, con test y semana final. Ver `resultados/modelo_lstm_bloques/RESULTADOS.md`
   y `docs/LSTM_DISENO.md`.
-- **Lo que queda abierto:** los tres modelos no reciben la misma información, porque la LSTM usa
-  cada dato desde el día en que se publica y XGBoost y SARIMAX no. Darles la misma regla, probar el
-  bloque 7 de la LSTM (los pronósticos de XGBoost y SARIMAX como entrada) y medir el valor del
-  pronóstico en una decisión concreta quedan como trabajo futuro (sección 5.2 del informe).
+- **Revisión del 26 de noviembre:** la comparación con la misma información, LEAR, las
+  combinaciones, el periodo limpio y el experimento de decisión ya están hechos (ver arriba y
+  `resultados/revision/RESULTADOS.md`). Quedan abiertos el sondeo de diez días del atraso de la
+  API, los intervalos de pronóstico y el bloque 7 de la LSTM (los pronósticos de XGBoost y SARIMAX
+  como entrada).
 
 Los modelos diarios anteriores (un día puntual y siete días probabilístico) están en el
 commit `a200127` y descritos en `docs/DOCUMENTACION.md`, secciones 6 y 7.
