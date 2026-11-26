@@ -194,11 +194,11 @@ rep(d, "Lago et al. (2018) compararon modelos de aprendizaje profundo",
     "al. (2005) redujeron el error del ARIMA en España al descomponer antes la serie con la transformada wavelet. "
     "Weron y Misiorek (2008) compararon en California y en Nord Pool modelos autorregresivos, de umbral, de cambio "
     "de régimen y semiparamétricos, y encontraron que los semiparamétricos que reciben la demanda prevista dan los "
-    "mejores pronósticos puntuales y de intervalo. Kristiansen (2012) adaptó ese modelo autorregresivo a Nord Pool, "
-    "el mercado nórdico de base hidráulica. El grupo de Weron estudió después la construcción del modelo: "
-    "Uniejewski et al. (2018) mostraron en doce mercados que estabilizar la varianza del precio con una "
+    "mejores pronósticos puntuales y de intervalo. Kristiansen (2012) pronosticó con un modelo autorregresivo el "
+    "precio del día siguiente de Nord Pool, el mercado nórdico de base hidráulica. El grupo de Weron estudió después la construcción del modelo: "
+    "Uniejewski et al. (2018) mostraron en varios mercados que estabilizar la varianza del precio con una "
     "transformación, como el seno hiperbólico inverso, mejora el pronóstico; Ziel y Weron (2018) compararon modelos "
-    "univariados y multivariados de alta dimensión con LASSO en esos mercados, sin que ninguno de los dos marcos "
+    "univariados y multivariados de alta dimensión con LASSO en doce conjuntos de datos, sin que ninguno de los dos marcos "
     "dominara, y mostraron que promediar los dos mejora, y Marcjasz et al. (2019) encontraron que un comité de redes "
     "NARX con la componente estacional de largo plazo supera a los modelos lineales con la misma información.")
 rep(d, "En la misma universidad, el precio de bolsa se ha pronosticado desde hace dos décadas",
@@ -215,10 +215,9 @@ rep(d, "En la misma universidad, el precio de bolsa se ha pronosticado desde hac
     "(2025) compararon redes LSTM y Transformer para pronosticar la generación solar del día y participar en el "
     "mercado intradiario.")
 tras(d, "Con el aprendizaje profundo, Lago et al. (2018) compararon 27 métodos",
-     p("En Colombia la literatura es más corta. Velásquez Henao et al. (2007) explican por qué es tan difícil "
-       "pronosticar el precio en un mercado competitivo como el colombiano: depende de la hidrología, de las "
-       "estrategias de oferta de los generadores y de la regulación, y cambia de régimen. Lira et al. (2009) "
-       "pronosticaron el precio horario colombiano a corto plazo, y Barrientos et al. (2012) modelaron el precio de "
+     p("En Colombia la literatura es más corta. Velásquez Henao et al. (2007) analizan las dificultades que "
+       "encuentran investigadores y profesionales al pronosticar el precio de la electricidad en mercados "
+       "competitivos. Lira et al. (2009) pronosticaron a corto plazo el precio del mercado colombiano, y Barrientos et al. (2012) modelaron el precio de "
        "largo plazo con vectores de corrección de errores y redes neuronales, con la demanda y la oferta como "
        "determinantes. Trespalacios et al. (2025) compararon métodos de aprendizaje profundo con la estructura ARIMA "
        "de Box y Jenkins para el precio spot colombiano: las redes siguen la tendencia fuera de muestra, pero no "
@@ -249,16 +248,16 @@ FILAS_1 = [ENC,
     ["Weron y Misiorek (2008)", "California y Nord Pool", "Horaria", "Día siguiente",
      "AR, de umbral, de cambio de régimen y semiparamétricos", "AR", "Demanda prevista",
      "Los semiparamétricos con la demanda dan los mejores pronósticos puntuales y de intervalo."],
-    ["Kristiansen (2012)", "Nord Pool", "Horaria", "Día siguiente", "AR con variables externas", "Ninguna",
-     "Demanda prevista", "Un modelo autorregresivo sencillo sirve en un mercado de base hidráulica."],
-    ["Uniejewski et al. (2018)", "Doce mercados", "Horaria", "Día siguiente",
+    ["Kristiansen (2012)", "Nord Pool", "Horaria", "Día siguiente", "Autorregresivo", "—", "—",
+     "Modelo autorregresivo para el precio del día siguiente en un mercado de base hidráulica."],
+    ["Uniejewski et al. (2018)", "Varios mercados", "Horaria", "Día siguiente",
      "ARX con 16 transformaciones del precio", "ARX sin transformar", "Demanda prevista",
      "Estabilizar la varianza, por ejemplo con el seno hiperbólico inverso, mejora el pronóstico."],
-    ["Ziel y Weron (2018)", "Doce mercados", "Horaria", "Día siguiente",
+    ["Ziel y Weron (2018)", "Doce conjuntos de datos", "Horaria", "Día siguiente",
      "AR univariados y multivariados con LASSO", "Ingenuo y AR", "Historia del precio",
      "Ningún marco domina; promediar los dos mejora."],
     ["Marcjasz et al. (2019)", "Varios mercados", "Horaria", "Día siguiente",
-     "Redes NARX con componente estacional de largo plazo", "Modelos lineales SCAR", "Demanda prevista",
+     "Redes NARX con componente estacional de largo plazo", "Modelos lineales SCAR", "Las mismas del modelo lineal",
      "Un comité de redes supera a los lineales con la misma información."],
     ["Lago et al. (2018)", "Bélgica", "Horaria", "Día siguiente", "27 métodos, cuatro de aprendizaje profundo",
      "Estadísticos y de aprendizaje automático", "Demanda y generación previstas; precios de Francia",
@@ -269,9 +268,8 @@ FILAS_1 = [ENC,
     ["Olivares et al. (2023)", "Los cinco de Lago et al. (2021)", "Horaria", "Día siguiente", "NBEATSx",
      "LEAR y red profunda", "Demanda y renovables previstas", "Mejora hasta 5% frente a LEAR y la red."],
     ["Velásquez Henao et al. (2007)", "Colombia", "—", "—", "Reseña", "—", "—",
-     "El precio depende de la hidrología, de las estrategias de oferta y de la regulación; por eso es difícil de "
-     "pronosticar."],
-    ["Lira et al. (2009)", "Colombia", "Horaria", "Corto plazo", "Modelos de series de tiempo", "—", "—",
+     "Analiza por qué es difícil pronosticar el precio en mercados competitivos."],
+    ["Lira et al. (2009)", "Colombia", "—", "Corto plazo", "—", "—", "—",
      "Pronóstico de corto plazo del precio colombiano."],
     ["Barrientos et al. (2012)", "Colombia", "—", "Largo plazo", "Vectores de corrección de errores y redes neuronales",
      "—", "Demanda y oferta", "Tendencia al alza del precio de largo plazo."],
@@ -309,6 +307,10 @@ rep(d, "Estos trabajos muestran que en el precio de bolsa se han probado",
     "horizonte de tres a nueve días y con las prácticas de evaluación de Lago et al. (2021), incluido LEAR como "
     "referencia, y separa cuánto de la diferencia entre modelos viene del modelo y cuánto de la información.")
 
+# =================================================================== erratas de la lectura completa
+cambiar(d, "Por eso se agregó un tercer periodo, el periodo limpio,",
+        "Por eso se agregó un tercer periodo de prueba, el periodo limpio,")
+
 # =================================================================== punteros a los anexos nuevos
 cambiar(d, "Más adelante, la tabla 18 separa cuánto de estas diferencias viene del modelo y cuánto de la información.",
         "Más adelante, la tabla 18 separa cuánto de estas diferencias viene del modelo y cuánto de la información. La "
@@ -337,9 +339,11 @@ anexos = (
         "y la corrección de Harvey et al. (1997); los valores menores de 0,10 van en verde y los mayores en blanco. "
         "En 2020-2022 los modelos corrieron con reentrenamiento mensual; en 2023-2025 y 2026 son las pruebas de la "
         "tabla 15, y las cifras de los modelos agregados son exploratorias (sección 3.7). Los modelos con la "
-        "información alineada a su publicación, LEAR alineado, XGBoost alineado y la LSTM, le ganan a todos los que "
-        "usan la información cortada en el día *t*, y entre LEAR alineado y XGBoost alineado no hay diferencia "
-        "significativa en ningún periodo.")
+        "información alineada a su publicación, LEAR alineado, XGBoost alineado y la LSTM, tienen menos error que todos los que "
+        "usan la información cortada en el día *t*: LEAR alineado y XGBoost alineado, con *p* < 0,01 en los tres "
+        "periodos, y la LSTM con *p* de 0,05 o menos, salvo frente a XGBoost en 2023-2025 y frente a LEAR en 2026, "
+        "donde queda en el límite. Entre LEAR alineado y XGBoost alineado no hay diferencia significativa en "
+        "ningún periodo. Los valores de las figuras son de una cola; los del texto del capítulo IV, de dos.")
     + imagen(REV / "dm_pares_2020_2022.png", "rIdDm0", 9001, 12.5)
     + cap_fig("Figura E1", "Valor *p* de Diebold-Mariano entre pares de pronósticos, 2020-2022, *h* = 3 a 9. "
                 + FUENTE)
@@ -352,7 +356,7 @@ anexos = (
     + d.titulo_como("Anexo B. Medidas y criterios de XGBoost", "Anexo F. Promedios mensuales de 2023 a 2025")
     + p("La tabla F1 presenta, para cada mes de 2023 a 2025, el precio de bolsa promedio, el volumen útil de los "
         "embalses como porcentaje de la capacidad útil, los aportes hídricos como porcentaje de su media histórica y "
-        "el índice ONI del trimestre que termina en ese mes. Es la base de los episodios de la sección 4.1: El Niño "
+        "el índice ONI tal como entra al panel, es decir, el último publicado en ese mes (sección 3.2). Es la base de los episodios de la sección 4.1: El Niño "
         "de septiembre de 2023 a abril de 2024, y el déficit de aportes de agosto a noviembre de 2024, cuando el "
         "precio llegó a su máximo con el ONI en valores neutros.")
     + cap_anexo("Tabla F1", "Promedios mensuales del precio de bolsa, el embalse, los aportes y el ONI, 2023-2025.")
@@ -387,7 +391,7 @@ d.referencias([
     "with exogenous variables: Forecasting electricity prices with NBEATSx. *International Journal of Forecasting*, "
     "39(2), 884-900. https://doi.org/10.1016/j.ijforecast.2022.03.001",
     "Poveda, G. (2004). La hidroclimatología de Colombia: una síntesis desde la escala inter-decadal hasta la escala "
-    "diurna. *Revista de la Academia Colombiana de Ciencias Exactas, Físicas y Naturales*, 28(107), 201-222.",
+    "diurna. *Revista de la Academia Colombiana de Ciencias Exactas, Físicas y Naturales*, 28(107), 201-221.",
     "Poveda, G., Álvarez, D. M., y Rueda, Ó. A. (2011). Hydro-climatic variability over the Andes of Colombia "
     "associated with ENSO: A review of climatic processes and their impact on one of the Earth's most important "
     "biodiversity hotspots. *Climate Dynamics*, 36(11-12), 2233-2249. https://doi.org/10.1007/s00382-010-0931-y",
