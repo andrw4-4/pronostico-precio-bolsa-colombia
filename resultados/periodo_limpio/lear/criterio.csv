@@ -1,0 +1,9 @@
+periodo,modelo,bloque,origenes,rmse,ingenuo,rmse_ingenuo,mejora,dm_t,dm_p,dm_t_hln,dm_p_hln,cumple,cumple_hln
+limpio,lear,h = 3 a 9,51,0.33935,semanal,0.385883,12.0589,-1.34862,0.177458,-1.12378,0.266475,False,False
+limpio,lear,h = 3,51,0.299536,semanal,0.354748,15.5637,-1.01318,0.310974,-0.963464,0.339952,False,False
+limpio,lear,h = 3 a 7,51,0.317505,semanal,0.35951,11.6839,-1.09745,0.272446,-0.957515,0.342915,False,False
+limpio,lear,h = 8 a 9,46,0.392161,del día,0.437206,10.303,-2.65676,0.00788961,-2.16564,0.035677,True,True
+limpio,lear_alineado,h = 3 a 9,51,0.340819,semanal,0.385883,11.6782,-2.24375,0.0248484,-1.86966,0.0673918,True,False
+limpio,lear_alineado,h = 3,51,0.301278,semanal,0.354748,15.0725,-1.17529,0.239879,-1.11762,0.269072,False,False
+limpio,lear_alineado,h = 3 a 7,51,0.326243,semanal,0.35951,9.25333,-1.27368,0.202777,-1.11128,0.271764,False,False
+limpio,lear_alineado,h = 8 a 9,46,0.377273,del día,0.437206,13.7081,-2.78527,0.00534831,-2.2704,0.0280203,True,True

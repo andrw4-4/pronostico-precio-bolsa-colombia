@@ -1,0 +1,13 @@
+periodo,comparacion,menor_error,p_hln
+2020-2022,XGBoost y XGBoost alineado,XGBoost alineado,5.38741e-06
+2020-2022,XGBoost y LSTM bloques 1 y 2,XGBoost,0.00141237
+2020-2022,XGBoost alineado y LSTM,XGBoost alineado,0.318505
+2020-2022,LSTM bloques 1 y 2 y LSTM,LSTM,0.000177679
+2023-2025,XGBoost y XGBoost alineado,XGBoost alineado,1.3857e-13
+2023-2025,XGBoost y LSTM bloques 1 y 2,XGBoost,0.000617502
+2023-2025,XGBoost alineado y LSTM,XGBoost alineado,0.0377909
+2023-2025,LSTM bloques 1 y 2 y LSTM,LSTM,3.53895e-05
+2026,XGBoost y XGBoost alineado,XGBoost alineado,0.000296092
+2026,XGBoost y LSTM bloques 1 y 2,XGBoost,0.549116
+2026,XGBoost alineado y LSTM,XGBoost alineado,0.261925
+2026,LSTM bloques 1 y 2 y LSTM,LSTM,0.00522049

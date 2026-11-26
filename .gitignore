@@ -39,3 +39,14 @@ Thumbs.db
 
 # Temporales que crea Word mientras un documento está abierto
 ~$*
+
+# Periodo limpio (paso 9f): se guardan los paneles finales y la comprobación; los datos crudos,
+# las copias de los pasos y los paneles intermedios se regeneran
+periodo_limpio/*
+!periodo_limpio/paneles/
+!periodo_limpio/comprobacion_paneles.csv
+periodo_limpio/paneles/*
+!periodo_limpio/paneles/panel_horario_modelo.csv.gz
+!periodo_limpio/paneles/panel_horario_modelo_columnas.csv
+!periodo_limpio/paneles/panel_lstm_bloques.csv.gz
+!periodo_limpio/paneles/panel_lstm_bloques_variables.csv

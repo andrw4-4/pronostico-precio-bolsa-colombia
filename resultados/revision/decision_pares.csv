@@ -1,0 +1,243 @@
+periodo,decision,a,b,diferencia_costo,p_hln,menor_costo
+2023-2025,Elegir días,XGBoost,LSTM,2.80309,0.510682,LSTM
+2023-2025,Elegir días,XGBoost,SARIMAX,0.374772,0.932199,SARIMAX
+2023-2025,Elegir días,XGBoost,LEAR,7.36025,0.00724343,LEAR
+2023-2025,Elegir días,XGBoost,LEAR alineado,2.77146,0.386197,LEAR alineado
+2023-2025,Elegir días,XGBoost,XGBoost alineado,0.150031,0.955653,XGBoost alineado
+2023-2025,Elegir días,XGBoost,LSTM bloques 1 y 2,3.85835,0.259848,LSTM bloques 1 y 2
+2023-2025,Elegir días,XGBoost,Promedio de los tres,2.10402,0.466537,Promedio de los tres
+2023-2025,Elegir días,XGBoost,Nivel LSTM y forma XGBoost,2.22019,0.606838,Nivel LSTM y forma XGBoost
+2023-2025,Elegir días,XGBoost,real,12.1166,0.10319,real
+2023-2025,Elegir días,XGBoost,Ingenuo semanal,-9.75591,0.015041,XGBoost
+2023-2025,Elegir días,LSTM,SARIMAX,-2.42831,0.583213,LSTM
+2023-2025,Elegir días,LSTM,LEAR,4.55717,0.160468,LEAR
+2023-2025,Elegir días,LSTM,LEAR alineado,-0.0316232,0.991878,LSTM
+2023-2025,Elegir días,LSTM,XGBoost alineado,-2.65306,0.509879,LSTM
+2023-2025,Elegir días,LSTM,LSTM bloques 1 y 2,1.05527,0.739046,LSTM bloques 1 y 2
+2023-2025,Elegir días,LSTM,Promedio de los tres,-0.699062,0.80818,LSTM
+2023-2025,Elegir días,LSTM,Nivel LSTM y forma XGBoost,-0.5829,0.35361,LSTM
+2023-2025,Elegir días,LSTM,real,9.3135,0.212913,real
+2023-2025,Elegir días,LSTM,Ingenuo semanal,-12.559,0.00608641,LSTM
+2023-2025,Elegir días,SARIMAX,LEAR,6.98548,0.0399061,LEAR
+2023-2025,Elegir días,SARIMAX,LEAR alineado,2.39669,0.569733,LEAR alineado
+2023-2025,Elegir días,SARIMAX,XGBoost alineado,-0.224741,0.95982,SARIMAX
+2023-2025,Elegir días,SARIMAX,LSTM bloques 1 y 2,3.48358,0.380808,LSTM bloques 1 y 2
+2023-2025,Elegir días,SARIMAX,Promedio de los tres,1.72925,0.635746,Promedio de los tres
+2023-2025,Elegir días,SARIMAX,Nivel LSTM y forma XGBoost,1.84541,0.685607,Nivel LSTM y forma XGBoost
+2023-2025,Elegir días,SARIMAX,real,11.7418,0.0597101,real
+2023-2025,Elegir días,SARIMAX,Ingenuo semanal,-10.1307,0.0011298,SARIMAX
+2023-2025,Elegir días,LEAR,LEAR alineado,-4.58879,0.047866,LEAR
+2023-2025,Elegir días,LEAR,XGBoost alineado,-7.21022,0.018073,LEAR
+2023-2025,Elegir días,LEAR,LSTM bloques 1 y 2,-3.5019,0.091729,LEAR
+2023-2025,Elegir días,LEAR,Promedio de los tres,-5.25623,0.0482976,LEAR
+2023-2025,Elegir días,LEAR,Nivel LSTM y forma XGBoost,-5.14007,0.132903,LEAR
+2023-2025,Elegir días,LEAR,real,4.75634,0.491691,real
+2023-2025,Elegir días,LEAR,Ingenuo semanal,-17.1162,4.4507e-07,LEAR
+2023-2025,Elegir días,LEAR alineado,XGBoost alineado,-2.62143,0.430734,LEAR alineado
+2023-2025,Elegir días,LEAR alineado,LSTM bloques 1 y 2,1.08689,0.673477,LSTM bloques 1 y 2
+2023-2025,Elegir días,LEAR alineado,Promedio de los tres,-0.667439,0.8409,LEAR alineado
+2023-2025,Elegir días,LEAR alineado,Nivel LSTM y forma XGBoost,-0.551277,0.861226,LEAR alineado
+2023-2025,Elegir días,LEAR alineado,real,9.34513,0.198546,real
+2023-2025,Elegir días,LEAR alineado,Ingenuo semanal,-12.5274,0.00190596,LEAR alineado
+2023-2025,Elegir días,XGBoost alineado,LSTM bloques 1 y 2,3.70832,0.279485,LSTM bloques 1 y 2
+2023-2025,Elegir días,XGBoost alineado,Promedio de los tres,1.95399,0.56276,Promedio de los tres
+2023-2025,Elegir días,XGBoost alineado,Nivel LSTM y forma XGBoost,2.07016,0.613735,Nivel LSTM y forma XGBoost
+2023-2025,Elegir días,XGBoost alineado,real,11.9666,0.116635,real
+2023-2025,Elegir días,XGBoost alineado,Ingenuo semanal,-9.90594,0.0134058,XGBoost alineado
+2023-2025,Elegir días,LSTM bloques 1 y 2,Promedio de los tres,-1.75433,0.616794,LSTM bloques 1 y 2
+2023-2025,Elegir días,LSTM bloques 1 y 2,Nivel LSTM y forma XGBoost,-1.63817,0.620164,LSTM bloques 1 y 2
+2023-2025,Elegir días,LSTM bloques 1 y 2,real,8.25824,0.24329,real
+2023-2025,Elegir días,LSTM bloques 1 y 2,Ingenuo semanal,-13.6143,0.000152105,LSTM bloques 1 y 2
+2023-2025,Elegir días,Promedio de los tres,Nivel LSTM y forma XGBoost,0.116162,0.969252,Nivel LSTM y forma XGBoost
+2023-2025,Elegir días,Promedio de los tres,real,10.0126,0.155439,real
+2023-2025,Elegir días,Promedio de los tres,Ingenuo semanal,-11.8599,0.0034901,Promedio de los tres
+2023-2025,Elegir días,Nivel LSTM y forma XGBoost,real,9.8964,0.185848,real
+2023-2025,Elegir días,Nivel LSTM y forma XGBoost,Ingenuo semanal,-11.9761,0.00850425,Nivel LSTM y forma XGBoost
+2023-2025,Elegir días,real,Ingenuo semanal,-21.8725,0.00086261,real
+2023-2025,Elegir horas,XGBoost,LSTM,-4.02913,1.01082e-05,XGBoost
+2023-2025,Elegir horas,XGBoost,SARIMAX,-5.19053,3.1268e-05,XGBoost
+2023-2025,Elegir horas,XGBoost,LEAR,5.4831,1.40684e-08,LEAR
+2023-2025,Elegir horas,XGBoost,LEAR alineado,3.6755,3.03348e-07,LEAR alineado
+2023-2025,Elegir horas,XGBoost,XGBoost alineado,-3.66267,0.000180097,XGBoost
+2023-2025,Elegir horas,XGBoost,LSTM bloques 1 y 2,-3.57919,0.00420805,XGBoost
+2023-2025,Elegir horas,XGBoost,Promedio de los tres,-0.00431341,0.994477,XGBoost
+2023-2025,Elegir horas,XGBoost,Nivel LSTM y forma XGBoost,0,,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,XGBoost,real,9.30835,2.57229e-07,real
+2023-2025,Elegir horas,XGBoost,Ingenuo semanal,-1.7863,0.116879,XGBoost
+2023-2025,Elegir horas,XGBoost,Ingenuo del día,-6.44319,1.85385e-07,XGBoost
+2023-2025,Elegir horas,LSTM,SARIMAX,-1.1614,0.398373,LSTM
+2023-2025,Elegir horas,LSTM,LEAR,9.51223,1.07287e-10,LEAR
+2023-2025,Elegir horas,LSTM,LEAR alineado,7.70463,8.72942e-13,LEAR alineado
+2023-2025,Elegir horas,LSTM,XGBoost alineado,0.366452,0.775114,XGBoost alineado
+2023-2025,Elegir horas,LSTM,LSTM bloques 1 y 2,0.449938,0.616538,LSTM bloques 1 y 2
+2023-2025,Elegir horas,LSTM,Promedio de los tres,4.02481,4.11277e-05,Promedio de los tres
+2023-2025,Elegir horas,LSTM,Nivel LSTM y forma XGBoost,4.02913,1.01082e-05,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,LSTM,real,13.3375,1.91655e-11,real
+2023-2025,Elegir horas,LSTM,Ingenuo semanal,2.24282,0.165306,Ingenuo semanal
+2023-2025,Elegir horas,LSTM,Ingenuo del día,-2.41406,0.0407143,LSTM
+2023-2025,Elegir horas,SARIMAX,LEAR,10.6736,2.05534e-13,LEAR
+2023-2025,Elegir horas,SARIMAX,LEAR alineado,8.86603,8.4462e-10,LEAR alineado
+2023-2025,Elegir horas,SARIMAX,XGBoost alineado,1.52785,0.197382,XGBoost alineado
+2023-2025,Elegir horas,SARIMAX,LSTM bloques 1 y 2,1.61134,0.174128,LSTM bloques 1 y 2
+2023-2025,Elegir horas,SARIMAX,Promedio de los tres,5.18621,8.52385e-09,Promedio de los tres
+2023-2025,Elegir horas,SARIMAX,Nivel LSTM y forma XGBoost,5.19053,3.1268e-05,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,SARIMAX,real,14.4989,1.03157e-08,real
+2023-2025,Elegir horas,SARIMAX,Ingenuo semanal,3.40422,0.00276347,Ingenuo semanal
+2023-2025,Elegir horas,SARIMAX,Ingenuo del día,-1.25266,0.363815,SARIMAX
+2023-2025,Elegir horas,LEAR,LEAR alineado,-1.8076,0.0167356,LEAR
+2023-2025,Elegir horas,LEAR,XGBoost alineado,-9.14577,2.04938e-11,LEAR
+2023-2025,Elegir horas,LEAR,LSTM bloques 1 y 2,-9.06229,4.67555e-08,LEAR
+2023-2025,Elegir horas,LEAR,Promedio de los tres,-5.48741,1.88424e-11,LEAR
+2023-2025,Elegir horas,LEAR,Nivel LSTM y forma XGBoost,-5.4831,1.40684e-08,LEAR
+2023-2025,Elegir horas,LEAR,real,3.82525,0.0343171,real
+2023-2025,Elegir horas,LEAR,Ingenuo semanal,-7.2694,3.20752e-11,LEAR
+2023-2025,Elegir horas,LEAR,Ingenuo del día,-11.9263,1.037e-09,LEAR
+2023-2025,Elegir horas,LEAR alineado,XGBoost alineado,-7.33818,3.85291e-09,LEAR alineado
+2023-2025,Elegir horas,LEAR alineado,LSTM bloques 1 y 2,-7.25469,2.97995e-07,LEAR alineado
+2023-2025,Elegir horas,LEAR alineado,Promedio de los tres,-3.67982,1.0061e-05,LEAR alineado
+2023-2025,Elegir horas,LEAR alineado,Nivel LSTM y forma XGBoost,-3.6755,3.03348e-07,LEAR alineado
+2023-2025,Elegir horas,LEAR alineado,real,5.63285,3.86699e-05,real
+2023-2025,Elegir horas,LEAR alineado,Ingenuo semanal,-5.4618,1.55451e-05,LEAR alineado
+2023-2025,Elegir horas,LEAR alineado,Ingenuo del día,-10.1187,1.59816e-10,LEAR alineado
+2023-2025,Elegir horas,XGBoost alineado,LSTM bloques 1 y 2,0.0834854,0.949179,LSTM bloques 1 y 2
+2023-2025,Elegir horas,XGBoost alineado,Promedio de los tres,3.65836,0.000276392,Promedio de los tres
+2023-2025,Elegir horas,XGBoost alineado,Nivel LSTM y forma XGBoost,3.66267,0.000180097,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,XGBoost alineado,real,12.971,7.21737e-09,real
+2023-2025,Elegir horas,XGBoost alineado,Ingenuo semanal,1.87637,0.0928261,Ingenuo semanal
+2023-2025,Elegir horas,XGBoost alineado,Ingenuo del día,-2.78051,0.0199166,XGBoost alineado
+2023-2025,Elegir horas,LSTM bloques 1 y 2,Promedio de los tres,3.57487,0.00208417,Promedio de los tres
+2023-2025,Elegir horas,LSTM bloques 1 y 2,Nivel LSTM y forma XGBoost,3.57919,0.00420805,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,LSTM bloques 1 y 2,real,12.8875,7.43924e-08,real
+2023-2025,Elegir horas,LSTM bloques 1 y 2,Ingenuo semanal,1.79289,0.240771,Ingenuo semanal
+2023-2025,Elegir horas,LSTM bloques 1 y 2,Ingenuo del día,-2.864,0.00797631,LSTM bloques 1 y 2
+2023-2025,Elegir horas,Promedio de los tres,Nivel LSTM y forma XGBoost,0.00431341,0.994477,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,Promedio de los tres,real,9.31267,4.36579e-06,real
+2023-2025,Elegir horas,Promedio de los tres,Ingenuo semanal,-1.78199,0.0590403,Promedio de los tres
+2023-2025,Elegir horas,Promedio de los tres,Ingenuo del día,-6.43888,7.59602e-06,Promedio de los tres
+2023-2025,Elegir horas,Nivel LSTM y forma XGBoost,real,9.30835,2.57229e-07,real
+2023-2025,Elegir horas,Nivel LSTM y forma XGBoost,Ingenuo semanal,-1.7863,0.116879,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,Nivel LSTM y forma XGBoost,Ingenuo del día,-6.44319,1.85385e-07,Nivel LSTM y forma XGBoost
+2023-2025,Elegir horas,real,Ingenuo semanal,-11.0947,2.24091e-06,real
+2023-2025,Elegir horas,real,Ingenuo del día,-15.7515,6.48743e-11,real
+2023-2025,Elegir horas,Ingenuo semanal,Ingenuo del día,-4.65689,0.00372104,Ingenuo semanal
+2026,Elegir días,XGBoost,LSTM,15.2041,8.57512e-05,LSTM
+2026,Elegir días,XGBoost,SARIMAX,2.12061,0.6925,SARIMAX
+2026,Elegir días,XGBoost,LEAR,16.367,0.00116325,LEAR
+2026,Elegir días,XGBoost,LEAR alineado,16.5275,0.000395092,LEAR alineado
+2026,Elegir días,XGBoost,XGBoost alineado,3.39342,0.204828,XGBoost alineado
+2026,Elegir días,XGBoost,LSTM bloques 1 y 2,15.9557,0.000343204,LSTM bloques 1 y 2
+2026,Elegir días,XGBoost,Promedio de los tres,14.7963,4.59689e-05,Promedio de los tres
+2026,Elegir días,XGBoost,Nivel LSTM y forma XGBoost,14.197,0.000505236,Nivel LSTM y forma XGBoost
+2026,Elegir días,XGBoost,real,4.54389,0.554993,real
+2026,Elegir días,XGBoost,Ingenuo semanal,-4.95375,0.429014,XGBoost
+2026,Elegir días,LSTM,SARIMAX,-13.0835,0.0017808,LSTM
+2026,Elegir días,LSTM,LEAR,1.16286,0.666426,LEAR
+2026,Elegir días,LSTM,LEAR alineado,1.32342,0.587207,LEAR alineado
+2026,Elegir días,LSTM,XGBoost alineado,-11.8107,0.00270785,LSTM
+2026,Elegir días,LSTM,LSTM bloques 1 y 2,0.751592,0.640056,LSTM bloques 1 y 2
+2026,Elegir días,LSTM,Promedio de los tres,-0.407829,0.876329,LSTM
+2026,Elegir días,LSTM,Nivel LSTM y forma XGBoost,-1.00715,0.247489,LSTM
+2026,Elegir días,LSTM,real,-10.6602,0.124609,LSTM
+2026,Elegir días,LSTM,Ingenuo semanal,-20.1579,4.12251e-05,LSTM
+2026,Elegir días,SARIMAX,LEAR,14.2464,0.000771975,LEAR
+2026,Elegir días,SARIMAX,LEAR alineado,14.4069,0.00196295,LEAR alineado
+2026,Elegir días,SARIMAX,XGBoost alineado,1.27281,0.811441,XGBoost alineado
+2026,Elegir días,SARIMAX,LSTM bloques 1 y 2,13.8351,0.00428101,LSTM bloques 1 y 2
+2026,Elegir días,SARIMAX,Promedio de los tres,12.6757,0.00751582,Promedio de los tres
+2026,Elegir días,SARIMAX,Nivel LSTM y forma XGBoost,12.0764,0.00222879,Nivel LSTM y forma XGBoost
+2026,Elegir días,SARIMAX,real,2.42328,0.751289,real
+2026,Elegir días,SARIMAX,Ingenuo semanal,-7.07437,0.0794692,SARIMAX
+2026,Elegir días,LEAR,LEAR alineado,0.160565,0.913278,LEAR alineado
+2026,Elegir días,LEAR,XGBoost alineado,-12.9736,0.0138623,LEAR
+2026,Elegir días,LEAR,LSTM bloques 1 y 2,-0.411264,0.862982,LEAR
+2026,Elegir días,LEAR,Promedio de los tres,-1.57068,0.674315,LEAR
+2026,Elegir días,LEAR,Nivel LSTM y forma XGBoost,-2.17001,0.420255,LEAR
+2026,Elegir días,LEAR,real,-11.8231,0.135129,LEAR
+2026,Elegir días,LEAR,Ingenuo semanal,-21.3207,5.80951e-05,LEAR
+2026,Elegir días,LEAR alineado,XGBoost alineado,-13.1341,0.00616069,LEAR alineado
+2026,Elegir días,LEAR alineado,LSTM bloques 1 y 2,-0.571829,0.770338,LEAR alineado
+2026,Elegir días,LEAR alineado,Promedio de los tres,-1.73125,0.596885,LEAR alineado
+2026,Elegir días,LEAR alineado,Nivel LSTM y forma XGBoost,-2.33057,0.357341,LEAR alineado
+2026,Elegir días,LEAR alineado,real,-11.9836,0.111302,LEAR alineado
+2026,Elegir días,LEAR alineado,Ingenuo semanal,-21.4813,0.000174726,LEAR alineado
+2026,Elegir días,XGBoost alineado,LSTM bloques 1 y 2,12.5623,0.00650597,LSTM bloques 1 y 2
+2026,Elegir días,XGBoost alineado,Promedio de los tres,11.4029,0.000100056,Promedio de los tres
+2026,Elegir días,XGBoost alineado,Nivel LSTM y forma XGBoost,10.8035,0.00795668,Nivel LSTM y forma XGBoost
+2026,Elegir días,XGBoost alineado,real,1.15047,0.880611,real
+2026,Elegir días,XGBoost alineado,Ingenuo semanal,-8.34717,0.206236,XGBoost alineado
+2026,Elegir días,LSTM bloques 1 y 2,Promedio de los tres,-1.15942,0.694504,LSTM bloques 1 y 2
+2026,Elegir días,LSTM bloques 1 y 2,Nivel LSTM y forma XGBoost,-1.75874,0.387059,LSTM bloques 1 y 2
+2026,Elegir días,LSTM bloques 1 y 2,real,-11.4118,0.0956188,LSTM bloques 1 y 2
+2026,Elegir días,LSTM bloques 1 y 2,Ingenuo semanal,-20.9095,0.000274557,LSTM bloques 1 y 2
+2026,Elegir días,Promedio de los tres,Nivel LSTM y forma XGBoost,-0.599322,0.831524,Promedio de los tres
+2026,Elegir días,Promedio de los tres,real,-10.2524,0.158639,Promedio de los tres
+2026,Elegir días,Promedio de los tres,Ingenuo semanal,-19.75,0.00204674,Promedio de los tres
+2026,Elegir días,Nivel LSTM y forma XGBoost,real,-9.65308,0.157719,Nivel LSTM y forma XGBoost
+2026,Elegir días,Nivel LSTM y forma XGBoost,Ingenuo semanal,-19.1507,2.16737e-05,Nivel LSTM y forma XGBoost
+2026,Elegir días,real,Ingenuo semanal,-9.49764,0.258773,real
+2026,Elegir horas,XGBoost,LSTM,-1.27545,0.317409,XGBoost
+2026,Elegir horas,XGBoost,SARIMAX,4.0937,0.0858052,SARIMAX
+2026,Elegir horas,XGBoost,LEAR,-0.200202,0.940402,XGBoost
+2026,Elegir horas,XGBoost,LEAR alineado,2.64822,0.054173,LEAR alineado
+2026,Elegir horas,XGBoost,XGBoost alineado,2.76142,0.1461,XGBoost alineado
+2026,Elegir horas,XGBoost,LSTM bloques 1 y 2,-2.81162,0.136968,XGBoost
+2026,Elegir horas,XGBoost,Promedio de los tres,4.73656,0.00365213,Promedio de los tres
+2026,Elegir horas,XGBoost,Nivel LSTM y forma XGBoost,0,,Nivel LSTM y forma XGBoost
+2026,Elegir horas,XGBoost,real,14.6443,7.0276e-06,real
+2026,Elegir horas,XGBoost,Ingenuo semanal,4.66955,0.00920787,Ingenuo semanal
+2026,Elegir horas,XGBoost,Ingenuo del día,-1.8337,0.292761,XGBoost
+2026,Elegir horas,LSTM,SARIMAX,5.36915,0.026965,SARIMAX
+2026,Elegir horas,LSTM,LEAR,1.07524,0.639686,LEAR
+2026,Elegir horas,LSTM,LEAR alineado,3.92367,0.00600918,LEAR alineado
+2026,Elegir horas,LSTM,XGBoost alineado,4.03687,0.130991,XGBoost alineado
+2026,Elegir horas,LSTM,LSTM bloques 1 y 2,-1.53617,0.381886,LSTM
+2026,Elegir horas,LSTM,Promedio de los tres,6.01201,2.29143e-05,Promedio de los tres
+2026,Elegir horas,LSTM,Nivel LSTM y forma XGBoost,1.27545,0.317409,Nivel LSTM y forma XGBoost
+2026,Elegir horas,LSTM,real,15.9197,1.09896e-07,real
+2026,Elegir horas,LSTM,Ingenuo semanal,5.945,0.00777307,Ingenuo semanal
+2026,Elegir horas,LSTM,Ingenuo del día,-0.558249,0.783673,LSTM
+2026,Elegir horas,SARIMAX,LEAR,-4.2939,0.30317,SARIMAX
+2026,Elegir horas,SARIMAX,LEAR alineado,-1.44548,0.587778,SARIMAX
+2026,Elegir horas,SARIMAX,XGBoost alineado,-1.33227,0.496932,SARIMAX
+2026,Elegir horas,SARIMAX,LSTM bloques 1 y 2,-6.90532,0.0674038,SARIMAX
+2026,Elegir horas,SARIMAX,Promedio de los tres,0.642864,0.590403,Promedio de los tres
+2026,Elegir horas,SARIMAX,Nivel LSTM y forma XGBoost,-4.0937,0.0858052,SARIMAX
+2026,Elegir horas,SARIMAX,real,10.5506,0.000584338,real
+2026,Elegir horas,SARIMAX,Ingenuo semanal,0.575854,0.741159,Ingenuo semanal
+2026,Elegir horas,SARIMAX,Ingenuo del día,-5.92739,0.0153579,SARIMAX
+2026,Elegir horas,LEAR,LEAR alineado,2.84842,0.148034,LEAR alineado
+2026,Elegir horas,LEAR,XGBoost alineado,2.96163,0.493828,XGBoost alineado
+2026,Elegir horas,LEAR,LSTM bloques 1 y 2,-2.61142,0.0584791,LEAR
+2026,Elegir horas,LEAR,Promedio de los tres,4.93676,0.125136,Promedio de los tres
+2026,Elegir horas,LEAR,Nivel LSTM y forma XGBoost,0.200202,0.940402,Nivel LSTM y forma XGBoost
+2026,Elegir horas,LEAR,real,14.8445,1.37366e-05,real
+2026,Elegir horas,LEAR,Ingenuo semanal,4.86976,0.200338,Ingenuo semanal
+2026,Elegir horas,LEAR,Ingenuo del día,-1.63349,0.664411,LEAR
+2026,Elegir horas,LEAR alineado,XGBoost alineado,0.113205,0.966766,XGBoost alineado
+2026,Elegir horas,LEAR alineado,LSTM bloques 1 y 2,-5.45984,0.000497631,LEAR alineado
+2026,Elegir horas,LEAR alineado,Promedio de los tres,2.08834,0.255464,Promedio de los tres
+2026,Elegir horas,LEAR alineado,Nivel LSTM y forma XGBoost,-2.64822,0.054173,LEAR alineado
+2026,Elegir horas,LEAR alineado,real,11.996,2.00451e-05,real
+2026,Elegir horas,LEAR alineado,Ingenuo semanal,2.02133,0.382521,Ingenuo semanal
+2026,Elegir horas,LEAR alineado,Ingenuo del día,-4.48192,0.0554272,LEAR alineado
+2026,Elegir horas,XGBoost alineado,LSTM bloques 1 y 2,-5.57304,0.122231,XGBoost alineado
+2026,Elegir horas,XGBoost alineado,Promedio de los tres,1.97514,0.352736,Promedio de los tres
+2026,Elegir horas,XGBoost alineado,Nivel LSTM y forma XGBoost,-2.76142,0.1461,XGBoost alineado
+2026,Elegir horas,XGBoost alineado,real,11.8828,0.00102196,real
+2026,Elegir horas,XGBoost alineado,Ingenuo semanal,1.90813,0.165017,Ingenuo semanal
+2026,Elegir horas,XGBoost alineado,Ingenuo del día,-4.59512,0.0251167,XGBoost alineado
+2026,Elegir horas,LSTM bloques 1 y 2,Promedio de los tres,7.54818,0.00753017,Promedio de los tres
+2026,Elegir horas,LSTM bloques 1 y 2,Nivel LSTM y forma XGBoost,2.81162,0.136968,Nivel LSTM y forma XGBoost
+2026,Elegir horas,LSTM bloques 1 y 2,real,17.4559,1.6094e-06,real
+2026,Elegir horas,LSTM bloques 1 y 2,Ingenuo semanal,7.48117,0.0219721,Ingenuo semanal
+2026,Elegir horas,LSTM bloques 1 y 2,Ingenuo del día,0.977923,0.734082,Ingenuo del día
+2026,Elegir horas,Promedio de los tres,Nivel LSTM y forma XGBoost,-4.73656,0.00365213,Promedio de los tres
+2026,Elegir horas,Promedio de los tres,real,9.9077,0.000218104,real
+2026,Elegir horas,Promedio de los tres,Ingenuo semanal,-0.0670092,0.967162,Promedio de los tres
+2026,Elegir horas,Promedio de los tres,Ingenuo del día,-6.57026,0.00157146,Promedio de los tres
+2026,Elegir horas,Nivel LSTM y forma XGBoost,real,14.6443,7.0276e-06,real
+2026,Elegir horas,Nivel LSTM y forma XGBoost,Ingenuo semanal,4.66955,0.00920787,Ingenuo semanal
+2026,Elegir horas,Nivel LSTM y forma XGBoost,Ingenuo del día,-1.8337,0.292761,Nivel LSTM y forma XGBoost
+2026,Elegir horas,real,Ingenuo semanal,-9.97471,0.000472159,real
+2026,Elegir horas,real,Ingenuo del día,-16.478,7.19117e-06,real
+2026,Elegir horas,Ingenuo semanal,Ingenuo del día,-6.50325,0.000100023,Ingenuo semanal

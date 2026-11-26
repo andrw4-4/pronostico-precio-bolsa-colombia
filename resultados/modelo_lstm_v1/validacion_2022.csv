@@ -1,0 +1,5 @@
+periodo,bloque,rmse_log,mejor_ingenuo,rmse_ingenuo,mejora,dm_t,dm_p,funciona
+validacion_2022,h = 3 a 9,0.2793,del día,0.3286,14.9791,-3.9508,0.0001,True
+validacion_2022,h = 3,0.2096,del día,0.2727,23.1408,-4.6448,0.0,True
+validacion_2022,h = 3 a 7,0.2575,del día,0.3082,16.4566,-4.3327,0.0,True
+validacion_2022,h = 8 a 9,0.3277,del día,0.3747,12.5367,-3.3112,0.0009,True

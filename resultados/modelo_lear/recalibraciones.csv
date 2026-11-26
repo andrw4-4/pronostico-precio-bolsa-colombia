@@ -1,0 +1,7 @@
+periodo,version,columnas,recalibraciones,dias_entrenamiento_min,dias_entrenamiento_max,variables_activas_media
+2020-2022,lear,103,252,1752,2823,45.964
+2020-2022,lear_alineado,250,252,1752,2823,93.8525
+2023-2025,lear,103,252,2848,3919,51.2783
+2023-2025,lear_alineado,250,252,2848,3919,104.706
+2026,lear,103,66,3944,4223,53.5928
+2026,lear_alineado,250,66,3944,4223,100.581

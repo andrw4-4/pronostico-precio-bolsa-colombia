@@ -1,0 +1,31 @@
+{
+  "unidades": [
+    330,
+    210,
+    150
+  ],
+  "dropout": [
+    0.2,
+    0.3,
+    0.3
+  ],
+  "tasa": 0.003697,
+  "epocas": 6,
+  "dias_entrada": 7,
+  "perdida": "mae",
+  "lote": 32,
+  "semillas": [
+    0
+  ],
+  "reentrenar": "mensual",
+  "variables": [
+    "cmg_hoy_vs_precio",
+    "cmg_despacho",
+    "disp_decl_hoy_rel",
+    "brecha_escasez",
+    "presion_hidro_horaria"
+  ],
+  "panel": "paneles/panel_lstm_modelo.csv.gz",
+  "busqueda": "bayesiana, 10 combinaciones de 10 épocas, entrenando hasta 2021 y midiendo en 2022",
+  "corrida": "2026-11-02, Colab, GPU L4"
+}
