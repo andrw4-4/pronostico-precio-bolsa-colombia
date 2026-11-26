@@ -13,7 +13,7 @@ la LSTM y los paneles, y escribe en resultados/revision/:
     episodios.csv              error de cada modelo en El Niño 2023-2024 y en el déficit de aportes de 2024
     regimenes.csv              error de cada modelo según los aportes de los últimos 30 días
     diseno_30_dias.csv         los cuatro bloques del diseño original de XGBoost, en los dos periodos
-    atraso3_xgboost.csv        XGBoost si el precio llegara con tres días de atraso (h = 4 a 10)
+    atraso3.csv                los tres modelos si el precio llegara con tres días de atraso (h = 4 a 10)
 
 Fuentes: Diebold y Mariano (1995); Newey y West (1987); Harvey, Leybourne y Newbold (1997).
 """
@@ -156,12 +156,22 @@ def main():
     bloques3 = {"h = 4 a 10": hs3, "h = 4": [4], "h = 4 a 8": [4, 5, 6, 7, 8], "h = 9 a 10": [9, 10]}
     filas = []
     for p, g in todos.items():
-        g = g[g["h"].isin(hs3)].rename(columns={"y_hat": "XGBoost"})
+        suf = p.replace("-", "_")
         m = ev.marco(*ev.PERIODOS[p], hs=hs3, precio=precio)
-        j = m.merge(g[ev.CLAVES + ["XGBoost", "y"]], on=ev.CLAVES, validate="one_to_one", suffixes=("", "_g"))
-        assert len(j) == len(m) == len(g) and np.allclose(j["y"], j["y_g"], atol=1e-5)
-        filas.append(ev.criterio(j, "XGBoost", bloques3).assign(periodo=p, modelo="XGBoost"))
-    guardar(pd.concat(filas).reset_index().set_index(["periodo", "modelo", "bloque"]), "atraso3_xgboost.csv")
+        g = g[g["h"].isin(hs3)].rename(columns={"y_hat": "XGBoost"})
+        j = m.merge(g[ev.CLAVES + ["XGBoost"]], on=ev.CLAVES, validate="one_to_one")
+        assert len(j) == len(m) == len(g)
+        # SARIMAX fijado, corrido otra vez con diez pasos (9d), y la LSTM con el panel de tres días (corrida D de 6f)
+        sar = ev.RES / "modelo_sarimax_dia_semana" / f"fijada_{suf}.csv.gz"
+        if sar.exists():
+            s_ = pd.read_csv(sar, parse_dates=["fecha"])
+            j = j.merge(s_[ev.CLAVES + ["lp_hat"]], on=ev.CLAVES, how="left", validate="one_to_one")
+            j["SARIMAX"] = j.pop("lp_hat") - np.log(j["precio_t"])
+        j = ev.agregar(j, ev.RES / "modelo_lstm_revision" / f"corrida_D_{suf}.csv.gz", "y_hat", "LSTM", obligatorio=False)
+        for mo in [c for c in ("SARIMAX", "XGBoost", "LSTM") if c in j.columns]:
+            assert j[mo].notna().all(), mo
+            filas.append(ev.criterio(j, mo, bloques3).assign(periodo=p, modelo=mo))
+    guardar(pd.concat(filas).reset_index().set_index(["periodo", "modelo", "bloque"]), "atraso3.csv")
 
 
 if __name__ == "__main__":

@@ -53,10 +53,10 @@ def main():
         # solo los orígenes con la semana completa dentro del periodo
         completos = d.groupby("fecha")["h"].transform("nunique") == len(ev.HS)
         d = d[completos].copy()
+        modelos = ev.modelos_de(d) + ["Ingenuo semanal", "Ingenuo del día"]
         d["real"] = d["precio_t"] * np.exp(d["y"])
         real, fechas = cubo(d, "real")
         assert not np.isnan(real).any()
-        modelos = ev.modelos_de(d) + ["Ingenuo semanal", "Ingenuo del día"]
         C = {}
         for m in modelos:
             d["pron"] = d["precio_t"] * np.exp(d[m])
