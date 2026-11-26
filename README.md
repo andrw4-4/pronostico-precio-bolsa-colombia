@@ -258,6 +258,19 @@ minutos con una red mínima, para revisar que no falle nada antes de la corrida 
 `CORRER_TEST = True`. Para que al final compare la LSTM con XGBoost y SARIMAX hay que subir también
 `resultados/comparacion/pronosticos_xgboost_sarimax.csv.gz`.
 
+## Versiones y diccionario de variables
+
+Versiones del entorno local el 26 de noviembre de 2026, con el que se corrieron los scripts de la
+revisión (prefijo 9); los notebooks de XGBoost y SARIMAX pudieron correr antes con versiones menores: Python 3.13, pandas 2.3, numpy 2.5, scipy 1.16, scikit-learn 1.9,
+statsmodels 0.14, xgboost 3.4, matplotlib 3.11, pydataxm 0.3.18; R 4.6.1 con forecast 9.0.2,
+jsonlite 2.0.0 e IRkernel 1.3.2. Las LSTM se entrenaron en Colab con GPU (T4 o L4), con el
+TensorFlow y el Keras de la imagen de Colab de cada sesión y KerasTuner para la búsqueda.
+
+`docs/diccionario_variables.csv` (lo arma `9i_diccionario_variables.py`) lista cada variable con su
+grupo, las métricas de XM de donde sale, su transformación y cuándo se conoce: `dias_antes_de_R`
+dice cuántos días antes del día R en que se pronostica está el último dato publicado (tabla 2 del
+informe). Esa columna es la que muestra que ningún modelo usa un dato antes de que se publique.
+
 ## Estado
 
 - **Datos:** completos hasta el 6 de octubre de 2026 (el precio sale con dos días de
