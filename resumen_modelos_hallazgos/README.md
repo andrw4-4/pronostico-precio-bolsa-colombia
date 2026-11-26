@@ -123,7 +123,8 @@ MAE, RMSE y MBE en COP/kWh.
 6. A más de una semana XGBoost deja de funcionar en 2026. Por eso el alcance de la tesis es una semana.
 7. En pesos el orden se mantiene en el MAE y el MAPE, pero las ventajas en el RMSE son menores que en
    logaritmo (skill score entre 3,7% y 8,8%). Los tres modelos se quedan cortos en promedio por la
-   vuelta de logaritmos a pesos (Duan, 1983). Corregir ese sesgo es un punto de mejora.
+   vuelta de logaritmos a pesos (Duan, 1983). Corregir ese sesgo con el estimador de Duan se probó
+   después y no bajó el RMSE en pesos (sección 4.1 del informe).
 8. La ventaja de la LSTM y XGBoost está en los primeros días de la semana (skill score de 20% y 13% en
    h = 3 en 2023-2025). SARIMAX casi no baja el MAE del ingenuo, pero sí los errores grandes, y desde
    h = 7 es el de menor RMSE en pesos.

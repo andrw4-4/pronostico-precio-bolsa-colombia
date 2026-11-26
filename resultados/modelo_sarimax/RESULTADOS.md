@@ -81,7 +81,9 @@ El ingenuo es el del día.
 - Ninguno anticipa bien el nivel del día. Frente al ingenuo, en 2023-2025 SARIMAX lo mejora 3,1% y
   XGBoost 7,2%; en 2026, 1,9% y 6,1%. En la forma las mejoras son mayores: 13,8% y 21,6% en
   2023-2025. Esto apunta a que el límite está en la información, pero falta la LSTM para decirlo
-  con más seguridad, y ninguno de los modelos usa pronósticos de clima o de ofertas.
+  con más seguridad, y ninguno de los modelos usa pronósticos de clima o de ofertas. (Después, la
+  LSTM, que recibe el despacho programado del día, sí bajó el error de nivel: 0,347 contra 0,415
+  del ingenuo en 2023-2025; ver `resultados/modelo_lstm_bloques/RESULTADOS.md`.)
 
 ## Intervalos
 

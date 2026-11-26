@@ -7,8 +7,11 @@ arXiv:2501.09551v3: MAE, RMSE, nRMSE, MBE y MAPE por horizonte con intervalo t a
 skill score contra una referencia, MAPE por hora del día, el mejor modelo por horizonte y
 hora, semanas de ejemplo con su correlación y tablas de hiperparámetros.
 
-La LSTM entra sola cuando existan `resultados/modelo_lstm/prueba_2023_2025.csv.gz` y
-`prueba_2026.csv.gz`, con `fecha`, `hora`, `h` e `y_hat`, como XGBoost.
+Aquí están solo XGBoost y SARIMAX. El notebook busca la LSTM en `resultados/modelo_lstm/`, la
+carpeta de la primera versión, que nunca guardó pronósticos en el repositorio. La LSTM de la tesis
+guardó los suyos en `resultados/modelo_lstm_bloques/`, junto con la comparación de los tres modelos
+en las mismas filas; los tres con este mismo formato están en
+`resumen_modelos_hallazgos/4_comparacion.ipynb` y en el capítulo IV del informe.
 
 ## Semana completa (h = 3 a 9)
 

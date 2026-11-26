@@ -12,6 +12,10 @@ Estado al 13 de noviembre de 2026: está el panel por bloques
 `panel_lstm_bloques_variables.csv`) y el notebook de selección para Colab
 (`6c_lstm_seleccion.ipynb`), sin correr. Decisiones de ese día:
 
+(Estado final, 14 de noviembre de 2026: la selección, la búsqueda, el test y la comparación ya
+corrieron; solo quedó sin probar el bloque 7. Ver "Qué salió en el test" y
+`resultados/modelo_lstm_bloques/RESULTADOS.md`.)
+
 - El precio va con 2 días de atraso, como en XGBoost y SARIMAX, para comparar en
   las mismas filas (h = 3 a 9).
 - Primero se seleccionan los bloques 1 a 6. El bloque 7 va al final, cuando existan
@@ -447,10 +451,9 @@ antes de abrirlo.
 ## Orden de trabajo
 
 1. Armar el panel con los bloques 1 a 6 (`2h_panel_lstm_bloques.py`). Hecho.
-2. Armar el notebook de selección para Colab (`6c_lstm_seleccion.ipynb`). Hecho,
-   sin correr.
+2. Armar el notebook de selección para Colab (`6c_lstm_seleccion.ipynb`). Hecho.
 3. Correr en Colab la selección (etapa 1), la prueba de control y la búsqueda
-   corta de control.
+   corta de control. Hecho, y además la selección repetida con la configuración 2.
 4. Búsqueda bayesiana (etapa 2) sobre los dos conjuntos, evaluación con tres
    semillas y validación del modelo elegido (`6d_lstm_busqueda_y_test.ipynb`).
    Hecho: ganan los bloques 1 a 4 con la configuración fija y 4 épocas.
