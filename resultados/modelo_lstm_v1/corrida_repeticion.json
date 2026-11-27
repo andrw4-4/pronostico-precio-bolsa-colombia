@@ -1,0 +1,17 @@
+{
+  "unidades_1": 330,
+  "dropout_1": 0.2,
+  "unidades_2": 210,
+  "dropout_2": 0.3,
+  "unidades_3": 150,
+  "dropout_3": 0.3,
+  "tasa": 0.003697,
+  "epocas": 6,
+  "dias_entrada": 7,
+  "perdida": "mae",
+  "semilla": 0,
+  "reentrenar": "mensual",
+  "keras": "3.13.2",
+  "backend": "tensorflow",
+  "minutos": 20.4
+}

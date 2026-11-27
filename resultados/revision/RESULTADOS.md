@@ -30,7 +30,10 @@ ingenuo. Los valores p de Diebold-Mariano llevan la corrección de Harvey et al.
 ## 2. Primera LSTM (`../modelo_lstm_v1/`)
 
 Pasó por la prueba el 2 de noviembre de 2026: 12,0% en 2023-2025 y 12,9% en 2026. La LSTM de la
-tesis se diseñó después.
+tesis se diseñó después. La repetición del 26 de noviembre (`9j_lstm_v1_repeticion.py`), con el
+mismo código, panel, configuración y semilla, dio 11,6% y 14,7% y cumple el criterio en los cuatro
+bloques, también con la corrección de Harvey et al. (1997); sus pronósticos están en la carpeta y
+su fila, en `tabla15_ampliada.csv`.
 
 ## 3. Periodo limpio (`../periodo_limpio/criterio.csv`)
 

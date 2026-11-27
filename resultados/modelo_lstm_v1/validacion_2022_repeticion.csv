@@ -1,0 +1,5 @@
+bloque,rmse_log,mejor_ingenuo,rmse_ingenuo,mejora,dm_t,dm_p,funciona,mejor_epoca
+h = 3 a 9,0.3245,del día,0.3286,1.2221,-2.8657,0.0042,False,1
+h = 3,0.2694,del día,0.2727,1.2047,-2.874,0.0041,False,1
+h = 3 a 7,0.3045,del día,0.3082,1.187,-2.4066,0.0161,False,1
+h = 8 a 9,0.3699,del día,0.3747,1.2816,-3.4669,0.0005,False,1

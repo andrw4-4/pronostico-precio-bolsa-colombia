@@ -7,8 +7,9 @@ No entrena nada. Con los pronósticos guardados escribe en resultados/revision/:
 
     tabla15_ampliada.csv   la tabla 15 del informe con los modelos agregados en la revisión: RMSE y MAE en
                            logaritmo de la semana, mejora frente al mejor ingenuo y su valor p, y mejora en
-                           h = 3, 3 a 7 y 8 a 9. Incluye SARIMAX con día de la semana (9d) y la primera LSTM,
-                           de la que solo quedaron las métricas (resultados/modelo_lstm_v1/).
+                           h = 3, 3 a 7 y 8 a 9. Incluye SARIMAX con día de la semana (9d) y la primera LSTM:
+                           las métricas de la corrida original, de la que no quedaron los pronósticos, y la
+                           repetición del paso 9j, con sus pronósticos (resultados/modelo_lstm_v1/).
 
 Comprueba que las filas de los tres modelos de la tesis reproducen la tabla 15 del Informe 1.
 Los valores p llevan la corrección de Harvey et al. (1997).
@@ -24,7 +25,7 @@ import evaluacion as ev
 warnings.filterwarnings("ignore", message="The 'generic' unit for NumPy timedelta")
 SALIDA = ev.RES / "revision"
 ORDEN = ["Ingenuo del día", "Ingenuo semanal", "SARIMAX", "XGBoost", "LSTM", "LSTM, primera versión",
-         "SARIMAX con día de la semana", "LEAR", "LSTM bloques 1 y 2", "LEAR alineado", "XGBoost alineado",
+         "LSTM, primera versión repetida", "SARIMAX con día de la semana", "LEAR", "LSTM bloques 1 y 2", "LEAR alineado", "XGBoost alineado",
          "Promedio de los tres", "Nivel LSTM y forma XGBoost"]
 # tabla 15 del Informe 1 (etiqueta informe-1): RMSE, MAE y mejora de la semana
 INFORME_1 = {("2023-2025", "SARIMAX"): (0.470, 0.327, 6.4), ("2023-2025", "XGBoost"): (0.443, 0.318, 11.6),
@@ -42,6 +43,9 @@ def main():
         d = ev.agregar(d, ev.RES / "modelo_sarimax_dia_semana" / f"dia_semana_{suf}.csv.gz", "lp_hat",
                        "SARIMAX con día de la semana")
         d["SARIMAX con día de la semana"] -= np.log(d["precio_t"])
+        # la repetición de la primera LSTM (paso 9j), si ya se corrió
+        d = ev.agregar(d, ev.RES / "modelo_lstm_v1" / f"prueba_{suf}.csv.gz", "y_hat", "LSTM, primera versión repetida",
+                       obligatorio=False)
         for m in [x for x in ORDEN if x in d.columns]:
             e = d["y"] - d[m]
             fila = {"periodo": periodo, "pronostico": m, "rmse": ev.rmse(e), "mae": float(e.abs().mean())}

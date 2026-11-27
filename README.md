@@ -18,7 +18,10 @@ y se reportan como agregados después de abrir la prueba.
 
 - **Una primera LSTM pasó por el test** el 2 de noviembre (12,0% en 2023-2025 y 12,9% en 2026)
   antes de diseñar la de la tesis. Sus métricas están en `resultados/modelo_lstm_v1/` y el
-  informe lo dice en la sección 3.6 y en las limitaciones.
+  informe lo dice en la sección 4.4 y en las limitaciones. Sus pronósticos se habían perdido, así
+  que el 26 de noviembre se repitió con el mismo código, panel, configuración y semilla
+  (`9j_lstm_v1_repeticion.py`, en Colab): dio 11,6% y 14,7%, con la misma conclusión, y sus
+  pronósticos quedaron en la misma carpeta.
 - **La ventaja de la LSTM venía de la información**, no de la red. Con las mismas nueve variables
   alineadas al día en que se publican, LEAR mejora 21,3% y 24,8% y XGBoost 18,5% y 22,4%, frente a
   14,9% y 19,7% de la LSTM; la LSTM con solo el precio y el calendario mejora 6,1% y 8,8%
@@ -247,7 +250,9 @@ pide `features.py` y `panel_diario.csv`; para la parte horaria,
 `panel_caracteristicas.csv.gz` y `panel_caracteristicas_variables.csv`.
 
 Para la primera LSTM, la exploratoria, se suben `6_modelo_lstm.ipynb` y
-`paneles/panel_lstm_modelo.csv.gz`, con GPU.
+`paneles/panel_lstm_modelo.csv.gz`, con GPU. Su repetición (`9j_lstm_v1_repeticion.py`) se sube a
+Drive y se corre desde un notebook con GPU con `exec(open(ruta).read())`; lee el panel del repositorio y
+guarda en la carpeta `tesis/modelo_lstm_v1_repeticion/` de Drive.
 El test y la semana final solo corren con `CORRER_TEST = True`; la semana final necesita
 además `resultados/modelo_xgboost/precio_real_final.csv`.
 
