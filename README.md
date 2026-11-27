@@ -81,16 +81,18 @@ fue el mejor de los dos ingenuos en todos los casos
 | XGBoost | 0,443 (11,6%) | 0,392 (10,0%) |
 | LSTM | 0,427 (14,9%) | 0,350 (19,7%) |
 
-Los tres cumplen el criterio en los dos periodos y en los cuatro bloques de horizontes. Entre
-modelos (Diebold-Mariano, `comparacion_pares.csv`), la LSTM le gana a SARIMAX en los dos periodos
-(p = 0,007 y 0,011); frente a XGBoost la diferencia solo es significativa en 2026 (p = 0,107 en
-2023-2025 y 0,033 en 2026). XGBoost le gana a SARIMAX en 2023-2025 (p = 0,011), pero no en 2026
-(p = 0,062).
+Los tres cumplen el criterio en los dos periodos y en los cuatro bloques de horizontes, salvo
+XGBoost en h = 8 a 9 en 2026 con la corrección de Harvey et al. (1997) para muestras pequeñas
+(p = 0,056; `resultados/revision/criterio_hln.csv`). Todos los valores p de esta sección llevan
+esa corrección. Entre modelos (Diebold-Mariano, `resultados/revision/todos_pares.csv`), la LSTM le
+gana a SARIMAX en los dos periodos (p = 0,008 y 0,015); frente a XGBoost la diferencia solo es
+significativa en 2026 (p = 0,110 en 2023-2025 y 0,040 en 2026). XGBoost le gana a SARIMAX en
+2023-2025 (p = 0,012), pero no en 2026 (p = 0,071).
 
 - La ventaja de la LSTM está en el nivel del día, donde aporta el despacho programado de hoy: su
   error de nivel en 2023-2025 es 0,347, contra 0,385 de XGBoost y 0,415 del ingenuo. En la forma
   de las horas dentro del día el mejor es XGBoost (0,221, contra 0,249 de la LSTM).
-- Por años cambia: en 2024 XGBoost y la LSTM no se distinguen del ingenuo (p = 0,100 y 0,098) y
+- Por años cambia: en 2024 XGBoost y la LSTM no se distinguen del ingenuo (p = 0,109 y 0,107) y
   solo SARIMAX cumple el criterio.
 - En pesos las mejoras son menores: en 2023-2025, 7,1% la LSTM, 5,8% SARIMAX y 3,7% XGBoost, y
   solo la de SARIMAX es significativa. Los tres quedan, en promedio, por debajo del precio real.
